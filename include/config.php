@@ -1,6 +1,7 @@
 <?php 
 //$base_url = 'https://www.bestnamebadges.com';
-$base_url = "http://stage1.bestnamebadges.com";
+//$base_url = "http://stage1.bestnamebadges.com";
+$base_url = "http://localhost/stage1.bestnamebadges";
 
 // AWS access info
 if (!defined('awsAccessKey')) define('awsAccessKey', 'AKIAJNQ2NLJ44YVF5NSA');
