@@ -102,6 +102,86 @@ function get_current_page() {
     }
 }//end of method get_current_page()
 
+
+
+//process of make po unpaid invoices
+$is_make_po = $_REQUEST['make_po'];
+if($is_make_po == 1)
+{
+	//“Make PO”
+
+	$invoice_id = $_REQUEST['invoice_id'];
+	$customer_id = $_REQUEST['customer_id'];
+
+	if($invoice_id && $customer_id)
+	{
+		//check that invoice po already created or not
+		$sql_invoice_po_status = "SELECT count(printorders.id) AS count_po FROM printorders
+	                  			WHERE printorders.invoice_id = '{$invoice_id}' AND printorders.custid = '{$customer_id}'";
+
+		$result_invoice_po_status = mysql_query($sql_invoice_po_status);
+
+		if($result_invoice_po_status)
+		{
+	        $invoice_po_count = mysql_fetch_assoc($result_invoice_po_status);
+
+			if($invoice_po_count["count_po"] == 0)
+			{
+				$sql_invoice = "SELECT invoices.*,customers.sale_id FROM invoices
+	                  			INNER JOIN customers ON customers.id = invoices.customer_id
+	                  			WHERE invoices.id = '{$invoice_id}'";
+
+			    $result_invoice = mysql_query($sql_invoice);
+
+				$invoice  = array();
+
+			    if($result_invoice)
+			    {
+			        $invoice = mysql_fetch_assoc($result_invoice);
+
+			        //Make PO
+					$data_printorder = array();
+					    $data_printorder["custid"]		= $invoice['customer_id'];
+					    $data_printorder['timestamp']	= date('Y-m-d H:i:s');
+					    $data_printorder['note']		= $invoice['internal_note'];
+					    $data_printorder['customer_note']	= $invoice['note_visible_to_client'];
+					    $data_printorder['invoice_id']	= $invoice['id'];
+				    
+					$printorder_id = add_record("printorders",$data_printorder);
+			    }
+			}
+
+			//update is_po_created to 1 in invoices table
+			$data_invoices = array("is_po_created"=>1);
+			$where = "id = ".$invoice_id;
+        	modify_record("invoices", $data_invoices, $where);
+	    }
+	}
+
+	$redirectURL = "admin_list_invoice.php?customerid=$customer_id";
+	header('Location: '.$redirectURL);
+}
+elseif($is_make_po == 2)
+{
+	//change it back to a non-po/regular invoice
+
+	$invoice_id = $_REQUEST['invoice_id'];
+	$customer_id = $_REQUEST['customer_id'];
+
+	if($invoice_id)
+	{
+		//update is_po_created to 0 in invoices table for it back to non-po invoice
+		$data_invoices = array("is_po_created"=>0);
+		$where = "id = ".$invoice_id;
+		modify_record("invoices", $data_invoices, $where);
+	}
+
+	$redirectURL = "admin_list_invoice.php?customerid=$customer_id";
+	header('Location: '.$redirectURL);
+}
+//end Make PO
+
+
 $customer_id = $_REQUEST['customerid'];
 $rec_limit =300;
 // calc count of invoice 
@@ -275,7 +355,7 @@ if($_REQUEST['del_invoice'] == 1){
                         <div>
                         	<?php $show_value = ((float)round($row['paid_to_date'],2) >= (float)round(str_replace(',', '',$total_compare),2)) ? 1 : (((float)round($row['paid_to_date'],2)< (float)round(str_replace(',', '',$total_compare),2) && (float)$row['paid_to_date'] > 0) ? 2 : 3) ;?>
                         	<a href="admin_edit_invoice.php?customer_id=<?php echo $customer_id;?>&invoice_id=<?php echo $row['id']?>">Edit</a> |
-                        	<?php if($_SESSION['userlevel']>1 || ($show_value==3 && $_SESSION['userlevel']==1)) {?> 
+                        	<?php if($_SESSION['userlevel']>1 || ($show_value==3 && $_SESSION['userlevel']==1 && $row['is_po_created'] == 0)) {?> 
 	                        	<a onClick="javascript:return confirm('Are you sure you wish to delete?')" href="admin_list_invoice.php?customer_id=<?php echo $customer_id; ?>&del_invoice=1&invoice_id=<?php echo $row['id'];?>">[X]</a> | 
 	                        <?php }?>
                         	<?php
@@ -284,7 +364,13 @@ if($_REQUEST['del_invoice'] == 1){
 	                            }elseif($show_value==2){
 	                                echo '<a href="invoice_payment.php?customer_id='.$customer_id.'&invoice_id='.$row['id'].'&total='.$total_invoice.'" onclick="return GB_showCenter(\'Payment\', this.href,400,600);"><font color="orange">Partial</font></a>';           
 	                            }else { 
-	                                echo '<a href="invoice_payment.php?customer_id='.$customer_id.'&invoice_id='.$row['id'].'&total='.$total_invoice.'" onclick="return GB_showCenter(\'Payment\', this.href,400,600);"><font color="red">Unpaid</a></font>';                                 
+	                                echo '<a href="invoice_payment.php?customer_id='.$customer_id.'&invoice_id='.$row['id'].'&total='.$total_invoice.'" onclick="return GB_showCenter(\'Payment\', this.href,400,600);"><font color="red">Unpaid</a></font>';
+	                                if($row['is_po_created'] == 0) {
+										echo ' | <a onClick="javascript:return confirm(\'A print order will be generated for this order, are you sure?\')" href="admin_list_invoice.php?customer_id='.$customer_id.'&invoice_id='.$row['id'].'&make_po=1">Make PO</a>';
+	                                }
+	                                else {
+	                                	echo ' | <a href="admin_list_invoice.php?customer_id='.$customer_id.'&invoice_id='.$row['id'].'&make_po=2"><font color="red">PO</font></a>';
+	                                }
 	                            }
 	                        ?>
                         </div>

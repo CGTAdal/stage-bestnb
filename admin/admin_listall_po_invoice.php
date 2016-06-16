@@ -1,4 +1,5 @@
 <?php
+
 require_once('conn/DB.php');
 include('conn/tablefuncs.php');
 include('../include/config.php');
@@ -7,87 +8,97 @@ mysql_select_db($database_DB, $ravcodb);
 
 //if (!$_SESSION["loginid"] || $_SESSION["userlevel"] < 2)
 if (!$_SESSION["loginid"])
-{?>
+{
+
+?>
+
 <script language="javascript">
-parent.parent.location.href='admin.php';
-window.close();
+	parent.parent.location.href='admin.php';
+	window.close();
 </script>
+
 <?php }
 
 //unset($_SESSION);
-// get list user to filter by user:
-$sql_user  = "SELECT * FROM users ORDER BY username ASC";
-$result_user 	= mysql_query($sql_user);		
-$arr_user  = array();
+//get list user to filter by user:
+$sql_user = "SELECT * FROM users ORDER BY username ASC";
+$result_user = mysql_query($sql_user);		
+$arr_user = array();
 if($result_user){
 	while($row_user = mysql_fetch_assoc($result_user)){
 		$arr_user[] = $row_user;
 	}
 }
+
 if(!isset($_REQUEST['user_id'])){
 	#$sale_id = $_SESSION["loginid"];
 	$sale_id = 'all';
-}else {
+}
+else {
 	$sale_id = $_REQUEST['user_id'];
 }
+
 if(!isset($_SESSION['invoice_stt'])){
     $_SESSION['invoice_stt'] = 'all';
 }
+
 if(isset($_REQUEST['invoice_stt'])){
     $_SESSION['invoice_stt'] = trim($_REQUEST['invoice_stt']);
 }
+
 function doPages($page_size, $thepage, $query_string, $total=0) {
-	    //per page count
-	    $index_limit = 100;
-	    //set the query string to blank, then later attach it with $query_string
-	    $query='';
+    //per page count
+    $index_limit = 100;
+    //set the query string to blank, then later attach it with $query_string
+    $query='';
 
-	    if(strlen($query_string)>0){
+    if(strlen($query_string)>0){
 		$query = "&".$query_string;
-	    }
+    }
 
-	    //get the current page number example: 3, 4 etc: see above method description
-	    $current = get_current_page();
+    //get the current page number example: 3, 4 etc: see above method description
+    $current = get_current_page();
 
-	    $total_pages=ceil($total/$page_size);
-	    $start=max($current-intval($index_limit/2), 1);
-	    $end=$start+$index_limit-1;
+    $total_pages=ceil($total/$page_size);
+    $start=max($current-intval($index_limit/2), 1);
+    $end=$start+$index_limit-1;
 
-	    echo '
-	<div class="paging">';
+	echo '
+		<div class="paging">';
 
 	    if($current==1) {
-		echo '<span class="prn">< Previous</span> ';
+			echo '<span class="prn">< Previous</span> ';
 	    } else {
-		$i = $current-1;
-		echo '<a class="prn" title="go to page '.$i.'" rel="nofollow" href="'.$thepage.'?page='.$i.$query.'">< Previous</a> ';
-		echo '<span class="prn">...</span> ';
+			$i = $current-1;
+			echo '<a class="prn" title="go to page '.$i.'" rel="nofollow" href="'.$thepage.'?page='.$i.$query.'">< Previous</a> ';
+			echo '<span class="prn">...</span> ';
 	    }
 
 	    if($start > 1) {
-		$i = 1;
-		echo '<a title="go to page '.$i.'" href="'.$thepage.'?page='.$i.$query.'">'.$i.'</a> ';
+			$i = 1;
+			echo '<a title="go to page '.$i.'" href="'.$thepage.'?page='.$i.$query.'">'.$i.'</a> ';
 	    }
 
 	    for ($i = $start; $i <= $end && $i <= $total_pages; $i++){
-		if($i==$current) {
-		    echo '<span>'.$i.'</span> ';
-		} else {
-		    echo '<a title="go to page '.$i.'" href="'.$thepage.'?page='.$i.$query.'">'.$i.'</a> ';
-		}
+			if($i==$current) {
+			    echo '<span>'.$i.'</span> ';
+			} else {
+			    echo '<a title="go to page '.$i.'" href="'.$thepage.'?page='.$i.$query.'">'.$i.'</a> ';
+			}
 	    }
 
 	    if($total_pages > $end){
-		$i = $total_pages;
-		echo '<a title="go to page '.$i.'" href="'.$thepage.'?page='.$i.$query.'">'.$i.'</a> ';
+			$i = $total_pages;
+			echo '<a title="go to page '.$i.'" href="'.$thepage.'?page='.$i.$query.'">'.$i.'</a> ';
 	    }
 
 	    if($current < $total_pages) {
-		$i = $current+1;
-		echo '<span class="prn">...</span> ';
-		echo '<a class="prn" title="go to page '.$i.'" rel="nofollow" href="'.$thepage.'?page='.$i.$query.'">Next ></a> ';
-	    } else {
-		echo '<span class="prn">Next ></span> ';
+			$i = $current+1;
+			echo '<span class="prn">...</span> ';
+			echo '<a class="prn" title="go to page '.$i.'" rel="nofollow" href="'.$thepage.'?page='.$i.$query.'">Next ></a> ';
+	    } 
+	    else {
+			echo '<span class="prn">Next ></span> ';
 	    }
 
 	    //if nothing passed to method or zero, then dont print result, else print the total count below:
@@ -97,6 +108,7 @@ function doPages($page_size, $thepage, $query_string, $total=0) {
 	    }
 
 }//end of method doPages()
+
 //Both of the functions below required
 function check_integer($which) {
     if(isset($_REQUEST[$which])){
@@ -111,6 +123,7 @@ function check_integer($which) {
     }
     return false;
 }//end of check_integer()
+
 function get_current_page() {
     if(($var=check_integer('page'))) {
         //return value of 'page', in support to above method
@@ -123,36 +136,43 @@ function get_current_page() {
 
 
 
-
-
 $rec_limit =100;
 // calc count of invoice 
 $where = '';
 if(isset($_REQUEST['invoice_id']) && $_REQUEST['invoice_id'] !=''){
     $where.= ' AND invoices.id="'.$_REQUEST['invoice_id'].'"';
 }
+
 if(isset($_REQUEST['po_number']) && $_REQUEST['po_number'] !=''){
     $where.= ' AND invoices.po_number LIKE "%'.$_REQUEST['po_number'].'%"';
 }
+
 if(isset($_REQUEST['date']) && $_REQUEST['date'] !=''){
     $where.= ' AND invoices.data_of_issue="'.$_REQUEST['date'].'"';
 }
+
 if(isset($_REQUEST['total1']) && $_REQUEST['total1'] !=''){
     $where.= ' AND invoices.total>='.$_REQUEST['total1'];
 }
+
 if(isset($_REQUEST['total2']) && $_REQUEST['total2'] !=''){
     $where.= ' AND invoices.total<='.$_REQUEST['total2'];
 }
+
 if($sale_id !='all'){
     $where.=' AND customers.sale_id='.$sale_id;
 }
+
+//Only shows all po invoices
+$where.=' AND invoices.is_po_created = 1';
 
 if(isset($_REQUEST['invoice_stt']) && $_REQUEST['invoice_stt']=='all'){
     $sql_count = "SELECT count(invoices.id) as total FROM invoices 
     INNER JOIN `customers` ON customers.id = invoices.customer_id    
     WHERE 1=1 ".$where;
     //INNER JOIN `users` ON users.id = customers.sale_id
-}else {
+}
+else {
 	$invoice_stt  = !empty($_REQUEST['invoice_stt'])?"invoices.invoice_status='".$_REQUEST['invoice_stt']."'":"1=1";
     $sql_count = "SELECT count(invoices.id) as total FROM invoices 
         INNER JOIN `customers` ON customers.id = invoices.customer_id        
@@ -163,7 +183,7 @@ if(isset($_REQUEST['invoice_stt']) && $_REQUEST['invoice_stt']=='all'){
 
 $retval_count = mysql_query($sql_count);
 
-if(!$retval_count )
+if(!$retval_count)
 {
   die('Could not get data: ' . mysql_error());
 }
@@ -186,7 +206,8 @@ if($_SESSION['invoice_stt'] == 'all'){
     {$where}
     ORDER BY invoices.id DESC LIMIT $start,$rec_limit";
     //INNER JOIN `users` ON users.id = customers.sale_id
-}else {
+}
+else {
      $sql = "SELECT invoices.*,customers.companyname FROM invoices 
         INNER JOIN customers ON invoices.customer_id = customers.id
         
@@ -256,7 +277,7 @@ $result = mysql_query($sql);
 		    }
 		}
 
-		$redirectURL = 'admin_listall_invoice.php?page='.$page;
+		$redirectURL = 'admin_listall_po_invoice.php?page='.$page;
 		header('Location: '.$redirectURL);
 	}
 	elseif($is_make_po == 2)
@@ -274,7 +295,7 @@ $result = mysql_query($sql);
 			modify_record("invoices", $data_invoices, $where);
 		}
 
-		$redirectURL = 'admin_listall_invoice.php?page='.$page;
+		$redirectURL = 'admin_listall_po_invoice.php?page='.$page;
 		header('Location: '.$redirectURL);
 	}
 	//end Make PO
@@ -340,7 +361,7 @@ if($_REQUEST['del_invoice'] == 1){
     mysql_query($sql_item);
     ?>
     <script language="javascript">
-        parent.parent.location.href='admin_listall_invoice.php';
+        parent.parent.location.href='admin_listall_po_invoice.php';
         window.close();
     </script>
 <?php
@@ -354,7 +375,7 @@ if($_REQUEST['del_invoice'] == 1){
 <div style="width: 97%;margin-left: 1.50%;" class="portlet x12">
 	<div class="portlet-header"><h4>View Invoices</h4></div>			
 		<div class="portlet-content" >
-			<form action="admin_listall_invoice.php" name="filterform" method="post">                                
+			<form action="admin_listall_po_invoice.php" name="filterform" method="post">                                
 				<div style="float:right;width: 100%;">
 					<table class="search-box-tabletype">
 						<tr>
@@ -481,7 +502,7 @@ if($_REQUEST['del_invoice'] == 1){
 	                        	<?php $show_value = ((float)round($row['paid_to_date'],2) >= (float)round(str_replace(',', '',$total_compare),2)) ? 1 : (((float)round($row['paid_to_date'],2)< (float)round(str_replace(',', '',$total_compare),2) && (float)$row['paid_to_date'] > 0) ? 2 : 3) ;?>
 	                        	<a href="admin_edit_invoice.php?customer_id=<?php echo $row['customer_id'];?>&invoice_id=<?php echo $row['id']?>">Edit</a> | 
 								<?php if($_SESSION['userlevel']>1 || ($show_value==3 && $_SESSION['userlevel']==1 && $row['is_po_created'] == 0)) {?>
-		                        	<a onclick="javascript:return confirm('Are you sure you wish to delete?')" href="admin_listall_invoice.php?customer_id=<?php echo $row['customer_id']; ?>&del_invoice=1&invoice_id=<?php echo $row['id'];?>">[X]</a> |
+		                        	<a onclick="javascript:return confirm('Are you sure you wish to delete?')" href="admin_listall_po_invoice.php?customer_id=<?php echo $row['customer_id']; ?>&del_invoice=1&invoice_id=<?php echo $row['id'];?>">[X]</a> |
 		                        <?php }?> 
 	                        	<?php           
 		                            if($show_value == 1){  
@@ -491,10 +512,10 @@ if($_REQUEST['del_invoice'] == 1){
 		                            }else { 
 		                                echo '<a href="invoice_payment.php?customer_id='.$row['customer_id'].'&invoice_id='.$row['id'].'&total='.$total_invoice.'&redirect=1&page='.$page.'" onclick="return GB_showCenter(\'Payment\', this.href,400,600);"><font color="red">Unpaid</a></font>';                                 
 		                                if($row['is_po_created'] == 0) {
-											echo ' | <a onClick="javascript:return confirm(\'A print order will be generated for this order, are you sure?\')" href="admin_listall_invoice.php?customer_id='.$row['customer_id'].'&invoice_id='.$row['id'].'&make_po=1&page='.$page.'">Make PO</a>';
+											echo ' | <a onClick="javascript:return confirm(\'A print order will be generated for this order, are you sure?\')" href="admin_listall_po_invoice.php?customer_id='.$row['customer_id'].'&invoice_id='.$row['id'].'&make_po=1&page='.$page.'">Make PO</a>';
 		                                }
 		                                else {
-		                                	echo ' | <a href="admin_listall_invoice.php?customer_id='.$row['customer_id'].'&invoice_id='.$row['id'].'&make_po=2&page='.$page.'"><font color="red">PO</font></a>';
+		                                	echo ' | <a href="admin_listall_po_invoice.php?customer_id='.$row['customer_id'].'&invoice_id='.$row['id'].'&make_po=2&page='.$page.'"><font color="red">PO</font></a>';
 		                                }
 		                            }
 	                        	?>
@@ -514,7 +535,7 @@ if($_REQUEST['del_invoice'] == 1){
 			 </div>
         <div>
 		<?php	 
-			doPages($rec_limit ,'/admin/admin_listall_invoice.php','',$rec_count);			
+			doPages($rec_limit ,'/admin/admin_listall_po_invoice.php','',$rec_count);			
 		?>
         </div>
 	</div>

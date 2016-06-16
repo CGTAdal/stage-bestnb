@@ -110,12 +110,34 @@ if($_REQUEST['edit']){
     die();*/
     if($invoice_stt == 'paid'){
         
-        $printorder['timestamp'] = date('Y-m-d H:i:s');
-        $printorder["custid"] = $customer_id;
-        $printorder['note'] =  $invoice['internal_note'];
-        $printorder['customer_note']     =$invoice['note_visible_to_client'];
-        $printorder['invoice_id']     = $invoice['id'];
-        $_SESSION["printorderid"] = add_record("printorders",$printorder); 
+        if ($invoice['is_po_created'] == 1)
+        {
+            $invoice_id = $invoice['id'];
+            
+            if($invoice_id && $customer_id)
+            {
+                $sql_invoice_po = "SELECT printorders.id FROM printorders
+                                WHERE printorders.invoice_id = '{$invoice_id}' AND printorders.custid = '{$customer_id}'";
+
+                $result_invoice_po = mysql_query($sql_invoice_po);
+
+                if($result_invoice_po)
+                {
+                    $invoice_po = mysql_fetch_assoc($result_invoice_po);
+                    $_SESSION["printorderid"] = $invoice_po["id"];
+                }
+            }
+        }
+        else
+        {
+            $printorder['timestamp'] = date('Y-m-d H:i:s');
+            $printorder["custid"] = $customer_id;
+            $printorder['note'] =  $invoice['internal_note'];
+            $printorder['customer_note']     =$invoice['note_visible_to_client'];
+            $printorder['invoice_id']     = $invoice['id'];
+            $_SESSION["printorderid"] = add_record("printorders",$printorder); 
+        }
+        
 
         $data["customerid"] =  $customer_id;		
         $data["qty"] = 1;		

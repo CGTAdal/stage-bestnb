@@ -20,3 +20,10 @@ Please reach out with any questions.
 1. After you click “Yes” – under “Action” the “X” for delete will disappear, it’ll remain “Unpaid” and an ORANGE link will remain “PO”
 CGT : Do you need to replace partial with po?
 CGT : when click “Make PO” then print order genrated after that click PO link, it back to a non-po/regular invoice, but we have print order entry in "printorders" table. so after that if user click again “Make PO” then what about previous entry?
+
+2. Create a new page under “Invoices” navigation called “Invoices / PO”
+o   On this page, have all the same search functions as http://stage1.bestnamebadges.com/admin/admin_listall_invoice.php
+ Only invoices marked as PO will shows on this page
+ Note:  PO invoices will also shows on the regular invoice page, too, but on the new page it’s ONLY PO
+o   Should have the same functionality to view paid and unpaid.
+CGT : admin_listall_invoice.php have a filter dropdown named => "Inovice status:" and values are "All,Paid,Unpaid,Partial". but make po is created for unpaid invoice and Only invoices marked as PO will shows on this page.

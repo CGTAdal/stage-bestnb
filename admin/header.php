@@ -33,6 +33,7 @@
 						<ul>
 							<li><a href="admin_listall_invoice.php" title="List all invoices">Invoices</a></li>
 							<li><a href="order_view_admin.php" title="View Orders">View Orders</a></li>
+							<li><a href="admin_listall_po_invoice.php" title="PO">PO</a></li>
 						</ul>
 					</div>						
 				</li>
