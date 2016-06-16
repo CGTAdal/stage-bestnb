@@ -1,0 +1,121 @@
+<?php 
+header('P3P: CP="CAO PSA OUR"');
+#header('p3p: CP="NOI ADM DEV PSAi COM NAV OUR OTR STP IND DEM"');
+require_once('conn/DB.php');
+include('conn/tablefuncs.php');
+mysql_select_db($database_DB, $ravcodb);
+@session_start();
+include('permision.php');
+if (!$_SESSION["loginid"])
+{/*?>
+<script language="javascript">
+parent.parent.location.href='admin.php';
+window.close();
+</script>
+<?php */}
+?>
+
+<?php 
+	if(isset($_REQUEST['norderid'])){
+		$id = $_REQUEST['norderid'];		
+		$sql = "SELECT *FROM printorders WHERE id ={$id}";
+		//echo $sql;
+		$result = mysql_query($sql) or die('Query failed: ' . mysql_error()); 
+		$print_order = mysql_fetch_assoc($result);		
+	}
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<link href="includes/cms.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    var GB_ROOT_DIR = "greybox/";
+</script>
+
+
+<script type="text/javascript" src="greybox/AJS.js"></script>
+<script type="text/javascript" src="greybox/AJS_fx.js"></script>
+<script type="text/javascript" src="greybox/gb_scripts.js"></script>
+<link href="greybox/gb_styles.css" rel="stylesheet" type="text/css" />
+<style>
+
+.resize
+{
+	width:150px;
+	height:auto;
+}
+</style>
+</head>
+
+<body>
+<?php 
+
+if($_REQUEST['customerid_shipped']){
+	//$data['id']  = $_REQUEST['norderid_shipped'];
+	$data['status']  = $_REQUEST['status_shipped'];	
+	$data['timestamp'] = date('Y-m-d H:i:s');
+	$data['tracking_number'] = $_REQUEST['tracking_number'];	
+	$data['payment_method'] = $_REQUEST['method_payment'];
+	
+	$where =  "id =".$_REQUEST["norderid_shipped"];	
+	
+	if(isset($_REQUEST['page']) && $_REQUEST['page'] ==1 ){
+		$customer  = $_REQUEST['customerid'];
+		$page ='printorder_view_admin.php?customerid='.$customer;
+	}else {
+		$page ='order_products_admin.php'; 
+	}
+	//$page_redirect  = $_REQUEST['page_redirect'];
+	//die($where.'aaaa');	
+	//echo '<pre>'.print_r($data).'</pre>';
+	modify_record("printorders", $data, $where);
+	
+	$data1['follow_user_id'] = $_SESSION["loginid"];
+	$where1 = "id=".$_REQUEST['customerid_shipped'];
+	modify_record("customers", $data1, $where1);
+
+?>
+	<script language="javascript">
+		parent.parent.location.href = '<?php echo $page;?>';
+		window.close(); 
+	</script>
+<?php
+}
+?>
+<form action="completed_order.php" enctype="multipart/form-data" method="post" name="adduser">
+<input type="hidden" name="status_shipped" value="<?php echo $_REQUEST['status']?>">
+<input type="hidden" name="customerid_shipped" value="<?php echo $_REQUEST['customerid'];?>">
+<input type="hidden" name="norderid_shipped" value="<?php echo $_REQUEST['norderid'];?>" />
+<input type="hidden" name="page" value="<?php echo $_REQUEST['page'];?>" />
+<?php if(isset($_REQUEST['customerid'])){?>
+<input type="hidden" name="customerid" value="<?php echo $_REQUEST['customerid'];?>" />
+<?php } ?>
+<table width="100%" frame="box" border="0">
+	<tr>
+		<td>Tracking Number</td>
+		<td><input type="text" value="<?php echo $print_order['tracking_number'];?>" name="tracking_number" /></td>
+	</tr>
+	<tr>
+		<td>Method Payment</td>
+		<td>
+			<select name="method_payment">
+				<option value="19"></option>
+				<option <?php if($print_order['payment_method'] == 0){ echo 'selected="selected"';}?> value="0">USPS</option>
+				<option <?php if($print_order['payment_method'] == 1){ echo 'selected="selected"';}?> value="1">FedEx</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type="submit" value="This Order Has Shipped" /></td>
+	</tr>
+</table>
+</form>
+<hr />
+</body>
+</html>

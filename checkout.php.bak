@@ -1,0 +1,544 @@
+<?php 
+require_once('admin/conn/DB.php');
+include('admin/conn/tablefuncs.php');
+mysql_select_db($database_DB, $ravcodb);
+session_start();
+
+if (!$_SESSION["customerloginid"])
+{
+	header("location: sign-up.php");
+}
+
+function email_header ($to_id, $from_name, $from_email, $return_path)
+{
+
+	$email_headers = sprintf(
+	"From: %s <%s>\n".
+	"Content-type: text/html; charset=iso-8859-1\n",
+	$from_name, $from_email,
+	$return_path, md5(EMAIL_HASH_KEY.$to_id), $to_id);
+
+	return ($email_headers);
+}
+
+
+if ($_POST["attempt2"])
+{
+	require_once 'braintree/lib/Braintree.php';
+
+	Braintree_Configuration::environment('production');
+	Braintree_Configuration::merchantId('952ff2n634sv6zdf');
+	Braintree_Configuration::publicKey('8qbw39w6nqhjvzwb');
+	Braintree_Configuration::privateKey('vgfjkvmx2rndd9qt');
+	
+	$result = Braintree_Transaction::sale(array(
+  	'amount' => $_POST["total"],
+  	'creditCard' => array(
+    'number' => $_POST["creditCardNumber"],
+    'expirationDate' => $_POST["expDateMonth"]."/".$_POST["expDateYear"],
+	'cardholderName' => $_POST["firstname"]." ".$_POST["lastname"],
+	'cvv' => $_POST["cvv2Number"]
+  	),
+	'billing' => array(
+    'firstName' => $_POST["firstname"],
+    'lastName' => $_POST["lastname"],
+    'streetAddress' => $_POST["street"],
+    'extendedAddress' => $_POST["street2"],
+    'locality' => $_POST["city"],
+    'region' => $_POST["state"],
+    'postalCode' => $_POST["zip"],
+    'countryCodeAlpha2' => $_POST["country"]
+	),
+	'options' => array(
+    'submitForSettlement' => true
+  	)
+	));
+
+		
+	if ($result->success) {
+		$data["customerid"] = $_SESSION["customerloginid"];
+		$data["styleid"] = $_SESSION["custstyleid"];
+		$data["qty"] = $_POST["totalbadges"];
+		$data["fqty"] = $_POST["totalframes"];
+		$data["totalprice"] = $_POST["total"];
+		$orderid = add_record("orders", $data);
+		
+		$qry = "SELECT * FROM customers WHERE id = ".$_SESSION["customerloginid"];
+		$customers = mysql_query($qry) or die('Query failed: ' . mysql_error()); 
+		$customer = mysql_fetch_assoc($customers);
+		
+		$datac["inventory"] = $customer["inventory"] + $_POST["abadges"];
+		$datac["finventory"] = $customer["finventory"] + $_POST["aframes"];
+		$where = "id = ".$customer["id"];
+		modify_record("customers", $datac, $where);
+		
+		$data2["oid"] = $orderid;
+		$data2["date"] = date("Y/m/d");
+		$data2["name"] = $customer["firstname"]." ".$customer["lastname"];
+		$data2["address"] = $customer["street"];
+		$data2["address2"] = $customer["street2"];
+		$data2["city"] = $customer["city"];
+		$data2["state"] = $customer["state"];
+		$data2["zip"] = $customer["zip"];
+		$data2["bqty"] = $_POST["totalbadges"];
+		$data2["bunit"] = $_POST["unitprice"];
+		$data2["fqty"] = $_POST["totalframes"];
+		$data2["tax"] = $_POST["tax"];
+		$data2["setup"] = $_POST["setup"];
+		$data2["funit"] = 2.00;
+		$rid = add_record("receipts", $data2);
+		
+		$data3["oid"] = $_SESSION["printorderid"];
+		$data3["date"] = date("Y/m/d");
+		$data3["name"] = $customer["firstname"]." ".$customer["lastname"];
+		$data3["address"] = $customer["street"];
+		$data3["address2"] = $customer["street2"];
+		$data3["city"] = $customer["city"];
+		$data3["state"] = $customer["state"];
+		$data3["zip"] = $customer["zip"];
+		$pid = add_record("preceipts", $data3);
+		
+		$data4["paid"] = 1;
+		$where = "id = ".$_SESSION["custstyleid"];
+		modify_record("custstyle", $data4, $where);
+		
+		$data5["paid"] = 1;
+		$where = "id = ".$_SESSION["printorderid"];
+		modify_record("printorders", $data5, $where);
+		
+		ob_start();
+		echo "<strong>Best Name Badges has received a new order:</strong>";
+		echo "<br>".$customer["firstname"]." ".$customer["lastname"];
+		echo "<br>A new style was created";
+		echo "<br>Badges: ".$_POST["totalbadges"];
+		echo "<br>Frames: ".$_POST["totalframes"];
+		echo "<br>Total Purchase Price Charged: ".$_POST["total"];
+	
+		$contents1 = ob_get_contents();
+		ob_end_clean();
+		mail("ryan@crucialclick.com", "New Order Number ".$orderid, $contents1, $email_headers);
+		mail("jadus@comcast.net", "New Order Number ".$orderid, $contents1, $email_headers);
+		
+		
+		header("location: thankyou.php?order=".$orderid."&rid=".$rid."&porder=".$_SESSION["printorderid"]."&pid=".$pid."&total=".$_POST["total"]);
+	} else if ($result->transaction) {
+		header("location: thankyouerror.php?message=".rawurlencode($result->message));
+	} else {
+		header("location: thankyouerror.php?message=".rawurlencode($result->message));
+	}
+} else {
+$pagetitle = "Buy Name Badges - Custom Name Badge Styles and Tags";
+$metadescription = "Best Name Badges offers several styles of high quality badges and tags to fit your needs.  Magnetic and Pin fasteners are included free of charge.";
+$metakeywords = "name badges, name tags, custom name badge, custom name tags, metal name tags, brushed aluminum name badges, plastic name tags, plastic name badges, color name badges, employee name tags, employee name badges, professional name tags, professional name badges"; 
+
+$arytimes = split(" ", $_POST["badgetimes"]);
+$unitprice = trim($arytimes[2]);
+$unitprice = substr($unitprice, 1);
+
+if ($_SESSION["color"])
+{
+	$qry = "SELECT * FROM colors WHERE id = ".$_SESSION["color"];
+	//echo $qry."<BR>";
+	$colors = mysql_query($qry) or die('Query failed: ' . mysql_error()); 
+	$color2 = mysql_fetch_assoc($colors);
+	$_SESSION["backgroundimage"] = $color2["backgroundimage"];
+	//print_r($color);
+}
+if ($_SESSION["styleid"])
+{
+	$qry = "SELECT * FROM styles WHERE id = ".$_SESSION["styleid"];
+	$styles = mysql_query($qry) or die('Query failed: ' . mysql_error()); 
+	$style = mysql_fetch_assoc($styles);
+	//print_r($style);
+}
+
+?>
+<?php 
+if ($_SESSION["customerloginid"])
+{
+	include_once 'inc/header-auth.php';
+} else {
+	include_once 'inc/header.php' ;
+}
+
+
+function formatMoney($number, $cents = 2) { // cents: 0=never, 1=if needed, 2=always
+  if (is_numeric($number)) { // a number
+    if (!$number) { // zero
+      $money = ($cents == 2 ? '0.00' : '0'); // output zero
+    } else { // value
+      if (floor($number) == $number) { // whole number
+        $money = number_format($number, ($cents == 2 ? 2 : 0)); // format
+      } else { // cents
+        $money = number_format(round($number, 2), ($cents == 0 ? 0 : 2)); // format
+      } // integer or decimal
+    } // value
+    return '$'.$money;
+  } // numeric
+} // formatMoney
+
+function formatMoney2($number, $cents = 2) { // cents: 0=never, 1=if needed, 2=always
+  if (is_numeric($number)) { // a number
+    if (!$number) { // zero
+      $money = ($cents == 2 ? '0.00' : '0'); // output zero
+    } else { // value
+      if (floor($number) == $number) { // whole number
+        $money = number_format($number, ($cents == 2 ? 2 : 0)); // format
+      } else { // cents
+        $money = number_format(round($number, 2), ($cents == 0 ? 0 : 2)); // format
+      } // integer or decimal
+    } // value
+    return $money;
+  } // numeric
+} // formatMoney
+
+
+ ?>
+
+<script type="text/javascript" src="/js/jscolor.js"></script>
+<script language="javascript">
+function processimage(frame2) {
+    left = <?php echo $_SESSION["left"]; ?>;
+	down = <?php echo $_SESSION["down"]; ?>;
+	left2 = <?php echo $_SESSION["left2"]; ?>;
+	down2 = <?php echo $_SESSION["down2"]; ?>;
+	leftt = <?php echo $_SESSION["leftt"]; ?>;
+	downt = <?php echo $_SESSION["downt"]; ?>;
+	img1w = <?php echo $_SESSION["img1w"]; ?>;
+	img1h = <?php echo $_SESSION["img1h"]; ?>;
+	img2w = <?php echo $_SESSION["img2w"]; ?>;
+	img2h = <?php echo $_SESSION["img2h"]; ?>;
+	leftt2 = <?php echo $_SESSION["leftt2"]; ?>;
+	downt2 = <?php echo $_SESSION["downt2"]; ?>;
+	leftt3 = <?php echo $_SESSION["leftt3"]; ?>;
+	downt3 = <?php echo $_SESSION["downt3"]; ?>;
+	font1 = "<?php echo $_SESSION["font1"]; ?>";
+	font2 = "<?php echo $_SESSION["font2"]; ?>";
+	font3 = "<?php echo $_SESSION["font3"]; ?>";
+	font1size = <?php echo $_SESSION["font1size"]; ?>;
+	font2size = <?php echo $_SESSION["font2size"]; ?>;
+	font3size = <?php echo $_SESSION["font3size"]; ?>;
+	
+  	url = "ajax/create_image2.php?left=" + left + "&down=" + down + "&left2=" + left2 + "&down2=" + down2 + "&leftt=" + leftt + "&downt=" + downt + "&img1h=" + img1h + "&img1w=" + img1w + "&img2h=" + img2h + "&img2w=" + img2w + "&leftt2=" + leftt2 + "&downt2=" + downt2 + "&font1=" + font1 + "&font2=" + font2 + "&font1size=" + font1size + "&font2size=" + font2size + "&frame=" + frame2+ "&leftt3=" + leftt3+ "&downt3=" + downt3+ "&font3=" + font3+ "&font3size=" + font3size;
+
+   //alert(url);
+    // branch for native XMLHttpRequest object
+	req_fifo = false;
+
+	try
+	{
+	req_fifo = new XMLHttpRequest();
+	}
+	
+	catch (e)
+	{
+	
+		try	{
+			req_fifo = new ActiveXObject("Msxml2.XMLHTTP");
+		}
+		catch (e)
+		{
+			try
+			{
+				req_fifo = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch (e)
+			{
+				alert("You browser pro\'lly don\'t support AJAX, get the newest version of Firefox");
+				return false;
+			}
+		}
+	}
+	
+	if (req_fifo)
+	{
+		req_fifo.abort();
+		req_fifo.onreadystatechange = gotprocess;
+	    req_fifo.open("POST", url, true);
+		req_fifo.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	   	req_fifo.send(null);
+	}
+
+    
+	
+}
+
+function gotprocess() {
+// only if req_fifo shows "loaded"
+	if (req_fifo.readyState != 4 || req_fifo.status != 200) {
+    	return;
+    }
+
+	var info = req_fifo.responseText;
+	//alert(info);
+	var ary=info.split("??");
+	//alert(ary);
+	document.getElementById('bannerimage').src = ary[0];
+	document.getElementById('badgestyle').innerHTML = '<p style="float: left; font-size: 10px; width: 150px; text-align: left;">Badge Style:<br /><strong>'+ary[1]+'</strong></p>';
+	document.getElementById('colorname').innerHTML = '<p style="float: right; font-size: 10px; width: 85px; text-align: left;" >Color:<br /><strong>'+ary[2]+'</strong></p>';
+	document.getElementById('framestyle').innerHTML = '<p style="float: right; font-size: 10px; width: 60px; text-align: left;">Frame:<br /><strong>'+ary[3]+'</strong></p>';
+	
+}
+
+function validateform()
+{
+	error = "";
+	if (document.getElementById('firstname').value == "")
+	{
+		error = error + "Please enter a First Name";
+	}
+	if (document.getElementById('lastname').value == "")
+	{
+		error = error + "\nPlease enter a Last Name";
+	}
+	if (document.getElementById('street').value == "")
+	{
+		error = error + "\nPlease enter a Street Name";
+	}
+	if (document.getElementById('city').value == "")
+	{
+		error = error + "\nPlease enter a City";
+	}
+	if (document.getElementById('state').value == "")
+	{
+		error = error + "\nPlease enter a State";
+	}
+	if (document.getElementById('zip').value == "")
+	{
+		error = error + "\nPlease enter a Zip Code";
+	}
+	if (document.getElementById('creditCardNumber').value == "")
+	{
+		error = error + "\nPlease enter a Credit Card Number";
+	}
+	if (document.getElementById('cvv2Number').value == "")
+	{
+		error = error + "\nPlease enter a Card Verification Number";
+	}
+	
+	if (error)
+	{
+		alert(error);
+	} else {
+		document.checkoutform.submit();
+	}
+}
+function changestatediv(country)
+{
+	if (country == "CA")
+	{
+		document.getElementById('statediv').innerHTML = "<div class='signUpFieldRight'><select id=state name=state><option selected></option><option value=AB>AB</option><option value=BC>BC</option><option value=MB>MB</option><option value=NB>NB</option><option value=NL>NL</option><option value=NT>NT</option><option value=NS>NS</option><option value=NU>NU</option><option value=ON>ON</option><option value=PE>PE</option><option value=QC>QC</option><option value=SK>SK</option><option value=YT>YT</option></select></div>";
+		document.getElementById('stateprov').innerHTML = "<div class='signUpFieldLeft'>Province:</div>";
+	} else if (country == "US")	{
+		document.getElementById('statediv').innerHTML = "<div class='signUpFieldRight'><select id=state name=state><option selected></option><option value=AK>AK</option><option value=AL>AL</option><option value=AR>AR</option><option value=AZ>AZ</option><option value=CA>CA</option><option value=CO>CO</option><option value=CT>CT</option><option value=DC>DC</option><option value=DE>DE</option><option value=FL>FL</option><option value=GA>GA</option><option value=HI>HI</option><option value=IA>IA</option><option value=ID>ID</option><option value=IL>IL</option><option value=IN>IN</option><option value=KS>KS</option><option value=KY>KY</option><option value=LA>LA</option><option value=MA>MA</option><option value=MD>MD</option><option value=ME>ME</option><option value=MI>MI</option><option value=MN>MN</option><option value=MO>MO</option><option value=MS>MS</option><option value=MT>MT</option><option value=NC>NC</option><option value=ND>ND</option><option value=NE>NE</option> <option value=NH>NH</option><option value=NJ>NJ</option><option value=NM>NM</option><option value=NV>NV</option><option value=NY>NY</option><option value=OH>OH</option><option value=OK>OK</option><option value=OR>OR</option> <option value=PA>PA</option><option value=RI>RI</option><option value=SC>SC</option><option value=SD>SD</option><option value=TN>TN</option><option value=TX>TX</option><option value=UT>UT</option><option value=VA>VA</option><option value=VT>VT</option><option value=WA>WA</option><option value=WI>WI</option><option value=WV>WV</option><option value=WY>WY</option><option value=AA>AA</option> <option value=AE>AE</option><option value=AP>AP</option><option value=AS>AS</option><option value=FM>FM</option><option value=GU>GU</option><option value=MH>MH</option><option value=MP>MP</option><option value=PR>PR</option><option value=PW>PW</option><option value=VI>VI</option></select></div>";
+		document.getElementById('stateprov').innerHTML = "<div class='signUpFieldLeft'>State:</div>";
+	}
+}
+
+</script>
+    <div id="content">
+     
+    <div id="mainContentFull">
+	  <h2>Billing And Checkout</h2>
+
+	  <br /><br />
+      
+      <div style="width: 960px;">
+      <div style="width: 400px; float: right;">
+      <div id="wizardRight" style="float: right;">
+      <div class="boxHeader"><span style="float: left;">Preview Your Badge</span></div>
+      <div class="boxSub" style="float: left;">
+         <div class="boxSub2" style="text-align: center; float: left;">
+              <div id="imageshow" name="imageshow" style="height:133px; width: 330px; float: left; margin-top: 15px;">
+			  <img src="output/<?php echo $_SESSION["bannername"]; ?>" id="bannerimage" name="bannerimage"/></div>
+           <div id="badgestyle">
+		   <p style="float: left; font-size: 10px; width: 150px; text-align: left;">Badge Style:<br />
+             <strong><?php echo $style["size"]." - ".$style["name"]; ?></strong>
+             </p>
+			 </div>
+			 <div id="framestyle">
+             <p style="float: right; font-size: 10px; width: 60px; text-align: left;">Frame:<br />
+              <strong><?php echo $_SESSION["frame"]; ?></strong>
+              </p>
+			  </div>
+			  <div id="colorname">
+              <p style="float: right; font-size: 10px; width: 85px; text-align: left;">Color:<br />
+              <strong><?php echo $color2["name"]; ?></strong>
+              </p>
+			  </div>
+         </div>
+         
+      </div>
+    </div>
+    
+    
+    
+    </div>
+    
+    <div style="width: 500px; float: left;">
+    
+    <div id="signUpLeft" style="margin-top: 0px;">
+        <div class="boxHeader"><span>Your Order</span></div>
+  		  <form method="post" action="checkout.php" name="checkoutform" id="checkoutform">
+		  <input type="hidden" name="totalbadges" value="<?php echo $_POST["numofbadges"] + $_POST["numofabadges"]; ?>" />
+		  <input type="hidden" name="totalframes" value="<?php echo $_POST["numofframes"] + $_POST["numofaframes"]; ?>" />
+		  <input type="hidden" name="abadges" value="<?php echo $_POST["numofabadges"]; ?>" />
+		  <input type="hidden" name="aframes" value="<?php echo $_POST["numofaframes"]; ?>" />
+		  <input type="hidden" name="unitprice" value="<?php echo $unitprice; ?>" />
+		  <input type="hidden" name="setup" value="<?php echo $pricesetup ;?>" />
+          
+          <div style="width: 500px; float: left; padding-top: 25px; border-right: solid 1px #CCC; border-left: solid 1px #CCC;">
+     	<div style="float: left; width: 200px; padding-left: 15px;">
+        	<p class="popBox">Badges This Order: <span class="quantityNumber"><?php echo $_POST["numofbadges"]; ?></span></p>
+        </div>
+        <div style="float: right; width: 200px;">
+        	<p class="popBox">Frames This Order: <span class="quantityNumber"><?php echo $_POST["numofframes"]; ?></span></p>
+        </div>
+        <div style="clear: both; padding-bottom: 5px;"></div>
+        <div style="float: left; width: 200px; padding-left: 15px;">
+        	<p class="popBoxSmall">Extra Badges For Later: <span class="quantityNumber" style="font-size: 14px; font-weight: bold;"><?php echo $_POST["numofabadges"]; ?></span></p>
+        </div>
+        <div style="float: right; width: 200px;">
+        	<p class="popBoxSmall">Extra Frames For Later: <span class="quantityNumber" style="font-size: 14px; font-weight: bold;"><?php echo $_POST["numofaframes"]; ?></span></p>
+        </div>
+        <div style="clear: both; border-bottom: solid 1px #CCC; height: 15px; margin-bottom: 10px;"></div>
+        <div style="float: left; width: 220px; padding-left: 15px;">
+        	<p class="popBoxSmall">Badge Total: <?php echo $_POST["badgetimes"]; ?> <span class="quantityNumber" style="font-size: 14px;"><?php echo $_POST["badgetotal"]; ?></span></p>
+        </div>
+        <div style="float: right; width: 220px;">
+        	<p class="popBoxSmall">Frame Total: <?php echo $_POST["frametimes"]; ?> <span class="quantityNumber" style="font-size: 14px;"><?php echo $_POST["frametotal"]; ?></span></p>
+        </div>
+        <div style="clear: both;"></div>
+        <div style="width: 500px; text-align: center;">
+        
+        	<p class="popBoxSmall">One-Time Setup Fee = <span class="quantityNumber" style="font-size: 14px;">$<?php echo $pricesetup ;?></span></p>
+			<?php if ($_SESSION["state"] == "FL") { 
+			$total = substr($_POST["ordertotal"], 1);
+			$total = $total + $pricesetup;
+			$taxdec = 6/100;
+			$taxtotal = $taxdec * $total;
+			$total = $taxtotal + $total;
+			$total = formatMoney2($total);
+			?>	
+				<p class="popBoxSmall">FL 6% Sales Tax: <span class="quantityNumber" style="font-size: 14px;"><?php echo formatMoney($taxtotal) ;?></span></p>
+			<?php } else { 
+			$total = substr($_POST["ordertotal"], 1);
+			$total = $total + $pricesetup;
+			$total = formatMoney2($total);
+			?>
+			
+				<p class="popBoxSmall">Sales Tax: <span class="quantityNumber" style="font-size: 14px;"> N/A</span></p>
+			<?php } ?>
+        	<p class="popBoxSmall">Order Total: <span class="quantityNumber"><?php echo formatMoney($total); ?></span></p>
+         </div>
+     </div>
+	 	  <input type="hidden" name="tax" value="<?php echo $taxtotal; ?>" />
+          <input type="hidden" name="total" value="<?php echo $total; ?>" />
+		  <input type="hidden" name="attempt2" value="1" />
+		  <div class="boxHeader"><span style="float: left;">Billing Address Information</span></div>
+           <div class="signUpField">
+            <div class="signUpFieldLeft">First Name*:</div>
+            <div class="signUpFieldRight"><input type="text" name="firstname" id="firstname" value="<?php echo $_POST["firstname"]; ?>" style="width: 200px;" class="signupFieldInput" /></div>
+          </div>
+          <div class="signUpField">
+            <div class="signUpFieldLeft">Last Name*:</div>
+            <div class="signUpFieldRight"><input type="text" name="lastname" id="lastname" value="<?php echo $_POST["lastname"]; ?>" style="width: 200px;" class="signupFieldInput" /></div>
+          </div>
+              <div class="signUpField">
+            <div class="signUpFieldLeft"> Address*:</div>
+            <div class="signUpFieldRight"><input type="text" name="street" id="street" value="<?php echo $_POST["street"]; ?>" style="width: 200px;" class="signupFieldInput" /></div>
+          </div>
+          <div class="signUpField">
+            <div class="signUpFieldLeft">Address 2:</div>
+            <div class="signUpFieldRight"><input type="text" name="street2" value="<?php echo $_POST["street2"]; ?>" style="width: 200px;" class="signupFieldInput" /></div>
+          </div>
+          <div class="signUpField">
+            <div class="signUpFieldLeft">City*:</div>
+            <div class="signUpFieldRight"><input type="text" name="city" id="city" value="<?php echo $_POST["city"]; ?>" style="width: 200px;" class="signupFieldInput" /></div>
+          </div>
+          <div class="signUpField">
+            <div class="signUpFieldLeft">Country*:</div>
+            <div class="signUpFieldRight"><select name="country" class="signupFieldInput" style="height: 20px;" onchange="changestatediv(this.value);"><option value="US">United States</option><option value="CA">Canada</option></select></div>
+          </div>
+          <div class="signUpField">
+            <div id="stateprov">
+              <div class="signUpFieldLeft"> State*:</div></div>
+            <div id="statediv"><div class="signUpFieldRight"><input type="text" name="state" id="state" value="<?php echo $_POST["state"]; ?>" maxlength="2" style="width: 25px;" class="signupFieldInput" /></div></div>
+          </div>
+          <div class="signUpField">
+            <div class="signUpFieldLeft">Zip*:</div>
+            <div class="signUpFieldRight"><input type="text" name="zip" id="zip" value="<?php echo $_POST["zip"]; ?>" maxlength="7" style="width: 50px;" class="signupFieldInput" /></div>
+          </div>
+          <div class="boxHeader"><span style="float: left;">Credit Card Information</span></div>
+          <div class="signUpField">
+            <div class="signUpFieldLeft">Card Type*:</div>
+            <div class="signUpFieldRight"><select name=creditCardType onchange="javascript:generateCC(); return false;"  class="signupFieldInput" style="height: 20px;">
+							      	<option value=Visa>Visa</option>
+      								<option value=MasterCard>MasterCard</option>
+      								<option value=Discover>Discover</option>
+      								<option value=Amex>American Express</option>
+    							</select></div>
+          </div>
+          <div class="signUpField">
+            <div class="signUpFieldLeft">Card Number*:</div>
+            <div class="signUpFieldRight"><input type="text" size="19" maxlength="19" name="creditCardNumber" id="creditCardNumber" class="signupFieldInput"  style="width: 200px;"  /></div>
+          </div>
+          <div class="signUpField">
+            <div class="signUpFieldLeft">Card Expiration*:</div>
+            <div class="signUpFieldRight">
+            <select name=expDateMonth class="signupFieldInput" style="height: 20px;">
+							      <option value=1>01</option>
+							      <option value=2>02</option>
+						          <option value=3>03</option>
+						        <option value=4>04</option>
+						        <option value=5>05</option>
+						        <option value=6>06</option>
+						        <option value=7>07</option>
+						        <option value=8>08</option>
+						        <option value=9>09</option>
+						        <option value=10>10</option>
+						        <option value=11>11</option>
+						        <option value=12>12</option>
+						      </select>
+						      <select name=expDateYear class="signupFieldInput" style="height: 20px;">
+						        <option value=2005>2005</option>
+						        <option value=2006>2006</option>
+						        <option value=2007>2007</option>
+						        <option value=2008>2008</option>
+							    <option value=2009>2009</option>
+						        <option value=2010>2010</option>
+						        <option value=2011>2011</option>
+						        <option value=2012>2012</option>
+						        <option value=2013>2013</option>
+							    <option value=2014>2014</option>
+						        <option value=2015>2015</option>
+						      </select>
+            </div>
+          </div>
+          <div class="signUpField">
+            <div class="signUpFieldLeft">Card Verfication #*:</div>
+            <div class="signUpFieldRight"><input type="text" size="4" maxlength="4" name="cvv2Number" id="cvv2Number" class="signupFieldInput"  style="width: 40px;"/></div>
+          </div>
+          
+          <div class="signUpField">
+            <div style="height: 30px; text-align: center; line-height: 30px; margin-top:15px; margin-bottom: 15px;"><img src="images/placeOrderButton.png" onclick="validateform();"/></div>
+          </div>
+          </form>
+        </div>
+    
+    </div>
+    
+    
+      </div>
+    </div><!-- end mainContentFull -->
+  
+  </div><!-- end content -->
+</div><!-- end wrapper -->
+<div style="display: none;"><img src="/images/wizard/continueMinus.png" /></div>
+
+<?php include_once 'inc/footer.php' ; ?>
+
+<?php } ?>
+<script language="javascript">
+changestatediv("US");
+</script>

@@ -1,0 +1,323 @@
+<?php 
+require_once('conn/DB.php');
+include('conn/tablefuncs.php');
+include('../include/config.php');
+mysql_select_db($database_DB, $ravcodb);
+session_start();
+include('permision.php');
+//if (!$_SESSION["loginid"] || $_SESSION["userlevel"] < 2)
+if (!$_SESSION["loginid"])
+{?>
+<script language="javascript">
+parent.parent.location.href='admin.php';
+window.close();
+</script>
+<?php }
+$type_list = array(
+	'1'		=> 'DTC',
+	'2'		=> 'Photo Id',
+	'3'		=> 'Direct Jet',
+	'4'		=> 'UV',
+	'5'		=> 'Laser',
+	'6'		=> 'Reusable',
+	'0'		=> 'Other'
+);
+if ($_REQUEST["norderid"])
+{
+	$data["status"] = $_REQUEST["status"];
+	$where = "id = ".$_REQUEST["norderid"];
+	modify_record("printorders", $data, $where);
+}
+
+if ($_REQUEST["delid"])
+{
+	if(check('delete',3)){
+		delete_record_secondary("printorders", $_REQUEST["delid"], "id");
+		delete_record_secondary("batches", $_REQUEST["delid"], "printorderid");
+	}else {
+		die('You don\'t have permision to perform this action.');
+	}
+}
+
+	$per_page = 150;
+	$query_search = "SELECT printorders.*, customers.id AS custid, 
+	customers.firstname AS firstname, customers.lastname AS lastname, 
+	customers.companyname AS companyname, customers.street,
+	customers.street2, customers.city, customers.state,
+	customers.zip AS zipcode, customers.email, 
+	customers.phone 
+	FROM printorders 
+	LEFT JOIN customers ON (customers.id = printorders.custid) 
+	WHERE printorders.paid = 1
+	AND new_old  = 'new'
+	";
+	
+	$param = '';
+	if(isset($_REQUEST['customer_name']) && trim($_REQUEST['customer_name'])!=''){
+		$customer_name  = trim($_REQUEST['customer_name']);
+		$query_search.=" AND (firstname like '%$customer_name%' OR lastname like '%$customer_name%')";
+		$param.='&customer_name='.urlencode($customer_name);
+	}
+	if(isset($_REQUEST['date']) && trim($_REQUEST['date'])!=''){
+		$date  = trim($_REQUEST['date']);
+		$query_search.=" AND printorders.timestamp like '%$date%'";
+		$param.='&date='.$date;
+	}
+	if(isset($_REQUEST['print_order_number']) && trim($_REQUEST['print_order_number'])!=''){
+		$print_order_number = trim($_REQUEST['print_order_number']);
+		$query_search.=" AND  printorders.id like '%$print_order_number%'";
+		$param.='&print_order_number='.urlencode($print_order_number);
+	}
+	if(isset($_REQUEST['company_name']) && trim($_REQUEST['company_name'])!=''){
+		$company_name = trim($_REQUEST['company_name']);
+		$query_search.=" AND  customers.companyname like '%$company_name%'";
+		$param.='&company_name='.urlencode($company_name);
+	}
+	if(isset($_REQUEST['search_type']) && count($_REQUEST['search_type'])>0 && count($_REQUEST['search_type'])<7) {
+		$types	= implode(",", $_REQUEST['search_type']);
+		$query_search.=" AND printorders.type IN ({$types})";
+		foreach($_REQUEST['search_type'] as $value) {
+			$param.='&search_type[]='.$value;
+		}
+	}
+	
+	
+	$query_search.= ' ORDER BY id DESC';
+	
+	$result = mysql_query($query_search);
+	$count = mysql_num_rows($result);
+	$pages = ceil($count/$per_page);	
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>View Print Orders</title>
+<?php include("init_top.php");?>
+<link href="<?php echo $base_url?>/admin/includes/cms.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $base_url?>/admin/calendar/calendar-win2k-1.css" />
+
+
+<!-- main calendar program -->
+<script type="text/javascript" src="<?php echo $base_url?>/admin/calendar/calendar.js"></script>
+
+<!-- language for the calendar -->
+<script type="text/javascript" src="<?php echo $base_url?>/admin/calendar/lang/calendar-en.js"></script>
+
+<!-- the following script defines the Calendar.setup helper function, which makes
+     adding a calendar a matter of 1 or 2 lines of code. -->
+<script type="text/javascript" src="<?php echo $base_url?>/admin/calendar/calendar-setup.js"></script>
+
+<script type="text/javascript">
+    var GB_ROOT_DIR = "greybox/";
+</script>
+
+
+<script type="text/javascript" src="<?php echo $base_url?>/admin/greybox/AJS.js"></script>
+<script type="text/javascript" src="<?php echo $base_url?>/admin/greybox/AJS_fx.js"></script>
+<script type="text/javascript" src="<?php echo $base_url?>/admin/greybox/gb_scripts.js"></script>
+<script type="text/javascript" src="<?php echo $base_url?>/admin/scripts/jquery-1.3.2.min.js"></script>
+
+
+<link href="<?php echo $base_url?>/admin/greybox/gb_styles.css" rel="stylesheet" type="text/css" />
+
+<script language="javascript">
+$(document).ready(function()
+
+{
+	var param_search = $("#param_search").val();
+	//Display Loading Image
+	function Display_Load()
+
+	{
+
+		$("#loading").fadeIn(900,0);
+
+		$("#loading").html('<img src="loadAnm.gif" />');
+
+	}
+	//Hide Loading Image
+	function Hide_Load()
+
+	{
+
+		$("#loading").fadeOut('slow');
+
+	};
+
+
+	//Default Starting Page Results
+	$("#pagination li:first").css({'color' : '#FF0084'}).css({'border' : 'none'});
+
+	Display_Load();
+
+	$("#search-content").load("printorder_search_view_paing.php?page=1"+param_search, Hide_Load());
+	//Pagination Click
+	$("#pagination li").click(function(){
+		
+		Display_Load();
+		//CSS Styles
+		$("#pagination li")
+
+			.css({'border' : 'solid #dddddd 1px'})
+
+			.css({'color' : '#0063DC'});
+
+
+
+		$(this)
+
+		.css({'color' : '#FF0084'})
+
+		.css({'border' : 'none'});
+		//Loading Data
+		var pageNum = this.id;
+
+		$("#content").load("printorder_search_view_paing.php?page=" + pageNum+param_search,Hide_Load());
+
+	});
+
+
+
+});
+
+</script>
+
+<style>
+/*
+
+.resize
+{
+	width:150px;
+	height:auto;
+}
+#loading
+
+{ 
+
+width: 100%; 
+
+position: absolute;
+
+}
+li
+
+{ 
+
+list-style: none; 
+
+float: left; 
+
+margin-right: 16px; 
+
+padding:5px; 
+
+border:solid 1px #dddddd;
+
+color:#0063DC; 
+
+}
+li:hover
+
+{ 
+
+color:#FF0084; 
+
+cursor: pointer; 
+
+}
+*/
+</style>
+
+</head>
+
+<body>
+<?php include("header.php"); ?>
+<div class="xgrid">
+<div style="min-height: 300px;" class="portlet x12">
+	<div class="portlet-header"><h4>View Print Orders</h4></div>			
+		<div class="portlet-content" >
+		
+<form action="printorder_search_view_admin.php" method="post" name="print_search_form" >
+<input type="hidden" value="<?php echo $param;?>" id="param_search" name="param_search" />
+<table class="search-box-tabletype">
+	<tr>
+		<td colspan="9"><h3>Search form</h3></td>
+	</tr>
+	<tr>
+		<td>Customer Name:</td>
+		<td><input type="text" value="<?php if(isset($_REQUEST['customer_name'])){ echo $_REQUEST['customer_name']; }?>" name="customer_name" /></td>
+		<td>Type:</td>
+		<td rowspan="4">
+			<select name="search_type[]" multiple size="7" style="width:232px">
+				<?php foreach($type_list as $key=>$value) {?>
+					<option value="<?php echo $key;?>" <?php echo in_array($key,$_REQUEST['search_type']) ? 'selected' : '';?>><?php echo $value;?></option>
+				<?php }?>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Print order number:</td>
+		<td><input type="text" value="<?php if(isset($_REQUEST['print_order_number'])){ echo $_REQUEST['print_order_number']; }?>" name="print_order_number" /></td>
+	</tr>
+	<tr>
+		<td>Company name: </td>
+		<td><input type="text" name="company_name" value="<?php if(isset($_REQUEST['company_name'])){ echo $_REQUEST['company_name']; }?>" /></td>
+	</tr>
+	<tr>
+		<td>Date:</td>
+		<td><input type="text" value="<?php if(isset($_REQUEST['date'])){ echo $_REQUEST['date']; }?>" name="date" id="date_search" /></td>
+	</tr>
+	<tr>
+		<td><input  type="submit" name="Search" value="Search"  /></td>
+	</tr>
+</table>
+</form>
+<script type="text/javascript">
+  Calendar.setup(
+    {
+      inputField  : "date_search",         // ID of the input field
+      ifFormat    : "%Y-%m-%d",    // the date format
+    }
+  );
+</script>
+<div align="center"  style="margin-left: 260px">
+	<ul id="pagination">
+	<?php
+	//Pagination Numbers
+
+	for($i=1; $i<=$pages; $i++)
+
+	{
+
+	echo '<li id="'.$i.'">'.$i.'</li>';
+
+	}
+	?>
+	</ul> 
+	<h4> Total pages: <?php echo $pages;?> </h4>
+</div>
+<div style="clear: both;"></div>
+<div id="loading" ></div>
+<div id="search-content"></div>
+<div align="center"  style="margin-left: 260px">
+<ul id="pagination">
+<?php
+//Pagination Numbers
+
+for($i=1; $i<=$pages; $i++)
+
+{
+
+echo '<li id="'.$i.'">'.$i.'</li>';
+
+}
+?>
+</ul> <h4> Total pages: <?php echo $pages;?> </h4>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

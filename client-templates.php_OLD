@@ -1,0 +1,274 @@
+<?php 
+require_once('admin/conn/DB.php');
+include('admin/conn/tablefuncs.php');
+include('include/config.php');
+mysql_select_db($database_DB, $ravcodb);
+session_start();
+if($_REQUEST['id']==''){
+	$pagetitle = "The Best Name Badges Blog About Tags - Best Name Badges";
+	$metadescription = "";
+	$metakeywords = "name badges, name tags, custom name badge, custom name tags, metal name tags, brushed aluminum name badges, plastic name tags, plastic name badges, color name badges, employee name tags, employee name badges, professional name tags, professional name badges"; 
+}else {
+	$id = $_REQUEST['id'];
+	$query_title = "SELECT * FROM templates WHERE id= $id AND private = 0 ORDER BY id LIMIT 1 ";
+	$result_title = mysql_query($query_title);
+	$rows_title = mysql_fetch_assoc($result_title);
+	$pagetitle = $rows_title['title'];
+	$metadescription = $rows_title['meta_description'];
+	$metakeywords = $rows_title['meta_keyword'];; 
+}
+// function use to remove XSS
+function strip_javascript_input($filter){
+  
+    // realign javascript href to onclick
+    $filter = preg_replace("/href=(['\"]).*?javascript:(.*)?\\1/i", "onclick=' $2 '", $filter);
+
+    //remove javascript from tags
+    while( preg_match("/<(.*)?javascript.*?\(.*?((?>[^()]+)|(?R)).*?\)?\)(.*)?>/i", $filter))
+        $filter = preg_replace("/<(.*)?javascript.*?\(.*?((?>[^()]+)|(?R)).*?\)?\)(.*)?>/i", "<$1$3$4$5>", $filter);            
+    // dump expressions from contibuted content
+    if(0) $filter = preg_replace("/:expression\(.*?((?>[^(.*?)]+)|(?R)).*?\)\)/i", "", $filter);
+
+    while( preg_match("/<(.*)?:expr.*?\(.*?((?>[^()]+)|(?R)).*?\)?\)(.*)?>/i", $filter))
+        $filter = preg_replace("/<(.*)?:expr.*?\(.*?((?>[^()]+)|(?R)).*?\)?\)(.*)?>/i", "<$1$3$4$5>", $filter);
+       
+    // remove all on* events   
+    while( preg_match("/<(.*)?\s?on.+?=?\s?.+?(['\"]).*?\\2\s?(.*)?>/i", $filter) )
+       $filter = preg_replace("/<(.*)?\s?on.+?=?\s?.+?(['\"]).*?\\2\s?(.*)?>/i", "<$1$3>", $filter);
+
+    return htmlentities(strip_tags($filter));
+} 
+// end of function remove XSS
+?>
+<?php 
+if ($_SESSION["customerloginid"])
+{
+	$action = 'add-names.php';
+	include_once 'inc/header-auth.php';
+} else {
+	$action = 'sign-up.php';
+	//include_once 'inc/header.php' ;
+	include_once 'inc/header_new.php' ;
+}
+ ?>
+ <style>
+ .img_btn {
+    background: url("<?php echo $base_url;?>/images/viewTemplateButton.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    height: 27px;
+    text-indent: -200px;
+    width: 95px;
+}
+.order_btn{
+	background: url("<?php echo $base_url;?>/images/OrderNow.jpg") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    height: 27px;
+    text-indent: -200px;
+    width: 95px;
+}
+ </style>
+ 
+ <script src="<?php echo $base_url;?>/js/jquery-1.5.1.js"></script>
+ <script>
+function htmlspecialchars_decode (string, quote_style) {
+    var optTemp = 0,
+        i = 0,
+        noquotes = false;
+    if (typeof quote_style === 'undefined') {
+        quote_style = 2;
+    }
+    string = string.toString().replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+    var OPTS = {
+        'ENT_NOQUOTES': 0,
+        'ENT_HTML_QUOTE_SINGLE': 1,
+        'ENT_HTML_QUOTE_DOUBLE': 2,
+        'ENT_COMPAT': 2,
+        'ENT_QUOTES': 3,
+        'ENT_IGNORE': 4
+    };
+    if (quote_style === 0) {
+        noquotes = true;
+    }
+    if (typeof quote_style !== 'number') { // Allow for a single string or an array of string flags
+        quote_style = [].concat(quote_style);
+        for (i = 0; i < quote_style.length; i++) {
+            // Resolve string input to bitwise e.g. 'PATHINFO_EXTENSION' becomes 4
+            if (OPTS[quote_style[i]] === 0) {
+                noquotes = true;
+            } else if (OPTS[quote_style[i]]) {
+                optTemp = optTemp | OPTS[quote_style[i]];
+            }
+        }
+        quote_style = optTemp;
+    }
+    if (quote_style & OPTS.ENT_HTML_QUOTE_SINGLE) {
+        string = string.replace(/&#0*39;/g, "'"); // PHP doesn't currently escape if more than one 0, but it should
+        // string = string.replace(/&apos;|&#x0*27;/g, "'"); // This would also be useful here, but not a part of PHP
+    }
+    if (!noquotes) {
+        string = string.replace(/&quot;/g, '"');
+    }
+    // Put this in last place to avoid escape being double-decoded
+    string = string.replace(/&amp;/g, '&');
+
+    return string;
+}
+
+</script>
+<script>
+	$(document).ready(function(){
+		
+		$(".client_order").click(function(){
+			var id = $(this).attr('id');
+			//alert(id);
+			var value = $("#proof_"+id).val();
+			$.ajax({
+				url: '<?php echo $base_url?>/ajax/client_template.php?proof='+htmlspecialchars_decode(value),
+				success: function(data){
+					//alert('abcv');
+					$("#client_template_"+id).submit();
+				}
+			});	
+		})			
+	});
+	
+</script>
+  <div id="hero">
+  <div id="heroHeader">
+    &nbsp;
+  </div>
+  
+  <!-- <div id="heroButton"><a href="<?php echo $base_url?>/sign-up.php"><img src="images/getStartedButton.png" width="159" height="35" alt="Get Started" /></a></div> 
+  
+  <div id="heroButton"><a href="<?php echo $base_url?>/order2.php"><img src="images/getStartedButton.png" width="159" height="35" alt="Get Started" /></a></div>-->
+</div>
+  <!-- end hero -->
+  
+  <div id="content">
+    <div id="leftColumn">
+      <!-- <div id="testimonialsContainer">
+        <div id="testimonialsContainer2">
+          <div id="testimonials">
+          	<h3>Templates Posts 1:</h3>
+          	<div style="padding-top: 15px;"> -->
+				<?php 
+					/*$query  = 'SELECT *FROM templates WHERE private = 0  ORDER BY id LIMIT 10';
+                    // echo $query; 
+					$result = mysql_query($query);					
+					if($result){
+					  $num_rows = mysql_num_rows($result);
+					  if($num_rows > 0){
+					  while($rows  = mysql_fetch_assoc($result)){*/
+				?>
+					<!-- <a style="color: #CCC;" href="<?php echo $base_url;?>/client-templates/<?php echo $rows['permanent_link'];?>_<?php echo $rows['id']?>"><?php echo $rows['link_anchor'];?></a><br /> -->
+				<?php /*}
+				   }
+				  } */?>
+            <!-- </div>
+            
+          </div>
+          <div id="clients">
+          	<h3>Clients We Serve:</h3>
+          <img style="margin-top: 10px;" src="images/clients.png" width="321" height="192" alt="Clients: Farmers Insurance Group, Firm Solutions, Frontier Honda, Florida Health and Life Insurance, MD Office Manager, Lions Bank, New Life Fellowship, yoostar2" /></div>
+
+        </div>
+      </div> -->
+      <?php include_once 'inc/leftcolumn1_new.php' ; ?>
+	  <?php //include_once 'inc/leftcolumn1.php' ; ?>
+    </div><!-- end leftColumn -->
+    
+    <div id="mainContent">
+    <div class="subleft fll">
+    	<div class="subpage-nav">
+        	<h3>Menu</h3>
+        	<ul class="ul-main">
+            	<li><a href="name-badges.php">Products</a></li>
+                <li><a href="testimonials.php">Testimonials</a></li>
+                <li><a href="corporate-name-badges.php">Corporate Ordering</a></li>
+                <li><a href="blog.php">The Badge Blog</a></li>
+                <li><a href="about-us.php">About Us</a></li>
+                <li><a href="whats-new.php">What's New</a></li>
+                <li><a href="contact-us.php">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="clb"><a href="#"><img src="images/subpage-what.gif"  /></a></div>
+        <div class="need-fast clb">
+        	<h3>Need It Fast?</h3>
+            <h4>We Have You Covered.</h4>
+        </div>
+        <div class="rush-free clb">
+        	Rush Processing Offered Absolutely <strong>FREE</strong>
+        </div>
+    </div>
+    <div class="subright flr">
+		<h2>NAME BADGE TEMPLATES</h2>
+		<div style="margin-top: 50px;"></div>
+	  <?php 
+        
+		if(!isset($_REQUEST['id']) || $_REQUEST['id']==''){
+			$_REQUEST = array_map('strip_javascript_input',$_REQUEST);
+			//select the first record
+			$sql_f = 'SELECT * FROM templates WHERE private = 0 ORDER BY id';             
+			$result_f = mysql_query($sql_f);
+			$i=0;
+			while($row = mysql_fetch_array($result_f))
+			{
+			?>
+			<div style="width: 250px; float:left; margin: 15px;border:1px solid #E2E2E2 ">
+				<h3 style="padding-top: 15px;" align="center"><a href="<?php echo $base_url;?>/client-templates/<?php echo $row['permanent_link']?>_<?php echo $row['id']?>"><b><?php echo $row['title']; ?></b></a></h3>
+				<!-- <p>
+					<?php echo $row['content']?>
+				</p> -->
+				<p align="center" style="height: 120px;"><a href="<?php echo $base_url;?>/client-templates/<?php echo $row['permanent_link']?>_<?php echo $row['id']?>"><img src="<?php echo $row['proof']?>" style="max-width: 200px; max-height: 150px;" /></a></p>
+				<div align="center" style="padding-bottom: 20px;">					
+						<a href="<?php echo $base_url;?>/client-templates/<?php echo $row['permanent_link']?>_<?php echo $row['id']?>"><input type="button" name="Order" id="t<?php echo $row['id']?>" class="img_btn client_order" value="VIEW TEMPLATE" /></a>
+				</div>		
+			</div>
+			<?php
+			$i++;
+			if($i>0 && $i%2==0){				
+				echo '<div style="clear:both"></div>';
+			}		
+			}			
+		}else{		
+			$_REQUEST = array_map('strip_javascript_input',$_REQUEST);
+			
+			$id = intval($_REQUEST['id']);
+			$query = "SELECT * FROM templates WHERE id='".mysql_real_escape_string($id)."' ORDER BY id LIMIT 1 ";
+			//echo $query;
+			$result = mysql_query($query);
+			if($result){
+			$num_row = mysql_num_rows($result);
+			if($num_row > 0){
+				$rows = mysql_fetch_assoc($result);
+			
+		?>
+				<h3><b><?php echo $rows['title']; ?></b></h3>
+				<p>
+					<?php echo $rows['content']?>
+				</p>
+				<p><img src="../output/<?php echo $rows['proof']?>" style="max-width: 200px; max-height: 150px;" /></p>
+				<p align="right">
+					<form id="client_template_t1" name="client_template" method="POST" action="<?php echo $base_url.'/'.$action?>">
+						<input type="button" name="Order" id="t1" class="order_btn client_order" value="VIEW TEMPLATE" />
+						<input type="hidden" value="<?php echo $rows['proof'];?>" id="proof_t1" name="proof" />
+						<input type="hidden" value="1" name="template" />
+				<input type="hidden" value="4" name="tag" />
+					</form>
+				</p>
+		<?php
+			   }		
+			}
+		}
+	  ?>
+	 </div> 
+    </div><!-- end mainContent -->
+  
+  </div><!-- end content -->
+</div><!-- end wrapper -->
+
+<div style="display: none;"><img src="/images/sevenReasonsButtonMinus.png" /></div>
+
+<?php include_once 'inc/footer.php' ; ?>

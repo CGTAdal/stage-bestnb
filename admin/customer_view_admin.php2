@@ -1,0 +1,295 @@
+<?php 
+require_once('conn/DB.php');
+include('conn/tablefuncs.php');
+include('../include/config.php');
+mysql_select_db($database_DB, $ravcodb);
+session_start();
+include('permision.php');
+//if (!$_SESSION["loginid"] || $_SESSION["userlevel"] < 2)
+if (!$_SESSION["loginid"])
+{?>
+<script language="javascript">
+parent.parent.location.href='admin.php';
+window.close();
+</script>
+<?php }
+
+if ($_REQUEST["delid"])
+{
+	if(check('delete',3)){
+		delete_record_secondary("orders", $_REQUEST["delid"], "customerid");	
+		delete_record_secondary("batches", $_REQUEST["delid"], "custid");
+		delete_record_secondary("printorders", $_REQUEST["delid"], "custid");
+		delete_record_secondary("custstyle", $_REQUEST["delid"], "custid");
+		delete_record("customers",$_REQUEST["delid"]);
+	}else {
+		die('You don\'t have permision to perform this action.');
+	}	
+}
+
+if ($_REQUEST["customerid"])
+{
+	$customerid=$_REQUEST["customerid"];
+	$qry = "SELECT customers.* FROM customers WHERE id=$customerid ORDER BY lastname";
+} else {
+	$per_page = 150;
+	$qry = "SELECT customers.* FROM customers ORDER BY lastname";
+	$result = mysql_query($qry);
+	$count = mysql_num_rows($result);
+
+	$pages = ceil($count/$per_page);
+} 
+$customers = mysql_query($qry) or die('Query failed: ' . mysql_error()); 
+$customer = mysql_fetch_assoc($customers);
+	
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>View Customers</title>
+<?php include("init_top.php");?>
+<link href="<?php echo $base_url?>/admin/includes/cms.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo $base_url?>/admin/calendar/calendar-win2k-1.css" title="win2k-1" />
+
+<!-- main calendar program -->
+<script type="text/javascript" src="<?php echo $base_url?>/admin/calendar/calendar.js"></script>
+
+<!-- language for the calendar -->
+<script type="text/javascript" src="<?php echo $base_url?>/admin/calendar/lang/calendar-en.js"></script>
+
+<!-- the following script defines the Calendar.setup helper function, which makes
+     adding a calendar a matter of 1 or 2 lines of code. -->
+<script type="text/javascript" src="<?php echo $base_url?>/admin/calendar/calendar-setup.js"></script>
+
+<script type="text/javascript">
+    var GB_ROOT_DIR = "greybox/";
+</script>
+
+<script type="text/javascript" src="<?php echo $base_url?>/admin/greybox/AJS.js"></script>
+<script type="text/javascript" src="<?php echo $base_url?>/admin/greybox/AJS_fx.js"></script>
+<script type="text/javascript" src="<?php echo $base_url?>/admin/greybox/gb_scripts.js"></script>
+<script type="text/javascript" src="<?php echo $base_url?>/admin/scripts/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="<?php echo $base_url?>/admin/scripts/paging.js"></script>
+<link href="<?php echo $base_url?>/admin/greybox/gb_styles.css" rel="stylesheet" type="text/css" />
+
+<script language="javascript">
+function reloadIt()
+{
+	window.location = "customer_view_admin.php";
+}
+function check_validate(){
+	var email = document.customer_search_form.email.value;	
+	if(email!=''){	
+		var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+		if(reg.test(email) == false) {	
+			alert('Invalid Email Address');	
+			document.customer_search_form.email.focus();	
+			return false;		
+		}
+	}
+	return true;
+}
+
+</script>
+
+<style>
+/*
+.resize{width:150px;height:auto;}
+#loading{width: 100%;position: absolute;}
+li{list-style: none;float: left;margin-right: 16px;padding:5px;border:solid 1px #dddddd;color:#0063DC;}
+li:hover{color:#FF0084;cursor: pointer;}
+*/
+.fieltable{background-color: #263849 !important;color: #FFFFFF; font-weight: bold; font-size:13px;} 
+</style>
+
+</head>
+<body>
+<?php include("header.php"); ?>
+<div class="xgrid" >
+	<div class="portlet x12">
+		<div class="portlet-header"><h4>View Customers</h4></div>			
+			<div class="portlet-content" >
+				<form action="customer_search_view.php" method="post" name="customer_search_form" >
+					<table align="center" class="search-box-tabletype">
+						<tr>
+							<td colspan="2"><h3>Search form</h3></td>
+						</tr>
+						<tr>
+							<td class="align-right" width="120px">Customer Name:</td>
+							<td>
+								<select name="operator">
+                                <option value="2">Like</option>
+									<option value="1">Is</option>
+									
+									<!-- <option value="3">Contains</option>-->
+								</select>
+								<input type="text" value="" name="customer_name" />
+							</td>
+						</tr>
+						<tr>
+							<td class="align-right">Email:</td>
+							<td>
+								<select name="email_operator">
+                                <option value="2">Like</option>
+									<option value="1">Is</option>
+									
+									<!-- <option value="3">Contains</option> -->
+								</select>
+								<input type="text" value="" name="email"/>
+							</td>
+						</tr>
+						<tr>
+							<td class="align-right">Company Name:</td>
+							<td>
+								<select name="company_name_operator">
+									<option value="2">Like</option>
+                                    <option value="1">Is</option>
+									
+									<!-- <option value="3">Contains</option>-->
+								</select>
+								<input type="text" value="" name="company_name"/>
+							</td>
+						</tr>
+						<tr>
+							<td class="align-right">Phone Number:</td>
+							<td>
+								<select name="phone_operator">
+									<option value="2">Like</option>
+                                    <option value="1">Is</option>
+									
+									<!-- <option value="3">Contains</option>-->
+								</select>
+								<input type="text" value="" name="phone_number"/>
+							</td>
+						</tr>
+						<tr>
+							<td class="align-right">City:</td>
+							<td>
+								<select name="city_operator">
+									<option value="2">Like</option>
+                                    <option value="1">Is</option>
+									
+									<!-- <option value="3">Contains</option>-->
+								</select>
+								<input type="text" value="" name="search_city"/>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><input type="submit" name="Search" value="Search"  /></td>
+						</tr>
+					</table>
+				</form>
+	<?php if (!isset($_REQUEST["customerid"])){?>
+	<div style="float:right">
+		<ul id="pagination" style="display: none;">
+			<?php
+			//Pagination Numbers
+			for($i=1; $i<=$pages; $i++)	{
+				echo '<li id="'.$i.'">'.$i.'</li>';
+			}
+			?>
+		</ul> 
+		<h4>Total pages: <?php echo $pages;?></h4>
+	</div>
+	<div style="float:left">
+		<a href="customer_add_admin.php" style="color:#fff" class="btn btn-small">Add Customer</a>
+	</div>
+	<div style="clear: both;"></div>
+	<div id="loading" ></div>
+	<a href="javascript: void(0);" class="view-full-info">Click to view additional information</a>
+	<div id="customer-list" ></div>
+	<div align="center"  style="float:right">
+		<ul id="pagination" style="display: none;">
+		<?php
+		//Pagination Numbers
+		for($i=1; $i<=$pages; $i++) {
+			echo '<li id="'.$i.'">'.$i.'</li>';
+		}
+		?>
+		</ul>
+		<h4> Total pages: <?php echo $pages;?> </h4>
+	</div>
+	<?php } else {
+		$customerid		=$_REQUEST["customerid"];
+		$customer_query = "SELECT customers.* FROM customers WHERE id=$customerid ORDER BY lastname";
+		$customers 		= mysql_query($customer_query) or die('Query failed: ' . mysql_error()); 
+	?>
+	<form action="customer_add_admin.php" enctype="multipart/form-data" method="post" name="addcust">
+		<input type="hidden" name="addcustinfo" value="1" />
+		<table width="800px" frame="box" border="0" align="center">
+			<tr>
+				<td colspan="4"><a href="customer_add_admin.php" style="color:#fff" class="btn btn-small">Add Customer</a></td>
+			</tr>
+			<tr bgcolor="#D8D7E3">
+				<td width="7%" class="fieltable">Name</td>
+				<td width="7%" class="fieltable"><strong>Email</strong></td>
+		   		<td width="12%" class="fieltable"><strong>Inventory</strong></td>
+				<td width="12%" class="fieltable"><strong>FInventory</strong></td>
+				<td width="12%" class="fieltable"><strong>DMInventory</strong></td>
+		   		<td width="7%" class="fieltable"><strong>City</strong></td>
+		   		<td width="6%" class="fieltable"><strong>State</strong></td>
+		        <td width="6%" class="fieltable"><strong>Phone</strong></td>
+		  	</tr>
+		<?
+		$bgcolor = "WHITE";
+		while($customer = mysql_fetch_assoc($customers))
+		{
+		?>
+		<tr bgcolor="<?php echo $bgcolor; ?>">
+				<td colspan="8" align="right">
+		        	<a href="customer_edit_admin.php?customerid=<?php echo $customer["id"]; ?>" title="Edit Customer" rel="gb_page_center[850, 600]">edit</a> | 
+		        	<?php if($_SESSION["userlevel"] > 1){?>
+		        		<a href="customer_view_admin.php?delid=<?php echo $customer["id"]; ?>" onClick="javascript:return confirm('Are you sure you want to delete this customer?')">delete</a> | 
+		        	<?php } ?>
+		        	<a href="admin_custstyle_view.php?customerid=<?php echo $customer["id"]; ?>" title="View Styles" rel="gb_page_center[1100, 800]">styles</a> | 
+		        	<a href="order_view_admin.php?customerid=<?php echo $customer["id"]; ?>" title="View Orders">orders</a> | 
+		        	<a href="admin_list_invoice.php?customerid=<?php echo $customer['id']; ?>">Invoices</a> | 
+		        	<a href="presale_proof_view.php?customerid=<?php echo $customer['id']; ?>">Pre-Sales</a> | 
+		        	<a href="printorder_view_admin.php?customerid=<?php echo $customer["id"]; ?>" title="View Print Orders">print orders</a> | 
+		        	<a href="batch_view_admin.php?customerid=<?php echo $customer["id"]; ?>&batchstatus=pending" title="View Batches - Pending" rel="gb_page_center[1024, 500]">pending</a> 
+		       	</td>
+			</tr>
+		<tr>
+				<td><?php echo $customer["firstname"]." ".$customer["lastname"]; ?></td>
+				<td><?php echo $customer["email"]; ?></td>
+				<td><?php echo $customer["inventory"]; ?></td>
+				<td><?php echo $customer["finventory"]; ?></td>
+				<td><?php echo $customer["dminventory"]; ?></td>
+				<td><?php echo $customer["city"]; ?></td>
+				<td><?php echo $customer["state"]; ?></td>
+				<td><?php echo $customer["phone"]; ?></td>
+			</tr>
+		<?
+		if ($bgcolor == "WHITE")
+			{
+				$bgcolor = "#D8D8D8";
+			} else {
+				$bgcolor = "WHITE";
+			}
+		}
+		?>
+		
+		</table>
+	</form>
+	<?php } ?>
+	</div>
+	</div>
+</div>
+<script>
+	$(document).ready(function(){
+		$('.view-full-info').live('click',function(){
+			if($(this).html()=='Click to view additional information') {
+				$(this).html('Click to view main information');
+			} else {
+				$(this).html('Click to view additional information');
+			}
+			$('.additional-field').toggle();
+			$('.main-field').toggle();
+		})
+	});
+</script>
+</body>
+</html>

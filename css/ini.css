@@ -1,0 +1,326 @@
+#loading,#loading_1,#loading_2,#loading_3,#loading_4,#loading_5,#loading_6,#loading_7,#loading_8,#loading_9,#loading_10
+{
+width:32px;
+height:32px;
+background: url('../images/loading_uplogo.gif');
+display:none;
+margin: 0 auto;					/*align the display at the center*/
+text-align: center;				/*align the display at the center*/
+}
+
+#my_iframe,#my_iframe_1,#my_iframe_2,#my_iframe_3,#my_iframe_4,#my_iframe_5,#my_iframe_6,#my_iframe_7,#my_iframe_8,#my_iframe_9,#my_iframe_10
+{
+display:none;
+border: 0px;
+overflow:hidden;
+margin: 0 auto;					/*align the display at the center*/
+text-align: center;				/*align the display at the center*/
+height: 25px;
+}
+.abc{position: relative;width: 340px;}
+#result_show,#result_show_1,#result_show_2,#result_show_3, #loading,#loading_1,#loading_2,#loading_3{position: absolute; top:2px; right: 0;}
+#result_show_4,#result_show_5,#result_show_6,#loading_4,#loading_5,#loading_6{position: absolute; top:2px; right: 0;}
+#result_show_7,#result_show_8,#result_show_9,#result_show_10,#loading_7,#loading_8,#loading_9,#loading_10{position: absolute; top:2px; right: 0;}
+
+
+#custom-demo .uploadifyQueueItem {
+	  background-color: #FFFFFF;
+	  border: none;
+	  font: 11px Verdana, Geneva, sans-serif;
+	  height: 20px;
+	  margin-top: 0;	 
+	  width: 200px;
+	}
+#custom-demo .uploadifyError {
+  background-color: #FDE5DD !important;
+  border: none !important; 
+}
+#custom-demo .uploadifyQueueItem .cancel {
+  float: right;
+}
+#custom-demo .uploadifyQueue .completed {
+  color: #C5C5C5;
+}
+#custom-demo .uploadifyProgress {
+  background-color: #E5E5E5;
+  margin-top: 10px;
+  width: 100%;
+}
+#custom-demo .uploadifyProgressBar {
+  background-color: #0099FF;
+  height: 3px;
+  width: 1px;
+}
+#custom-demo #custom-queue {  
+  height: 20px;	
+  width: 200px;
+}
+
+#custom-demo .uploadifyQueueItem {
+	  background-color: #FFFFFF;
+	  border: none;
+	  font: 11px Verdana, Geneva, sans-serif;
+	  height: 20px;
+	  margin-top: 0;	 
+	  width: 200px;
+	}
+	
+#custom-demo1 .uploadifyError {
+  background-color: #FDE5DD !important;
+  border: none !important; 
+}
+#custom-demo1 .uploadifyQueueItem .cancel {
+  float: right;
+}
+#custom-demo1 .uploadifyQueue .completed {
+  color: #C5C5C5;
+}
+#custom-demo1 .uploadifyProgress {
+  background-color: #E5E5E5;
+  margin-top: 10px;
+  width: 100%;
+}
+#custom-demo1 .uploadifyProgressBar {
+  background-color: #0099FF;
+  height: 3px;
+  width: 1px;
+}
+#custom-demo1 #custom-queue-1 {  
+  height: 20px;	
+  width: 200px;
+}
+
+/*demo 2*/
+
+#custom-demo2 .uploadifyError {
+  background-color: #FDE5DD !important;
+  border: none !important; 
+}
+#custom-demo2 .uploadifyQueueItem .cancel {
+  float: right;
+}
+#custom-demo2 .uploadifyQueue .completed {
+  color: #C5C5C5;
+}
+#custom-demo2 .uploadifyProgress {
+  background-color: #E5E5E5;
+  margin-top: 10px;
+  width: 100%;
+}
+#custom-demo2 .uploadifyProgressBar {
+  background-color: #0099FF;
+  height: 3px;
+  width: 1px;
+}
+#custom-demo2 #custom-queue-2 {  
+  height: 20px;	
+  width: 200px;
+}
+
+/**demo 3*/
+#custom-demo3 .uploadifyError {
+  background-color: #FDE5DD !important;
+  border: none !important; 
+}
+#custom-demo3 .uploadifyQueueItem .cancel {
+  float: right;
+}
+#custom-demo3 .uploadifyQueue .completed {
+  color: #C5C5C5;
+}
+#custom-demo3 .uploadifyProgress {
+  background-color: #E5E5E5;
+  margin-top: 10px;
+  width: 100%;
+}
+#custom-demo3 .uploadifyProgressBar {
+  background-color: #0099FF;
+  height: 3px;
+  width: 1px;
+}
+#custom-demo3 #custom-queue-3 {  
+  height: 20px;	
+  width: 200px;
+}
+.fileName {
+		display: none;
+}
+
+/** process for design from 4-10*/
+
+#custom-demo4 .uploadifyError {
+  background-color: #FDE5DD !important;
+  border: none !important; 
+}
+#custom-demo4 .uploadifyQueueItem .cancel {
+  float: right;
+}
+#custom-demo4 .uploadifyQueue .completed {
+  color: #C5C5C5;
+}
+#custom-demo4 .uploadifyProgress {
+  background-color: #E5E5E5;
+  margin-top: 10px;
+  width: 100%;
+}
+#custom-demo4 .uploadifyProgressBar {
+  background-color: #0099FF;
+  height: 3px;
+  width: 1px;
+}
+#custom-demo4 #custom-queue-4 {  
+  height: 20px;	
+  width: 200px;
+}
+
+
+#custom-demo5 .uploadifyError {
+  background-color: #FDE5DD !important;
+  border: none !important; 
+}
+#custom-demo5 .uploadifyQueueItem .cancel {
+  float: right;
+}
+#custom-demo5 .uploadifyQueue .completed {
+  color: #C5C5C5;
+}
+#custom-demo5 .uploadifyProgress {
+  background-color: #E5E5E5;
+  margin-top: 10px;
+  width: 100%;
+}
+#custom-demo5 .uploadifyProgressBar {
+  background-color: #0099FF;
+  height: 3px;
+  width: 1px;
+}
+#custom-demo5 #custom-queue-5 {  
+  height: 20px;	
+  width: 200px;
+}
+
+#custom-demo6 .uploadifyError {
+  background-color: #FDE5DD !important;
+  border: none !important; 
+}
+#custom-demo6 .uploadifyQueueItem .cancel {
+  float: right;
+}
+#custom-demo6 .uploadifyQueue .completed {
+  color: #C5C5C5;
+}
+#custom-demo6 .uploadifyProgress {
+  background-color: #E5E5E5;
+  margin-top: 10px;
+  width: 100%;
+}
+#custom-demo6 .uploadifyProgressBar {
+  background-color: #0099FF;
+  height: 3px;
+  width: 1px;
+}
+#custom-demo6 #custom-queue-6 {  
+  height: 20px;	
+  width: 200px;
+}	
+	
+#custom-demo7 .uploadifyError {
+  background-color: #FDE5DD !important;
+  border: none !important; 
+}
+#custom-demo7 .uploadifyQueueItem .cancel {
+  float: right;
+}
+#custom-demo7 .uploadifyQueue .completed {
+  color: #C5C5C5;
+}
+#custom-demo7 .uploadifyProgress {
+  background-color: #E5E5E5;
+  margin-top: 10px;
+  width: 100%;
+}
+#custom-demo7 .uploadifyProgressBar {
+  background-color: #0099FF;
+  height: 3px;
+  width: 1px;
+}
+#custom-demo7 #custom-queue-7 {  
+  height: 20px;	
+  width: 200px;
+}
+
+#custom-demo8 .uploadifyError {
+  background-color: #FDE5DD !important;
+  border: none !important; 
+}
+#custom-demo8 .uploadifyQueueItem .cancel {
+  float: right;
+}
+#custom-demo8 .uploadifyQueue .completed {
+  color: #C5C5C5;
+}
+#custom-demo8 .uploadifyProgress {
+  background-color: #E5E5E5;
+  margin-top: 10px;
+  width: 100%;
+}
+#custom-demo8 .uploadifyProgressBar {
+  background-color: #0099FF;
+  height: 3px;
+  width: 1px;
+}
+#custom-demo8 #custom-queue-8 {  
+  height: 20px;	
+  width: 200px;
+}
+
+#custom-demo9 .uploadifyError {
+  background-color: #FDE5DD !important;
+  border: none !important; 
+}
+#custom-demo9 .uploadifyQueueItem .cancel {
+  float: right;
+}
+#custom-demo9 .uploadifyQueue .completed {
+  color: #C5C5C5;
+}
+#custom-demo9 .uploadifyProgress {
+  background-color: #E5E5E5;
+  margin-top: 10px;
+  width: 100%;
+}
+#custom-demo9 .uploadifyProgressBar {
+  background-color: #0099FF;
+  height: 3px;
+  width: 1px;
+}
+#custom-demo9 #custom-queue-9 {  
+  height: 20px;	
+  width: 200px;
+}
+
+#custom-demo10 .uploadifyError {
+  background-color: #FDE5DD !important;
+  border: none !important; 
+}
+#custom-demo10 .uploadifyQueueItem .cancel {
+  float: right;
+}
+#custom-demo10 .uploadifyQueue .completed {
+  color: #C5C5C5;
+}
+#custom-demo10 .uploadifyProgress {
+  background-color: #E5E5E5;
+  margin-top: 10px;
+  width: 100%;
+}
+#custom-demo10 .uploadifyProgressBar {
+  background-color: #0099FF;
+  height: 3px;
+  width: 1px;
+}
+#custom-demo10 #custom-queue-10 {  
+  height: 20px;	
+  width: 200px;
+}
+	

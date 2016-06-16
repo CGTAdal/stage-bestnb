@@ -1,0 +1,22 @@
+
+
+The first update I would like to do on Best Name Badges is a “PO” function.  What this is, simply, it allows us to generate a “Print Order” without actually taking payment on the invoice.  So currently, when an invoice is paid, a print order is automatically generated that shows up under “Production > New Production” – but it only shows up when paid.  We have some customers that we start production before they pay, but we need to track these.
+ 
+-          When you view a customer and see their invoices, on the right under “Action” you can add a new link “Make PO”
+o   Example invoice page:  http://stage1.bestnamebadges.com/admin/admin_list_invoice.php?customerid=1
+o   When you click “Make PO” – it will ask if you are sure.  “A print order will be generated for this order, are you sure?” and you have to click “Yes”
+o   After you click “Yes” – under “Action” the “X” for delete will disappear, it’ll remain “Unpaid” and an ORANGE link will remain “PO”
+o   If you click on the PO link, you can change it back to a non-po/regular invoice, but don’t worry about the print order that was generated
+o   When you originally clicked “Yes” to make the PO, a print order is generated just like if the order was paid.
+o   Add this same functionality to the search invoice page:  http://stage1.bestnamebadges.com/admin/admin_listall_invoice.php
+-          Create a new page under “Invoices” navigation called “Invoices / PO”
+o   On this page, have all the same search functions as http://stage1.bestnamebadges.com/admin/admin_listall_invoice.php
+o   Only invoices marked as PO will shows on this page
+o   Note:  PO invoices will also shows on the regular invoice page, too, but on the new page it’s ONLY PO
+o   Should have the same functionality to view paid and unpaid.  When a PO invoice is “Paid”, however, it should NOT generate a print order.  Since normally paying the invoice makes a print order, when it’s marked as PO, the print order was already made.
+ 
+Please reach out with any questions.
+
+1. After you click “Yes” – under “Action” the “X” for delete will disappear, it’ll remain “Unpaid” and an ORANGE link will remain “PO”
+CGT : Do you need to replace partial with po?
+CGT : when click “Make PO” then print order genrated after that click PO link, it back to a non-po/regular invoice, but we have print order entry in "printorders" table. so after that if user click again “Make PO” then what about previous entry?

@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+
+.clb{clear:both;}
+.fll{float:left;}
+.flr{float:right;}
+.fln{float:none;}
+.mr-0{margin-right:0;}
+
+#leftColumn{width:95px;}
+#mainContent{width:836px;}
+
+.left-h-t{background:url(../images/you-seen-us.jpg) no-repeat; height:28px; margin-bottom:15px;}
+ul.left-seeus{margin:0; padding:0; list-style:none;}
+ul.left-seeus li{display:block; margin-bottom:5px; text-align:center;}
+
+.box-products{margin-right:-13px; width:860px;}
+.orderBox{float:left; width:270px; margin-right:13px;}
+
+.testimonials{margin:20px 0; color:#1a4a6e;}
+.testimonials a{color:#1a4a6e;}
+.testimonials h2{margin-bottom:12px;}
+.testimonials ul{list-style:none; margin:0 0 -10px; padding:0; font-size:12px; line-height:14px; width:860px;}
+.testimonials ul li{float:left; background:url(../images/testimonials-bg.jpg) no-repeat; width:336px; height:112px; padding:15px 40px 5px; margin:0 10px 10px 0; position:relative;}
+.testimonials ul li p{margin:0; padding:0 0 10px;}
+.testimonials ul li span.dot{position:absolute; display:block; width:13px; height:11px;}
+.testimonials ul li span.dot1{top:10px; left:10px; background:url(../images/phay1.gif) no-repeat;}
+.testimonials ul li span.dot2{background:url(../images/phay2.gif) no-repeat; bottom:40px; right:10px;}
+
+.what-bestme{color:#000;}
+
+.slider, #slider, .slider dt, .slider span{width:836px;}
+
+.subleft{width:178px; padding-bottom:50px;}
+.subright{width:690px; padding-right:50px; padding-bottom:50px; color:#555;}
+.ul-main{list-style:none; margin:0; padding:0;}
+
+.subpage-nav{background:#f2f0f0; padding-bottom:65px; overflow:hidden;}
+.subpage-nav h3{background:#fff url(../images/subpage-menu.gif) no-repeat; line-height:36px; padding-bottom:1px; margin:0; color:#fff; text-transform:uppercase; text-align:center; font-size:16px; font-weight:normal;}
+.subpage-nav ul li{background:url(../images/subpage-menu-icon.gif) no-repeat left 5px; margin:8px 18px 0 18px; padding:0 0 0 12px;}
+.subpage-nav ul li a{color:#434242; font-weight:bold;}
+.subpage-nav ul li a:hover{color:#1a4a6e;}
+
+.need-fast{padding:30px 0 5px;}
+.need-fast h3, .need-fast h3 a{font-size:18px; color:#fd7d0e; font-weight:bold;}
+.need-fast h4, .need-fast h4 a{color:#25435a; font-size:16px; font-weight:bold;}
+
+.rush-free{font-size:14px; color:#25435a; background:#f5f4f4; text-align:center;}
+.rush-free a{color:#25435a;}
