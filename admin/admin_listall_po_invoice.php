@@ -1,5 +1,4 @@
 <?php
-
 require_once('conn/DB.php');
 include('conn/tablefuncs.php');
 include('../include/config.php');
@@ -9,15 +8,13 @@ mysql_select_db($database_DB, $ravcodb);
 //if (!$_SESSION["loginid"] || $_SESSION["userlevel"] < 2)
 if (!$_SESSION["loginid"])
 {
-
 ?>
-
 <script language="javascript">
 	parent.parent.location.href='admin.php';
 	window.close();
 </script>
-
-<?php }
+<?php
+}
 
 //unset($_SESSION);
 //get list user to filter by user:
@@ -219,86 +216,85 @@ else {
 
 $result = mysql_query($sql);
 
-?>
 
 
-<?php 
-	//process of make po unpaid invoices
-	$is_make_po = $_REQUEST['make_po'];
-	if($is_make_po == 1)
+
+//process of make po unpaid invoices
+$is_make_po = $_REQUEST['make_po'];
+if($is_make_po == 1)
+{
+	//“Make PO”
+
+	$invoice_id = $_REQUEST['invoice_id'];
+	$customer_id = $_REQUEST['customer_id'];
+
+	if($invoice_id && $customer_id)
 	{
-		//“Make PO”
+		//check that invoice po already created or not
+		$sql_invoice_po_status = "SELECT count(printorders.id) AS count_po FROM printorders
+	                  			WHERE printorders.invoice_id = '{$invoice_id}' AND printorders.custid = '{$customer_id}'";
 
-		$invoice_id = $_REQUEST['invoice_id'];
-		$customer_id = $_REQUEST['customer_id'];
+		$result_invoice_po_status = mysql_query($sql_invoice_po_status);
 
-		if($invoice_id && $customer_id)
+		if($result_invoice_po_status)
 		{
-			//check that invoice po already created or not
-			$sql_invoice_po_status = "SELECT count(printorders.id) AS count_po FROM printorders
-		                  			WHERE printorders.invoice_id = '{$invoice_id}' AND printorders.custid = '{$customer_id}'";
+	        $invoice_po_count = mysql_fetch_assoc($result_invoice_po_status);
 
-			$result_invoice_po_status = mysql_query($sql_invoice_po_status);
-
-			if($result_invoice_po_status)
+			if($invoice_po_count["count_po"] == 0)
 			{
-		        $invoice_po_count = mysql_fetch_assoc($result_invoice_po_status);
+				$sql_invoice = "SELECT invoices.*,customers.sale_id FROM invoices
+	                  			INNER JOIN customers ON customers.id = invoices.customer_id
+	                  			WHERE invoices.id = '{$invoice_id}'";
 
-				if($invoice_po_count["count_po"] == 0)
-				{
-					$sql_invoice = "SELECT invoices.*,customers.sale_id FROM invoices
-		                  			INNER JOIN customers ON customers.id = invoices.customer_id
-		                  			WHERE invoices.id = '{$invoice_id}'";
+			    $result_invoice = mysql_query($sql_invoice);
 
-				    $result_invoice = mysql_query($sql_invoice);
+				$invoice  = array();
 
-					$invoice  = array();
+			    if($result_invoice)
+			    {
+			        $invoice = mysql_fetch_assoc($result_invoice);
 
-				    if($result_invoice)
-				    {
-				        $invoice = mysql_fetch_assoc($result_invoice);
+			        //Make PO
+					$data_printorder = array();
+					    $data_printorder["custid"]		= $invoice['customer_id'];
+					    $data_printorder['timestamp']	= date('Y-m-d H:i:s');
+					    $data_printorder['note']		= $invoice['internal_note'];
+					    $data_printorder['customer_note']	= $invoice['note_visible_to_client'];
+					    $data_printorder['invoice_id']	= $invoice['id'];
+				    
+					$printorder_id = add_record("printorders",$data_printorder);
+			    }
+			}
 
-				        //Make PO
-						$data_printorder = array();
-						    $data_printorder["custid"]		= $invoice['customer_id'];
-						    $data_printorder['timestamp']	= date('Y-m-d H:i:s');
-						    $data_printorder['note']		= $invoice['internal_note'];
-						    $data_printorder['customer_note']	= $invoice['note_visible_to_client'];
-						    $data_printorder['invoice_id']	= $invoice['id'];
-					    
-						$printorder_id = add_record("printorders",$data_printorder);
-				    }
-				}
-
-				//update is_po_created to 1 in invoices table
-				$data_invoices = array("is_po_created"=>1);
-				$where = "id = ".$invoice_id;
-	        	modify_record("invoices", $data_invoices, $where);
-		    }
-		}
-
-		$redirectURL = 'admin_listall_po_invoice.php?page='.$page;
-		header('Location: '.$redirectURL);
-	}
-	elseif($is_make_po == 2)
-	{
-		//change it back to a non-po/regular invoice
-
-		$invoice_id = $_REQUEST['invoice_id'];
-		$customer_id = $_REQUEST['customer_id'];
-
-		if($invoice_id)
-		{
-			//update is_po_created to 0 in invoices table for it back to non-po invoice
-			$data_invoices = array("is_po_created"=>0);
+			//update is_po_created to 1 in invoices table
+			$data_invoices = array("is_po_created"=>1);
 			$where = "id = ".$invoice_id;
-			modify_record("invoices", $data_invoices, $where);
-		}
-
-		$redirectURL = 'admin_listall_po_invoice.php?page='.$page;
-		header('Location: '.$redirectURL);
+        	modify_record("invoices", $data_invoices, $where);
+	    }
 	}
-	//end Make PO
+
+	$redirectURL = 'admin_listall_po_invoice.php?page='.$page;
+	header('Location: '.$redirectURL);
+}
+elseif($is_make_po == 2)
+{
+	//change it back to a non-po/regular invoice
+
+	$invoice_id = $_REQUEST['invoice_id'];
+	$customer_id = $_REQUEST['customer_id'];
+
+	if($invoice_id)
+	{
+		//update is_po_created to 0 in invoices table for it back to non-po invoice
+		$data_invoices = array("is_po_created"=>0);
+		$where = "id = ".$invoice_id;
+		modify_record("invoices", $data_invoices, $where);
+	}
+
+	$redirectURL = 'admin_listall_po_invoice.php?page='.$page;
+	header('Location: '.$redirectURL);
+}
+//end Make PO
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
