@@ -229,13 +229,21 @@ if($_REQUEST['edit']){
             mail($email, $subject, $message, $headers);
         //end of nofitation email
 
-    }      
-    if(isset($_REQUEST['redirect']) && $_REQUEST['redirect'] ==1){
-        $page = $_REQUEST['page'];   
+    }
+    if(isset($_REQUEST['redirect']) && $_REQUEST['redirect'] == 1){
+        $page = $_REQUEST['page'];
 ?>
     <script language="javascript">
 		parent.parent.location.href = "admin_listall_invoice.php?page=<?php echo $page;?>";
 		window.close();
+    </script>
+<?php
+    } else if(isset($_REQUEST['redirect']) && $_REQUEST['redirect'] == 2){
+        $page = $_REQUEST['page'];
+?>
+    <script language="javascript">
+        parent.parent.location.href = "admin_listall_po_invoice.php?page=<?php echo $page;?>";
+        window.close();
     </script>
 <?php
  }else {

@@ -502,11 +502,11 @@ if($_REQUEST['del_invoice'] == 1){
 		                        <?php }?> 
 	                        	<?php           
 		                            if($show_value == 1){  
-	                            		echo '<a href="invoice_payment.php?customer_id='.$row['customer_id'].'&invoice_id='.$row['id'].'&total='.$total_invoice.'&redirect=1&page='.$page.'" onclick="return GB_showCenter(\'Payment\', this.href,400,600);"><font color="green">Paid</font></a>';
+	                            		echo '<a href="invoice_payment.php?customer_id='.$row['customer_id'].'&invoice_id='.$row['id'].'&total='.$total_invoice.'&redirect=2&page='.$page.'" onclick="return GB_showCenter(\'Payment\', this.href,400,600);"><font color="green">Paid</font></a>';
 		                            }elseif($show_value == 2){
-		                            	echo '<a href="invoice_payment.php?customer_id='.$row['customer_id'].'&invoice_id='.$row['id'].'&total='.$total_invoice.'&redirect=1&page='.$page.'" onclick="return GB_showCenter(\'Payment\', this.href,400,600);"><font color="orange">Partial</font></a>';           
+		                            	echo '<a href="invoice_payment.php?customer_id='.$row['customer_id'].'&invoice_id='.$row['id'].'&total='.$total_invoice.'&redirect=2&page='.$page.'" onclick="return GB_showCenter(\'Payment\', this.href,400,600);"><font color="orange">Partial</font></a>';           
 		                            }else { 
-		                                echo '<a href="invoice_payment.php?customer_id='.$row['customer_id'].'&invoice_id='.$row['id'].'&total='.$total_invoice.'&redirect=1&page='.$page.'" onclick="return GB_showCenter(\'Payment\', this.href,400,600);"><font color="red">Unpaid</a></font>';                                 
+		                                echo '<a href="invoice_payment.php?customer_id='.$row['customer_id'].'&invoice_id='.$row['id'].'&total='.$total_invoice.'&redirect=2&page='.$page.'" onclick="return GB_showCenter(\'Payment\', this.href,400,600);"><font color="red">Unpaid</a></font>';                                 
 		                                if($row['is_po_created'] == 0) {
 											echo ' | <a onClick="javascript:return confirm(\'A print order will be generated for this order, are you sure?\')" href="admin_listall_po_invoice.php?customer_id='.$row['customer_id'].'&invoice_id='.$row['id'].'&make_po=1&page='.$page.'">Make PO</a>';
 		                                }
