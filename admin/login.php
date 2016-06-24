@@ -40,7 +40,7 @@ if (isset($_POST["attempt"]))
    	if($block != $value)
    	{
    		echo 'You are not allowed here!';
-   		exit();
+   		//exit(); //temp commented
    	}
    } 
    ?>

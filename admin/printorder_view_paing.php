@@ -25,9 +25,11 @@ if($_GET)
 
 $start = ($page-1)*$per_page;
 
-$sql = "SELECT printorders.*, customers.id AS custid, customers.firstname AS firstname, customers.lastname AS lastname, customers.companyname AS companyname, customers.street, customers.street2, customers.city, customers.state, customers.zip AS zipcode, customers.email, customers.phone FROM printorders LEFT JOIN customers ON (customers.id = printorders.custid) WHERE printorders.paid = 1 
+/*$sql = "SELECT printorders.*, customers.id AS custid, customers.firstname AS firstname, customers.lastname AS lastname, customers.companyname AS companyname, customers.street, customers.street2, customers.city, customers.state, customers.zip AS zipcode, customers.email, customers.phone FROM printorders LEFT JOIN customers ON (customers.id = printorders.custid) WHERE printorders.paid = 1 
 AND new_old  = 'new'
-ORDER BY priority DESC,id DESC LIMIT $start,$per_page";
+ORDER BY priority DESC,id DESC LIMIT $start,$per_page";*/
+$sql = "SELECT printorders.*, customers.id AS custid, customers.firstname AS firstname, customers.lastname AS lastname, customers.companyname AS companyname, customers.street, customers.street2, customers.city, customers.state, customers.zip AS zipcode, customers.email, customers.phone FROM printorders LEFT JOIN customers ON (customers.id = printorders.custid) WHERE new_old  = 'new'
+		ORDER BY priority DESC,id DESC LIMIT $start,$per_page";
 $result = mysql_query($sql);
 
 $type_list = array(

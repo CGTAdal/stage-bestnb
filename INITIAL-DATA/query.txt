@@ -1,0 +1,1 @@
+ALTER TABLE `invoices` ADD `is_po_created` INT( 2 ) NOT NULL DEFAULT '0';
