@@ -52,8 +52,7 @@
     </div>
     <div style="clear: both;"></div>
 <br />
-<br />
-<br />
+
 
   </div>
 </div><!-- end footer -->

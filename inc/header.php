@@ -16,6 +16,7 @@ include_once 'inc/prices.php' ;
 <link href="<?php echo $base_url;?>/style.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo $base_url;?>/css/style.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo $base_url;?>/css/style_new.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo $base_url;?>/css/ui-responsive.css" rel="stylesheet" type="text/css" />
 	<div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -37,7 +38,7 @@ include_once 'inc/prices.php' ;
 <body>
 <div id="wrapper">
   <div id="header">
-    <div id="topBar">
+    <div id="topBar" class="desktop-show">
     	<ul>
         	<li style="padding-right: 0;"><a href="<?php echo $base_url;?>/about-us.php">About Us</a></li>
             <li>|</li>
@@ -49,7 +50,22 @@ include_once 'inc/prices.php' ;
     </div>
     <div id="headerBar">
       <div id="headerBarLeft"><img src="<?php echo $base_url;?>/images/best-name-badges-logo.png" width="228" height="67" alt="Best Name Badges" /></div>
+      <div id="topBar" class="responsive-show">
+    	<ul>
+        	<li style="padding-right: 0;"><a href="<?php echo $base_url;?>/about-us.php">About Us</a></li>
+            <li>|</li>
+            <li><a href="<?php echo $base_url;?>/whats-new.php">What's New</a></li>
+             <li>|</li>
+            <li><a href="<?php echo $base_url;?>/blog">Our Blog</a></li>
+           
+        </ul>
+    </div>
       <div id="navigationWrapper">
+        <button class="menudiv-icon">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+        </button>
         <div id="navigationTop">
         	<ul>
             	<li><a href="<?php echo $base_url;?>">Home</a></li>
@@ -60,7 +76,10 @@ include_once 'inc/prices.php' ;
             </ul>
         </div>
         <div id="navigationBottom">
-          <div id="navigationBottomLeft"><img style="float: left;" src="/images/navPhone.png" width="181" height="24" /><div style="float:right;"><div style="text-align:center;width:133px;"><span id="phplive_btn_1430322739" onclick="phplive_launch_chat_3(0)" style="color: #0000FF; text-decoration: underline; cursor: pointer;"></span>
+          <div id="navigationBottomLeft">
+          <img style="float: left;" src="/images/navPhone.png" width="181" height="24" class="res-hide"/>
+          <span class="desktopknone-mobiletext">toll-free<sub>888 445 7601</sub></span>
+          <div style="float:right;"><div style="text-align:center;width:133px;"><span id="phplive_btn_1430322739" onclick="phplive_launch_chat_3(0)" style="color: #0000FF; text-decoration: underline; cursor: pointer;"></span>
 <script type="text/javascript">
 
 (function() {
@@ -71,6 +90,12 @@ phplive_e_1430322739.src = "//www.bnblivechat.com/chat/js/phplive_v2.js.php?v=3|
 document.getElementById("phplive_btn_1430322739").appendChild( phplive_e_1430322739 ) ;
 })() ;
 
+
+$(document).ready(function(){
+    $(".menudiv-icon").click(function(){
+       $("#navigationTop").slideToggle("slow");
+    });
+}); 
 </script>
 		</div></div></div>
           <div id="navigationBottomRight">
@@ -111,4 +136,5 @@ document.getElementById("phplive_btn_1430322739").appendChild( phplive_e_1430322
         </div>
       </div>
     </div><!-- end headerBar -->
+    
   </div><!-- end header -->

@@ -681,7 +681,7 @@ function changestatediv(country)
             <div class="signUpFieldRight"><input type="text" name="phone" value="<?php echo $_POST['phone'];?>" style="width: 200px;" class="signupFieldInput" /></div>
           </div>
           <div class="signUpField">
-            <div style="height: 30px; margin-left: 50px; line-height: 30px;"><input type="checkbox" name="agree" value="1" />      I agree to the <a href="/terms_of_service.php" target="_blank">terms of service</a>&nbsp;&nbsp;<?php if ($erragree) { echo $erragree; } ?></div>
+            <div class="singupcheckboxouter" style="height: 30px;  line-height: 30px;"><input type="checkbox" name="agree" value="1" />      I agree to the <a href="/terms_of_service.php" target="_blank">terms of service</a>&nbsp;&nbsp;<?php if ($erragree) { echo $erragree; } ?></div>
             
           </div>
           

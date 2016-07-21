@@ -1,0 +1,390 @@
+@charset "utf-8";
+/* CSS Document */
+
+.menudiv-icon{
+	display:none;
+}
+.desktopknone-mobiletext{
+	display:none;
+}
+.singupcheckboxouter{
+	width:100%;
+	text-align:center;
+}
+.desktop-show{
+	display:block;
+}
+.responsive-show{
+	display:none;
+}
+@media (min-width : 1024px) and (max-width : 1200px){
+}
+@media  (min-width : 768px) and (max-width : 1023px){
+*{
+	box-sizing:border-box;
+}
+#wrapper{
+	padding:0px 15px;
+	width:750px;
+}
+#footer{
+	padding-left:0px;
+	padding-right:0px;
+}
+#header,#topBar,#headerBar,#topBar ul{
+	width:100%;
+}
+#subFooter,#subFooterMain,#footer #subFooter #footerMenu,#footerCopyright,#subFooterMain2,#subFooterMain3{
+	width:100%;
+}
+#subFooterLeft{
+	width:270px;
+	height:inherit;
+}	
+#subFooterMiddle{
+	width:170px;
+	border:none;
+}
+#subFooterRight{
+	width:240px;
+	border-left: 1px solid #e4e4e4;
+	min-height:148px;
+}
+#subFooterLeft h5{
+	font-size:17px;
+}
+#subFooterMain2,#subFooterMain3{
+	background-image:none;
+}
+#subFooterMain{
+	background-image:none;
+	background:#fff;
+	border:2px solid #ddd;
+	border-radius:10px;
+}
+#content,#mainContentFull{
+	width:100%;
+}
+#signUpLeft{
+	width:48%;
+}
+#signUpRight{
+	width:50% !important;
+}
+#signUpRight img{
+	max-width:100%;
+}
+.signUpFieldRight{
+	width:217px;
+	padding-right:10px;
+}
+#navigationWrapper{
+	width:68%;
+	border-radius: 14px;
+}
+#navigationTop{
+	width:100%;
+}
+#navigationBottom{
+	width:100%;
+}
+#navigationTop ul li a{
+	padding:0px 14px;
+}
+#navigationBottomLeft{
+	width:60%;
+}
+#copyrightRight{
+	width:35%;
+}
+#subFooterLeft form #signup_email{
+	width:100%;
+	background-image:none;
+	border:2px solid #ddd;
+	border-radius:12px;
+}
+#subFooterLeft form #subscribe_button{
+	margin-left:0px;
+}
+.signupFieldInput{
+	width:100%;
+}
+.signupFieldInput{
+	height:20px;
+	width:100% !important;
+	border-radius:0px;
+	border:1px solid #ddd;
+}
+.signUpFieldRight select{
+	width:100%;
+	border-radius:0px;
+	border:1px solid #ddd;
+}
+#subFooter{
+	width:750px;
+	padding:0px 15px;
+}
+}
+@media only screen and (max-width : 767px) {
+*{
+	box-sizing:border-box;
+}	
+#wrapper{
+	padding:0px 15px;
+}	
+#footer{
+	padding-left:15px;
+	padding-right:15px;
+}
+#wrapper,#header,#topBar,#headerBar,#topBar ul{
+	width:100%;
+}
+#headerBarLeft {
+    float: left;
+    height: 67px;
+    text-align: center;
+    width: 100%;
+	margin:10px 0px;
+}
+#navigationWrapper,#navigationTop,#navigationBottom{
+	width:100%;
+}	
+#navigationBottomLeft{
+	width:56%;
+	padding:6px 0px 0px 10px;
+	text-align:left;
+}
+#content,#mainContentFull,#signUpLeft,#signUpRight,.signUpFieldLeft,.signUpFieldRight{
+	width:100% !important;
+}
+#signUpRight img{
+	max-width:100%;
+	margin-top:0px !important;
+}
+#subFooter,#subFooterMain,#subFooterMain2,#subFooterMain3,#subFooterLeft,#subFooterMiddle,#subFooterRight{
+	width:100%;
+	height:inherit;
+	padding-right:0px;
+	border-right:none;
+}
+#footer #subFooter #footerMenu{
+	width:100%;
+}
+#footerCopyright{
+	width:100%;
+}
+#copyrightLeft{
+	width:100%;
+	text-align:center;
+}
+#copyrightRight{
+	width:100%;
+	text-align:center;
+}
+#topBar ul li{
+	float:none;
+	display:inline-block;
+}
+#topBar{
+	text-align:center;
+}
+#headerBar,#navigationWrapper,#navigationTop,#navigationBottom{
+	height:inherit
+}
+#navigationTop ul li a{
+	background:none;
+}
+#navigationTop ul li{
+	width:100%;
+}
+.menudiv-icon{
+	 background: #ffffff none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: block;
+    float: right;
+    margin: 10px;
+	cursor:pointer;
+    padding: 5px;
+}
+#navigationWrapper{
+	background-image:none;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#487ca4+0,44779f+36,44779f+41,39688e+100 */
+background: rgb(72,124,164); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(72,124,164,1) 0%, rgba(68,119,159,1) 36%, rgba(68,119,159,1) 41%, rgba(57,104,142,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(72,124,164,1) 0%,rgba(68,119,159,1) 36%,rgba(68,119,159,1) 41%,rgba(57,104,142,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(72,124,164,1) 0%,rgba(68,119,159,1) 36%,rgba(68,119,159,1) 41%,rgba(57,104,142,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#487ca4', endColorstr='#39688e',GradientType=0 ); /* IE6-9 */
+
+	border-radius:10px;
+}
+#navigationTop{
+	border-top:1px solid #fff;
+	display:none;
+}
+.icon-bar {
+    background: #808080 none repeat scroll 0 0;
+    border-radius: 1px;
+    display: block;
+    height: 2px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    width: 22px;
+}
+.res-hide{
+	display:none;
+}
+.desktopknone-mobiletext{
+	display:inline-block;
+	color:#fff;
+	text-transform: uppercase;
+	font-size:10px;
+}
+.desktopknone-mobiletext sub{
+	font-size: 15px;
+    font-weight: bold;
+    margin-left: 6px;
+    vertical-align: top;
+}
+#loginButton span{
+	padding-right:25px;
+}
+#navigationBottomRight {
+    width: 125px !important;
+}
+#loginContainer{
+	float:left;
+}
+#subFooterMain{
+	background-image:none;
+	background:#fff;
+	border-radius:10px;
+	border:2px solid #ddd;
+}
+#subFooterMain2,#subFooterMain3{
+	background-image:none;
+}
+#subFooterMain3{
+	padding:15px;
+}
+#subFooterLeft form #signup_email{
+	width:100%;
+	background-image:none;
+	border:2px solid #ddd;
+	border-radius:12px;
+}
+#subFooterLeft{
+	text-align:center;
+}
+#subFooterLeft form #subscribe_button{
+	float:none;
+	margin-left:0px;
+}
+#subFooterMiddle{
+	padding-left:0px;
+	padding-top:10px; 
+	padding-bottom:10px;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	margin:10px 0px;
+}
+#subFooterRight{
+	padding-left:0px;
+	text-align:center;
+}
+.signUpField,div.signUpField:hover{
+	background:#f5f6e7;
+}
+.boxHeader{
+	float:left;
+	
+}
+.signUpField + .boxHeader{
+	margin-top:15px;
+}
+.signUpFieldRight{
+	padding-right:10px;
+}
+.signupFieldInput{
+	width:100% !important;
+}
+.signUpFieldRight select{
+	width:100%;
+	border-radius:0px;
+	border:1px solid #ddd;
+}
+.signUpRight img{
+	margin-top:0px;
+}
+#container{
+	width:inherit;
+}
+#footerMenu{
+	text-align:center;
+}
+#footerMenu li{
+	float:none !important;
+	display:inline-block !important;
+}
+#footerMenu li a{
+	margin-left:5px !important;
+	margin-right:5px !important; 
+}
+
+#subFooterRight #footerListRight{
+	width:100%;
+}
+
+#subFooterRight #footerListLeft{
+	width:100%;
+}
+#signUpLeft{
+	margin-top:0px;
+}
+#signUpRight{
+	text-align:center;
+}
+.signupFieldInput{
+	height:20px;
+	border-radius:0px;
+	border:1px solid #ddd;
+}
+#navigationBottom{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b1b1b1+0,a6a6a6+50,a6a6a6+53,949494+100 */
+background: rgb(177,177,177); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(177,177,177,1) 0%, rgba(166,166,166,1) 50%, rgba(166,166,166,1) 53%, rgba(148,148,148,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(177,177,177,1) 0%,rgba(166,166,166,1) 50%,rgba(166,166,166,1) 53%,rgba(148,148,148,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(177,177,177,1) 0%,rgba(166,166,166,1) 50%,rgba(166,166,166,1) 53%,rgba(148,148,148,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1b1b1', endColorstr='#949494',GradientType=0 ); /* IE6-9 */
+
+	border-radius:0px 0px 10px 10px;
+	 padding: 5px 0;
+}
+.desktop-show{
+	display:none;
+}
+.responsive-show{
+	display:block;
+}
+#topBar{
+	height:32px;
+}
+#mainContentFull{
+	margin-bottom:0px;
+}
+#topBar ul li{
+	padding-left:2px;
+	padding-right:2px;
+}
+.signUpFieldLeft{
+	border-right:none;
+}
+}
+@media only screen and (max-width : 480px){
+}
+@media only screen and (max-width : 479px) {
+ #footerMenu li a{
+	 margin-left:2px !important;
+	 margin-right:1px !important;
+}
+}

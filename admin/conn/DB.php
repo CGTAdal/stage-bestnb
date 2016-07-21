@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 $hostname_DB = "192.168.1.173";
 $database_DB = "stagebnb_db1";
 //$username_DB = "stagebnb_user1";
