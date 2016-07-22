@@ -30,6 +30,7 @@ if ($_SESSION["customerloginid"])
     </div><!-- end leftColumn -->
     
     <div id="mainContent">
+    <div class="b-all-rightdiv">
 	  <h2>Buying Name Badges Online</h2>
       <p>Do you have a huge and important event coming up? Do you want to make a good impression to your boss? Or you just don't have the time to make the name badges on your own? Then buying or purchasing name badges online is the answer for you.</p><p>
 	Luckily, nowadays, the Internet is a very useful and powerful tool to use. Everything you want to look for is in the Web. Buying name badges over the Internet can be as easy as ABC. With thousands of companies to choose from, the first thing you have to do is to decide on the best one. In trying to make up your mind on a company, make sure to do research so that you can sleep soundly at night knowing that you put your money in good hands and your product will come out properly.</p><p>
@@ -40,6 +41,7 @@ You have nothing to worry about now, since you've ordered the name badges online
 <br />
         <br />
       </p>
+      </div>
     </div><!-- end mainContent -->
   
   </div><!-- end content -->

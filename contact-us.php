@@ -35,8 +35,9 @@ if ($_SESSION["customerloginid"])
 
 
 
-  <div id="hero">
-  <div id="heroHeader">
+  <div id="hero" class="herobgnone">
+ <img src="images/heroBG.jpg"  />
+  <div id="heroHeader" class="heroheadrnone">
     &nbsp;
   </div>
 
@@ -67,7 +68,7 @@ if ($_SESSION["customerloginid"])
 
 		<br />
 
-<div style="width: 739px; text-align: center; vertical-align:top;">
+<div  class="contanctus-namebadesouter">
 
 <span id="phplive_btn_1430415007" onclick="phplive_launch_chat_6(0)" style="color: #0000FF; text-decoration: underline; cursor: pointer;"></span>
 <script type="text/javascript">
@@ -90,9 +91,9 @@ document.getElementById("phplive_btn_1430415007").appendChild( phplive_e_1430415
 
 <br />
 
-    <div style="width: 739px;">     
- <div style="width: 315px; float: left; clear: both; margin-top: 35px;">
-      <div style="width: 315px; float: left; clear: both;">
+    <div class="contactusaddress-imgouter" >     
+       <div  class="contactusaddress-outer">
+           <div class="contactusaddress-first" >
 
          <div style="float: left; width: 110px; font-size: 15px; font-weight: bold; color: #000;">
 
@@ -100,7 +101,7 @@ document.getElementById("phplive_btn_1430415007").appendChild( phplive_e_1430415
 
          </div>
 
-         <div style="float: right; width: 195px;">
+         <div class="contactaddress-right" >
 
          Best Name Badges<br/>
 
@@ -109,8 +110,8 @@ document.getElementById("phplive_btn_1430415007").appendChild( phplive_e_1430415
          Plantation, FL 33313</div>
 
          </div>
-
-<div style="width: 315px; float: left; clear: both; margin-top: 20px;">
+ 
+           <div class="contactusaddress-first">
 
          <div style="float: left; width: 110px; font-size: 15px; font-weight: bold; color: #000;">
 
@@ -118,7 +119,7 @@ document.getElementById("phplive_btn_1430415007").appendChild( phplive_e_1430415
 
          </div>
 
-         <div style="float: right; width: 195px;">
+         <div class="contactaddress-right" >
 
           Monday - Friday:  9AM - 6PM
           Saturday - Sunday:  Closed
@@ -127,7 +128,7 @@ document.getElementById("phplive_btn_1430415007").appendChild( phplive_e_1430415
 
       </div>
 
-<div style="width: 315px; float: left; clear: both; margin-top: 20px;">
+           <div class="contactusaddress-first">
 
          <div style="float: left; width: 110px; font-size: 15px; font-weight: bold; color: #000;">
 
@@ -135,14 +136,14 @@ document.getElementById("phplive_btn_1430415007").appendChild( phplive_e_1430415
 
          </div>
 
-         <div style="float: right; width: 195px;">
+         <div class="contactaddress-right" >
 
           (888) 445-7601
 
         </div>
 
       </div>
-      <div style="width: 315px; float: left; clear: both; margin-top: 20px;">
+           <div class="contactusaddress-first">
 
          <div style="float: left; width: 110px; font-size: 15px; font-weight: bold; color: #000;">
 
@@ -150,19 +151,19 @@ document.getElementById("phplive_btn_1430415007").appendChild( phplive_e_1430415
 
          </div>
 
-         <div style="float: right; width: 195px;">
+         <div class="contactaddress-right" >
 
           (954) 691-2400
 
         </div>
 
       </div>
-
-        <div style="width: 315px; float: left; clear: both; margin-top: 20px;">
+   
+           <div class="contactusaddress-first">
 
          <div style="float: left; width: 110px; font-size: 15px; font-weight: bold; color: #000;">Fax:</div>
 
-         <div style="float: right; width: 195px;">
+         <div class="contactaddress-right" >
 
           (888) 775-5155
 
@@ -170,7 +171,7 @@ document.getElementById("phplive_btn_1430415007").appendChild( phplive_e_1430415
 
         </div>
         </div>
-        <div style="width: 420px; float: right; margin-top: 35px; text-align: right;"> <a href="https://www.google.com/maps/place/Best+Name+Badges/@26.14663,-80.23574,17z/data=!3m1!4b1!4m2!3m1!1s0x88d90f52e34c51bd:0xd53965fc9344ca0c" target="_blank"><img src="images/contact-us-map.jpg" /></a>
+        <div class="contactusmapouter" > <a href="https://www.google.com/maps/place/Best+Name+Badges/@26.14663,-80.23574,17z/data=!3m1!4b1!4m2!3m1!1s0x88d90f52e34c51bd:0xd53965fc9344ca0c" target="_blank"><img src="images/contact-us-map.jpg" /></a>
         
         </div>
         
@@ -179,7 +180,7 @@ document.getElementById("phplive_btn_1430415007").appendChild( phplive_e_1430415
 
          
 
-	  <div style="clear: both; text-align: center; width: 739px;">
+	  <div  class="contactusmapbuttomimg">
 		<br /><br />
 		<img src="/images/contact-us-facility-plantation.jpg" width="616" height="310" style="padding-top: 15px;" />
 		

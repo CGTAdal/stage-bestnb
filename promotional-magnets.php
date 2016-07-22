@@ -33,8 +33,9 @@ if ($_SESSION["customerloginid"])
 	</script>
     
     
-    <div id="hero">
-  <div id="heroHeader">
+    <div id="hero" class="herobgnone">
+     <img src="images/heroBG.jpg"  />
+  <div id="heroHeader" class="heroheadrnone">
     &nbsp;
   </div>
   

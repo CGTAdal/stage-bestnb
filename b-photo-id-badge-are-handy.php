@@ -30,6 +30,7 @@ if ($_SESSION["customerloginid"])
     </div><!-- end leftColumn -->
     
     <div id="mainContent">
+     <div class="b-all-rightdiv">
 	 <h2>Photo ID Badges, Handy Necessities Like Cell Phones</h2>
       <p>What stuffs can you usually find in wallets, pockets, pouches or handbags of almost every individual? Most surveys would definitely result in coins, vanity things, gadgets like cell phones and iPods, but you'll be surprised that identification cards, especially photo ID badges, would be in the top 10.</p><p>
 
@@ -58,6 +59,7 @@ Now who needs photo ID badges, anyway?
 <br />
         <br />
       </p>
+      </div>
     </div><!-- end mainContent -->
   
   </div><!-- end content -->

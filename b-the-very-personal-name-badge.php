@@ -30,6 +30,7 @@ if ($_SESSION["customerloginid"])
     </div><!-- end leftColumn -->
     
     <div id="mainContent">
+    <div class="b-all-rightdiv">
 	 <h2>The Very Personal Name Badge</h2>
       <p>Andee loves to personalize her things. Her mobile phone has butterfly stickers on them, her laptop is colored pink because that is her favourite color, her books have these cute and colourful bookmarks on them, she doesn't buy pens that are not colourful and girly. Andee knows how to put color into her world. More importantly, she likes to spice up boring materials in school so that she becomes more inspired to study or read. But one thing is missing with Andee. She likes to personalize her things, but she might have forgotten that cute stuff can actually attract others to just get what isn't theirs. Andee realized she needed name badges.</p>
       <p> She didn't just want to lose her things because she invests time on designing them and these are really personal and very important for her. Andee searched the web for the best way to actually show her ownership of her books, pens, folders and bag and she found name badges! There are a lot of name badge makers all over the internet. Some even offer free shipment. Since Andee is a very personal kind of girl, name badges best suite her because these name badges can actually be personalized according to the style and color that the customers want. What's more interesting is even the shape can be modified. Andee wouldn't want a simple symmetric name badge wouldn't she? Considering that she is a really creative person and is also very particular with details.</p>
@@ -41,6 +42,7 @@ if ($_SESSION["customerloginid"])
 <br />
         <br />
       </p>
+      </div>
     </div><!-- end mainContent -->
   
   </div><!-- end content -->

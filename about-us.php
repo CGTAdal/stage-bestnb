@@ -18,6 +18,7 @@ if ($_SESSION["customerloginid"])
 } ?>
 
   <div id="hero">
+  <img src="images/heroBG.jpg"  />
   <div id="heroHeader">
     &nbsp;
   </div>

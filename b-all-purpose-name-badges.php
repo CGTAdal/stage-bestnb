@@ -30,6 +30,7 @@ if ($_SESSION["customerloginid"])
     </div><!-- end leftColumn -->
     
     <div id="mainContent">
+    <div class="b-all-rightdiv">
 	 <h2>All-Purpose name badge</h2>
       <p>It's campaign period in the University! Ruthie is busy printing out bookmarks, after that, she has to cut them and attach ribbons on them while Mary, the presidential candidate of the other party only made a 5-minute call to the name badge maker and after that, she's done with the arrangements, she just needs to pick them up early on the day of the campaign. A day before the campaign, Ruthie isn't done with her bookmarks yet,</p><p> Mary is memorizing her campaign speech. Ruthie had to stay up late to memorize her campaign speech. The next day, Mary is ready to give out her name badges while Ruthie, also prepared to give out her bookmarks, but is in a slightly bad mood because she didn't get enough sleep.
 	</p><p>The students were excited during the campaign. The campaign period was a big factor for them in determining who to vote for. The speeches, most especially, made a great difference. The next day, after the campaign, Ruthie saw some of the bookmarks she printed out, scattered on the floor, then she meets some of her acquaintances and saw name badges pinned on their uniforms, with the text "Mary for President" on them. She realized now why most of her bookmarks just went on the floor and trash bins. Mary's name badges were durable and very creative, hers was only made of special paper. Most of the students liked Mary's badges and she thought that those who wearing Mary's badges were her supporters, and there were a lot of them.</p><p>
@@ -38,6 +39,7 @@ if ($_SESSION["customerloginid"])
 <br />
         <br />
       </p>
+      </div>
     </div><!-- end mainContent -->
   
   </div><!-- end content -->

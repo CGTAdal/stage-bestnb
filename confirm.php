@@ -30,10 +30,11 @@ if ($_SESSION["customerloginid"])
     </div><!-- end leftColumn -->
     
     <div id="mainContent">
+     <div class="b-all-rightdiv">
 	  <h2>Please Confirm</h2>
   		
           <p>To reduce unsolicited junk email. We require that you confirm your email address. Please check your email account and click the link in our confirmation email to activate your newsletter subscription.</p>
-        
+      </div>   
     </div><!-- end mainContent -->
   
   </div><!-- end content -->

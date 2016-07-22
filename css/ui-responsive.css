@@ -5,7 +5,21 @@
 	display:none;
 }
 .desktopknone-mobiletext{
-	display:none;
+	color: #ffffff;
+    display: inline-block;
+    font-size: 10px;
+    padding-top: 3px;
+    text-transform: uppercase;
+}
+.desktopknone-mobiletext sub{
+	font-size: 18px;
+    font-weight: bold;
+    margin-left: 6px;
+    vertical-align: top;
+	
+}
+.desktopknone-mobiletext sup{
+	vertical-align:top;
 }
 .singupcheckboxouter{
 	width:100%;
@@ -16,6 +30,48 @@
 }
 .responsive-show{
 	display:none;
+}
+.herobgnone{
+	background:none !important;
+	height:inherit !important;
+}
+.boxsubtopimg{
+	width: 253px; float: left;
+}
+.boxSub2textouter{
+float: left; width: 253px; padding-top: 10px;
+}
+.heroheadrnone{
+	display:none;
+}
+.contanctus-namebadesouter{
+	width: 739px; text-align: center; vertical-align:top;
+}
+.contactusaddress-imgouter{
+	width: 739px;
+}
+.contactusaddress-outer{
+	width: 315px; float: left; clear: both; margin-top: 35px;
+}
+.contactusaddress-first{
+	width: 315px; float: left; clear: both;
+	margin-top:20px;
+}
+.contactusaddress-first:first-child{
+	margin-top:0px;
+}
+.contactusmapouter{
+	width: 420px; float: right; margin-top: 35px; text-align: right;
+}
+.contactusmapbuttomimg{
+	clear: both; text-align: center; width: 739px;
+}
+.b-all-rightdiv{
+	width:570px;
+	float:right;
+}
+.contactaddress-right{
+	float: right; width: 195px;
 }
 @media (min-width : 1024px) and (max-width : 1200px){
 }
@@ -93,6 +149,7 @@
 }
 #navigationBottomLeft{
 	width:60%;
+	padding-left:13px;
 }
 #copyrightRight{
 	width:35%;
@@ -123,6 +180,88 @@
 #subFooter{
 	width:750px;
 	padding:0px 15px;
+}
+#hero{
+	width:100%;
+}
+#hero img{
+	max-width:100%;
+}
+
+#mainContent{
+	width:86%;
+}
+.box-products{
+	width:640px;
+}
+.orderBox{
+	width:302px;
+	margin-right:13px !important; 
+}
+.boxSub{
+	height:inherit !important;
+}
+.boxSub img {
+	max-width:100%;
+}
+.testimonials ul{
+	width:100%;
+}
+.testimonials ul li{
+	width:49%;
+	height:inherit;
+	background-image:none;
+	border-radius:10px;
+	border:2px solid #ddd;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f9f9f9+40,f9f9f9+48,f1eff0+100 */
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(249,249,249,1) 40%, rgba(249,249,249,1) 48%, rgba(241,239,240,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(249,249,249,1) 40%,rgba(249,249,249,1) 48%,rgba(241,239,240,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(249,249,249,1) 40%,rgba(249,249,249,1) 48%,rgba(241,239,240,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f1eff0',GradientType=0 ); /* IE6-9 */
+
+}
+.slider, #slider, .slider dt, .slider span{
+	width:100%;
+}
+.slider dt{
+	background-size:100%;
+}
+.orderBox:nth-child(even){
+	margin-right:0px;
+}
+.testimonials ul li:nth-child(even){
+	margin-right:0px;
+}
+.subright{
+	width:520px;
+	padding-right:0px;
+}
+.subright img{
+	max-width:100%;
+	height:inherit;
+}
+.productsContainer-right{
+	width:280px;
+}
+h2{
+	font-size:20px;
+}
+.contanctus-namebadesouter,.contactusaddress-imgouter{
+	width:100%;
+}
+.contactusaddress-outer,.contactusmapouter{
+	width:45%;
+}
+.contactusmapbuttomimg{
+	width:100%;
+}
+.contactusmapouter{
+	text-align:center;
+}
+.boxsubtopimg{
+	width:100%;
+	text-align:center;
 }
 }
 @media only screen and (max-width : 767px) {
@@ -239,12 +378,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#487ca4', end
 	color:#fff;
 	text-transform: uppercase;
 	font-size:10px;
+	padding-top:1px;
 }
 .desktopknone-mobiletext sub{
 	font-size: 15px;
     font-weight: bold;
     margin-left: 6px;
     vertical-align: top;
+	
 }
 #loginButton span{
 	padding-right:25px;
@@ -379,12 +520,172 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1b1b1', end
 .signUpFieldLeft{
 	border-right:none;
 }
+#hero{
+	width:100%;
+}
+#hero img{
+	max-width:100%;
+}
+#leftColumn{
+	width:100%;
+}
+#mainContent,.box-products{
+	width:100%;
+}
+.orderBox{
+	width:100% !important;
+	margin-right:0px;
+}
+.boxSub{
+	text-align:center;
+	height:inherit !important;
+}
+.testimonials ul{
+	width:100%;
+}
+.testimonials ul li{
+	width:100%;
+	height:inherit;
+	background-image:none;
+	border-radius:10px;
+	border:2px solid #ddd;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f9f9f9+40,f9f9f9+48,f1eff0+100 */
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(249,249,249,1) 40%, rgba(249,249,249,1) 48%, rgba(241,239,240,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(249,249,249,1) 40%,rgba(249,249,249,1) 48%,rgba(241,239,240,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(249,249,249,1) 40%,rgba(249,249,249,1) 48%,rgba(241,239,240,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f1eff0',GradientType=0 ); /* IE6-9 */
+
+}
+.slider dt{
+	background-image:url(../images/sevenReasonsButton-mobiel.png);
+	background-size:100%;
+	height:38px;
+	width:464px;
+	display:inline-block;
+}
+.slider .open {
+    background-image: url(../images/sevenReasonsButtonMinus-mobile.png);
+	background-size:100%;
+	width:464px;
+}
+ #slider,.slider{
+	width:100%;
+	text-align:center;
+}
+.slider span{
+	width:100%;
+	text-align:left;
+	
+}
+ul.top-list li{
+	padding-left:0px;
+}
+.boxsubtopimg{
+	width:100%;
+	text-align:center;
+}
+.boxSub2textouter{
+	width:100%;
+	text-align:center;
+}
+.boxSub2textouter ul{
+	padding-left:0px;
+}
+.subleft{
+	width:100%;
+}
+.subpage-nav h3{
+	background-image:none;
+	border-radius:10px 10px 0px 0px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#43769d+0,3e6f94+45,3e6f94+48,3a6a8e+100 */
+background: rgb(67,118,157); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(67,118,157,1) 0%, rgba(62,111,148,1) 45%, rgba(62,111,148,1) 48%, rgba(58,106,142,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(67,118,157,1) 0%,rgba(62,111,148,1) 45%,rgba(62,111,148,1) 48%,rgba(58,106,142,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(67,118,157,1) 0%,rgba(62,111,148,1) 45%,rgba(62,111,148,1) 48%,rgba(58,106,142,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#43769d', endColorstr='#3a6a8e',GradientType=0 ); /* IE6-9 */
+
+}
+.clb{
+	text-align:center;
+}
+.subright{
+	width:100%;
+	padding-right:0px;
+	padding-bottom:0px;
+}
+.subright img{
+	max-width:100%;
+	height:inherit
+}
+.graydiv-imgnone img{
+	display:none;
+}
+.subpage-nav{
+	padding-bottom:15px;
+}
+h2{
+	font-size:18px;
+}
+.need-fast{
+	padding-top:10px;
+}
+.productsContainer-right{
+	width:100%;
+	text-align:center;
+}
+.productsContainer-Left{
+	width:100%;
+	text-align:center;
+}
+.contanctus-namebadesouter,.contactusaddress-imgouter{
+	width:100%;
+}
+.contactusaddress-outer,.contactusmapouter,.contactusmapbuttomimg{
+	width:100%;
+}
+.contactusmapouter{
+	text-align:center;
+}
+.contactusaddress-first{
+	width:100%;
+}
+.contactaddress-right{
+	float:left;
+}
+ul.left-seeus,.left-h-t{
+	display:none;
+}
+.desktopknone-mobiletext sup{
+	font-size:14px;
+}
 }
 @media only screen and (max-width : 480px){
+	.slider dt{
+	background-image:url(../images/sevenReasonsButton-mobiel.png);
+	background-size:100%;
+	height:35px;
+	width:100%;
+	display:inline-block;
+}
+.slider .open {
+    background-image: url(../images/sevenReasonsButtonMinus-mobile.png);
+	background-size:100%;
+	width:100%;
+}
 }
 @media only screen and (max-width : 479px) {
  #footerMenu li a{
 	 margin-left:2px !important;
 	 margin-right:1px !important;
+}
+.contactaddress-right{
+	width:175px;
+}
+.desktopknone-mobiletext sub{
+	font-size:13px;
+}
+.desktopknone-mobiletext sup{
+	font-size:12px;
 }
 }

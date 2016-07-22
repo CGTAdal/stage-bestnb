@@ -17,10 +17,11 @@ if ($_SESSION["customerloginid"])
 	include_once 'inc/header_new.php' ;
 } ?>
 
-  <div id="hero">
-  <div id="heroHeader">
+  <div id="hero" class="herobgnone">
+  <img src="images/heroBG.jpg"  />
+  <!--<div id="heroHeader">
     &nbsp;
-  </div>
+  </div>-->
   
 
 </div>
