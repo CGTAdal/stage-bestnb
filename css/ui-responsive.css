@@ -684,6 +684,9 @@ ul.left-seeus,.left-h-t{
 #navigationTop ul li a{
 	padding:0px 10px;
 }
+.slider span{
+	padding-top:0px;
+}
 }
 @media only screen and (max-width : 480px){
 	.slider dt{
