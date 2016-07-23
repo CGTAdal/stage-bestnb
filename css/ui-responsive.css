@@ -5,8 +5,8 @@
 	display:none;
 }
 .desktopknone-mobiletext{
-	color: #ffffff;
-    display: inline-block;
+	 color: #ffffff;
+    float: left;
     font-size: 10px;
     padding-top: 3px;
     text-transform: uppercase;
@@ -72,6 +72,10 @@ float: left; width: 253px; padding-top: 10px;
 }
 .contactaddress-right{
 	float: right; width: 195px;
+}
+.headergraybuttonouter{
+	float: left;margin-left: 10px;
+	padding-top:5px;
 }
 @media (min-width : 1024px) and (max-width : 1200px){
 }
@@ -148,11 +152,17 @@ float: left; width: 253px; padding-top: 10px;
 	padding:0px 14px;
 }
 #navigationBottomLeft{
-	width:60%;
+	width:70%;
 	padding-left:13px;
+}
+#container{
+	width:auto;
 }
 #copyrightRight{
 	width:35%;
+}
+#navigationBottomRight{
+	width: 135px !important;
 }
 #subFooterLeft form #signup_email{
 	width:100%;
@@ -263,6 +273,12 @@ h2{
 	width:100%;
 	text-align:center;
 }
+.productsContainer-right p,ul.top-list li{
+	text-align:justify;
+}
+.subright p,.what-bestme p{
+	text-align:justify;
+}
 }
 @media only screen and (max-width : 767px) {
 *{
@@ -289,7 +305,7 @@ h2{
 	width:100%;
 }	
 #navigationBottomLeft{
-	width:56%;
+	width:70%;
 	padding:6px 0px 0px 10px;
 	text-align:left;
 }
@@ -659,6 +675,15 @@ ul.left-seeus,.left-h-t{
 .desktopknone-mobiletext sup{
 	font-size:14px;
 }
+.productsContainer-right p,ul.top-list li{
+	text-align:justify;
+}
+.subright p,.what-bestme p{
+	text-align:justify;
+}
+#navigationTop ul li a{
+	padding:0px 10px;
+}
 }
 @media only screen and (max-width : 480px){
 	.slider dt{
@@ -687,5 +712,17 @@ ul.left-seeus,.left-h-t{
 }
 .desktopknone-mobiletext sup{
 	font-size:12px;
+}
+.contanctus-namebadesouter img{
+	width:49%;
+	display:inline-block;
+}
+.headergraybuttonouter{
+	margin-left:0px;
+	width:100%;
+	float:left;
+}
+#navigationBottomLeft{
+	width:56%;
 }
 }

@@ -92,7 +92,7 @@ if($a[1]=='wizard.php'){
           <div id="navigationBottomLeft">
           <!--<img style="float: left;" src="images/navPhone.png" width="181" height="24" class="res-hide"/>-->
           <span class="desktopknone-mobiletext">toll-free<sub><sup>(</sup>888<sup>)</sup> 445-7601</sub></span>
-          <div style="float:right;"><div style="text-align:center;width:133px;">
+          <div class="headergraybuttonouter"><div style="text-align:center;width:133px;">
           
          <span id="phplive_btn_1430322739" onclick="phplive_launch_chat_3(0)" style="color: #0000FF; text-decoration: underline; cursor: pointer;"></span>
 <script type="text/javascript">

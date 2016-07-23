@@ -84,7 +84,7 @@ $(document).ready(function(){
           <div id="navigationBottomLeft">
           <!--<img style="float: left;" src="/images/navPhone.png" width="181" height="24" class="res-hide"/>-->
           <span class="desktopknone-mobiletext">toll-free<sub><sup>(</sup>888<sup>)</sup> 445-7601</sub></span>
-          <div style="float:right;" class="graydiv-imgnone"><div style="text-align:center;width:133px;"><img src='https://a5.websitealive.com/1572/Visitor/vButton_v3.asp?groupid=1572&departmentid=7727&w=400&h=400&icon_online=https%3A%2F%2Fimages%2Ewebsitealive%2Ecom%2Fimages%2Fhosted%2Fupload%2F32674%2Epng&icon_offline=https%3A%2F%2Fimages%2Ewebsitealive%2Ecom%2Fimages%2Fhosted%2Fupload%2F32675%2Epng' border='0' onClick="window.open('https://a5.websitealive.com/1572/rRouter.asp?groupid=1572&websiteid=177&departmentid=7727&dl='+escape(document.location.href),'','width=400,height=400');" style='cursor:pointer;'>
+          <div class="headergraybuttonouter"><div style="text-align:center;width:133px;"><img src='https://a5.websitealive.com/1572/Visitor/vButton_v3.asp?groupid=1572&departmentid=7727&w=400&h=400&icon_online=https%3A%2F%2Fimages%2Ewebsitealive%2Ecom%2Fimages%2Fhosted%2Fupload%2F32674%2Epng&icon_offline=https%3A%2F%2Fimages%2Ewebsitealive%2Ecom%2Fimages%2Fhosted%2Fupload%2F32675%2Epng' border='0' onClick="window.open('https://a5.websitealive.com/1572/rRouter.asp?groupid=1572&websiteid=177&departmentid=7727&dl='+escape(document.location.href),'','width=400,height=400');" style='cursor:pointer;'>
 		</div></div></div>
           <div id="navigationBottomRight">
 				  <div id="bar">
