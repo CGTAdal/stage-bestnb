@@ -87,7 +87,7 @@ if ($_SESSION["customerloginid"])
       	<div class="boxSub" style="border-bottom: none;">
         	  <div class="boxSub2" style="display: none;"></div>
         </div>
-        
+        <div class="order-table-outer">
        <table width="454" border="0" cellspacing="2" cellpadding="5" class="tableOrder">
   <tr style="background-color: #CCC;">
     <td width="137" height="28" align="center" valign="middle"><strong>PRINT ORDER #</strong></td>
@@ -128,7 +128,7 @@ if ($_SESSION["customerloginid"])
   </tr>
   <?php } ?>
 </table>
-
+       </div>
       
       </div><!-- end logoBox -->
 	  </div>
@@ -141,7 +141,7 @@ if ($_SESSION["customerloginid"])
       	<div class="boxSub" style="border-bottom: none;">
         	  <div class="boxSub2" style="display: none;"></div>
         </div>
-        
+        <div class="order-table-outer">
        <table width="454" border="0" cellspacing="2" cellpadding="5" class="tableOrder">
   <tr style="background-color: #CCC;">
     <td width="117" align="center" valign="middle"><strong>ORDER #</strong></td>
@@ -166,7 +166,7 @@ if ($_SESSION["customerloginid"])
   </tr>
   <?php } ?>
   </table>
-
+       </div>
       
       </div>
         
@@ -178,6 +178,7 @@ if ($_SESSION["customerloginid"])
             <div class="boxSub" style="border-bottom: none;">
                   <div class="boxSub2" style="display: none;"></div>
             </div>
+            <div class="order-table-outer">
             <table width="454" border="0" cellspacing="2" cellpadding="5" class="tableOrder">
               <tr style="background-color: #CCC;">
                 <td width="137" height="28" align="center" valign="middle"><strong>INVOICE #</strong></td>
@@ -227,6 +228,7 @@ if ($_SESSION["customerloginid"])
               }
               ?>
             </table>  
+            </div>
          </div>
       </div>
 

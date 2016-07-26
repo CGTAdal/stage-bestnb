@@ -41,7 +41,7 @@ if ($_SESSION["customerloginid"])
       </div>
               
          <div class="signUpField" >
-        <div style="text-align: left; line-height: 30px; margin-top:5px; margin-bottom: 5px; padding-left: 20px; padding-right: 20px;">
+        <div class="customerpanel2-fullcolorouterdiv">
             	<h4>You have never purchased a Pro Name Badge before. Please create your first badge by <a href="/order.php?product=pro">clicking here.</a></h4>
         </div>
          </div>
@@ -54,7 +54,7 @@ if ($_SESSION["customerloginid"])
         <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;">
             
   <div class="signUpFieldRight" style="width: 363px; font-size: 11px; height: 48px; line-height: 14px;">
-            	<div style="float: left; width: 250px;">
+            	<div style="float: left; width: 250px;" class="customerpanel2-name-left">
                 <table cellpadding="0" cellspacing="0" height="48"><tr>
                   <td valign="middle"><strong>NO NAMES ADDED YET.</strong></td></tr></table>
                 </div>

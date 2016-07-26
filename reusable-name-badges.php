@@ -42,23 +42,24 @@ if ($_SESSION["customerloginid"])
 </div>
     
     <div id="content">
-     <div id="mainContentFull">
+     <div id="mainContentFull" class="printend-badges-maindiv">
 	  <br />
 
 	
-<img src="/images/reusable-name-badges-hero.jpg" width="960" height="250" />
+<img src="/images/reusable-name-badges-hero.jpg"  class="printed-name-badges-topimg"/>
         <br />
 <br />
 
-<div style="width: 960px; padding: 5px 0 20px 0; background-color: #fff4d6; text-align: center;">
+<div class="printed-name-badges-content reusable-topboxdiv">
 
-<p style="font-weight: bold; font-size: 20px;">Ready To Start Your Reusable Name Badge Order?</p>
+<p class="pin-cahtwith-text">Ready To Start Your Reusable Name Badge Order?</p>
 <form action="sign-up.php" id="sign-up" name="sign-up" method="POST">
 <a id="9" class="reusable_name_submit" href="javascript:void(0);"><img src="/images/get-started.jpg" width="244" height="49" /></a>
 
 </div>
 
 <br />
+<div class="printed-name-badges-table-outer">
 <table width="960" cellpadding="4" cellspacing="4">
 <tr>
   <td colspan="3" align="left"><strong style="font-size: 15px;">Reusable Name Badge Pricing:</strong></td>
@@ -98,6 +99,7 @@ if ($_SESSION["customerloginid"])
   <td colspan="10"><strong style="text-decoration: underline;"><em>Includes Free Shipping.</em></strong></td>
   </tr>
 </table>
+</div>
 <br />
 
 <hr color="#CCCCCC" />
@@ -111,7 +113,7 @@ if ($_SESSION["customerloginid"])
   <br /><br />
   <h3>7 Different Shapes And Sizes</h3>
   <p>We have <strong>7 sizes and shapes</strong> available to choose from. Our standard backing plate options include <strong>brushed aluminum silver, brushed aluminum gold, and white</strong>.<br /><em>*We are also happy to create custom colors upon request</em>.</p>
-  <p><img src="images/reusable-name-badge-sizes.jpg" width="960" height="359" alt="Reusable Name Badges - 8 different shapes and sizes" /></p>
+  <p><img src="images/reusable-name-badge-sizes.jpg"  alt="Reusable Name Badges - 8 different shapes and sizes"  class="reusable-name-topimg"/></p>
   <br /><br />
   
   
@@ -125,14 +127,14 @@ if ($_SESSION["customerloginid"])
 
 <h3>Name Badge Fastener</h3>
 <p>Most of our customers prefer our magnetic 3-disc super grip fastener.  It won't damage your clothing and won't let go of the badge either.  We also stock premium pin fasters and clips if you prefer.</p>
-<img src="/images/name-badge-fasteners.jpg" alt="Name Badge Fasteners - Magnetic Pins Bulldog Clips Pocket Slide" width="904" height="128" />
+<img src="/images/name-badge-fasteners.jpg" alt="Name Badge Fasteners - Magnetic Pins Bulldog Clips Pocket Slide" class="printed-name-badges-fasterimg" />
       </div>
         
 <br />
 <div style="clear: both;"></div>
-<div style="width: 960px; padding: 5px 0 20px 0; background-color: #fff4d6; text-align: center;">
+<div class="printed-name-badges-content reusable-topboxdiv">
 
-<p style="font-weight: bold; font-size: 20px;">Ready To Start Your Reusable Name Badge Order?</p>
+<p class="pin-cahtwith-text">Ready To Start Your Reusable Name Badge Order?</p>
 
 <a id="9" class="reusable_name_submit" href="javascript:void(0);"><img src="/images/get-started.jpg" width="244" height="49" /></a>
 <input type="hidden" id="designoption" value="0" name="designoption" />

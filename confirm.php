@@ -16,12 +16,13 @@ if ($_SESSION["customerloginid"])
 	include_once 'inc/header.php' ;
 } ?>
 
-  <div id="hero">
-    <div id="heroHeader">
+  <div id="hero" class="herobgnone">
+    <img src="images/heroBG.jpg"  />
+    <div id="heroHeader" class="heroheadrnone">
     	<h1>YOUR HOME FOR NAME BADGES</h1>
         <p>Lightning fast <strong><u>1-day turnaround</u></strong>. Always free standard shipping. Full color. Easy online ordering.</p>
     </div>
-    <div id="heroButton"><a href="/sign-up.php"><img src="images/getStartedButton.png" width="159" height="35" alt="Get Started" /></a></div>
+    <div id="heroButton" class="header-activated-button"><a href="/sign-up.php"><img src="images/getStartedButton.png" width="159" height="35" alt="Get Started" /></a></div>
   </div><!-- end hero -->
   
   <div id="content">

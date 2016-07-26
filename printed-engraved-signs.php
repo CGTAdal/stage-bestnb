@@ -42,7 +42,7 @@ if ($_SESSION["customerloginid"])
 </div>
 
 <div id="content">
-     <div id="mainContentFull">
+     <div id="mainContentFull" class="printend-badges-maindiv custom-lanyards-main">
 	  
       
 
@@ -55,9 +55,9 @@ if ($_SESSION["customerloginid"])
    <br />
 
 
-<div style="width: 960px; padding: 5px 0 20px 0; background-color: #fff4d6; text-align: center;">
+<div class="printed-name-badges-content reusable-topboxdiv">
 
-<p style="font-weight: bold; font-size: 20px;">Would You Like More Information About Our Signs?</p>
+<p class="pin-cahtwith-text">Would You Like More Information About Our Signs?</p>
 
 <p style="font-size: 15px;">Please <a href="/contact-us.php">contact us</a> right away.  We can provide a custom quote within minutes.</p>
 

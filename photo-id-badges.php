@@ -39,33 +39,32 @@ if ($_SESSION["customerloginid"])
     &nbsp;
   </div>
   
-</div
-    
-    
-    ><div id="content">
-     <div id="mainContentFull">
+</div>
+
+<div id="content">
+     <div id="mainContentFull" class="printend-badges-maindiv">
 	  
        <br />
 
-<img src="/images/photo-identification-cards.jpg" alt="Photo ID Cards and Badges" width="960" height="237" />
+<img src="/images/photo-identification-cards.jpg" alt="Photo ID Cards and Badges"  class="photoid-badges-topimg"/>
 <br />
 
    <br />
 
 
 
-<div style="width: 960px; padding: 5px 0 20px 0; background-color: #fff4d6; text-align: center; float: left;">
+<div class="printed-name-badges-content">
 <form action="sign-up.php" id="sign-up" name="sign-up" method="POST">
 <input type="hidden" id=designoption value="0" name="designoption" />
-<div style="float: left; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Start A New Badge Design<br />
+<div class="printed-name-badges-left">
+<p class="pin-cahtwith-text">Start A New Badge Design<br />
   <span style="font-size: 12px;">Use our QuickCreate™ tool and setup your badge in minutes!</span></p>
 
 <a id="10" class="photo_order_submit" href="javascript:void(0);"><img src="/images/get-started.jpg" width="244" height="49" /></a>
 </div>
 
-<div style="float: right; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Send Us A Completed Design<br /><span style="font-size: 12px;">Have a design already? Send us the files and we'll do the rest!</span></p>
+<div class="printed-name-badges-right">
+<p class="pin-cahtwith-text">Send Us A Completed Design<br /><span style="font-size: 12px;">Have a design already? Send us the files and we'll do the rest!</span></p>
 
 <a id="11" class="photo_order_submit" href="javascript:void(0);"><img src="/images/get-started.jpg" width="244" height="49" /></a>
 </div>
@@ -75,6 +74,7 @@ if ($_SESSION["customerloginid"])
 <div style="clear: both;"></div>
 
 <br />
+<div class="printed-name-badges-table-outer">
 <table width="960" cellpadding="4" cellspacing="4">
 <tr>
   <td colspan="3" align="left"><strong style="font-size: 15px;">Photo ID Badge Pricing:</strong></td>
@@ -114,6 +114,7 @@ if ($_SESSION["customerloginid"])
   <td colspan="10"><strong style="text-decoration: underline;"><em>Includes Free Shipping. New Customers $19 Setup Fee.</em></strong></td>
   </tr>
 </table>
+</div>
 <br />
 
 <hr color="#CCCCCC" />
@@ -137,29 +138,29 @@ if ($_SESSION["customerloginid"])
          <h3>Lanyards And Strap Clips</h3>
         <p>The most popular way to wear your new photo ID cards are lanyards and strap clips.  We offer lanyards in 10 standard colors.  We can also make custom printed lanyards with your logo and information.</p>
         
-        <img src="/images/standard-photo-id-attachments.jpg" alt="10 Colors of Lanyards, Customer Printed Lanyards, and Strap Clips" width="908" height="176" />
+        <img src="/images/standard-photo-id-attachments.jpg" alt="10 Colors of Lanyards, Customer Printed Lanyards, and Strap Clips" class="photoid-attachmentimg"  />
         
         
         <h3>Additional Fastener Options</h3>
 <p>We offer many options to fit almost any uniform or situation including: <em>Premium  Magnetic Fastener, Standard Pin, Premium Pin, Pocket Slide, Bulldog Swivel Clip, Strap Clip, Military Clutch, and Adhesive.</em></p>
         
-        <img src="/images/name-badge-fasteners.jpg" alt="Name Badge Fasteners - Magnetic Pins Bulldog Clips Pocket Slide" width="904" height="128" />
+        <img src="/images/name-badge-fasteners.jpg" alt="Name Badge Fasteners - Magnetic Pins Bulldog Clips Pocket Slide" class="printed-name-badges-fasterimg" />
         
       <h3>Custom Shapes and Sizes, Special Requests</h3>
         <p>Using our advanced laser cutter, we can handle custom shapes with ease. And we'll make them with no minimum.  Need a custom size badge that you don't see on our site?  That's no problem either.  We never charge extra for custom sizes. With our wide array of manufacturing equipment, we can make almost anything.  Don't hesitate to reach out to us with your special requests.</p>
         
-        <div style="width: 960px; padding: 5px 0 20px 0; background-color: #fff4d6; text-align: center; float: left;">
+        <div class="printed-name-badges-content">
 <form action="sign-up.php" id="sign-up" name="sign-up" method="POST">
 <input type="hidden" id=designoption value="0" name="designoption" />
-<div style="float: left; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Start A New Badge Design<br />
+<div class="printed-name-badges-left">
+<p class="pin-cahtwith-text">Start A New Badge Design<br />
   <span style="font-size: 12px;">Use our QuickCreate™ tool and setup your badge in minutes!</span></p>
 
 <a id="10" class="photo_order_submit" href="javascript:void(0);"><img src="/images/get-started.jpg" width="244" height="49" /></a>
 </div>
 
-<div style="float: right; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Send Us A Completed Design<br /><span style="font-size: 12px;">Have a design already? Send us the files and we'll do the rest!</span></p>
+<div class="printed-name-badges-right">
+<p class="pin-cahtwith-text">Send Us A Completed Design<br /><span style="font-size: 12px;">Have a design already? Send us the files and we'll do the rest!</span></p>
 
 <a id="11" class="photo_order_submit" href="javascript:void(0);"><img src="/images/get-started.jpg" width="244" height="49" /></a>
 </div>

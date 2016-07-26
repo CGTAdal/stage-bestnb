@@ -42,27 +42,27 @@ if ($_SESSION["customerloginid"])
 </div>
 
 <div id="content">
-     <div id="mainContentFull">
+     <div id="mainContentFull" class="printend-badges-maindiv">
 	  <br />
 
-<img src="/images/engraved-name-badges-and-name-tags.jpg" alt="Engraved Name Badges And Corporate Name Tags" width="956" height="241" />
+<img src="/images/engraved-name-badges-and-name-tags.jpg" alt="Engraved Name Badges And Corporate Name Tags" class="printed-name-badges-topimg" />
 <br />
 
    <br />
 
 
 
-<div style="width: 960px; padding: 5px 0 20px 0; background-color: #fff4d6; text-align: center; float: left;">
-<div style="float: left; width: 480px;">
+<div class="printed-name-badges-content">
+<div class="printed-name-badges-left">
 <form action="sign-up.php" id="sign-up" name="sign-up" method="POST">
-<p style="font-weight: bold; font-size: 20px;">Start A New Badge Design<br />
+<p class="pin-cahtwith-text">Start A New Badge Design<br />
   <span style="font-size: 12px;">Use our QuickCreate™ tool and setup your badge in minutes!</span></p>
 
 <a id="6" class="engraved_order_submit" href="javascript:void()"><img src="/images/get-started.jpg" width="244" height="49" /></a>
 </div>
 
-<div style="float: right; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Send Us A Completed Design<br /><span style="font-size: 12px;">Have a design already? Send us the files and we'll do the rest!</span></p>
+<div class="printed-name-badges-right">
+<p class="pin-cahtwith-text">Send Us A Completed Design<br /><span style="font-size: 12px;">Have a design already? Send us the files and we'll do the rest!</span></p>
 
 <a id="8" class="engraved_order_submit" href="javascript:void()"><img src="/images/get-started.jpg" width="244" height="49" /></a>
 </div>
@@ -72,7 +72,8 @@ if ($_SESSION["customerloginid"])
 <div style="clear: both;"></div>
 
 <br />
-<table width="960" cellpadding="4" cellspacing="4">
+<div class="printed-name-badges-table-outer">
+<table class="printed-name-badges-table" cellpadding="4" cellspacing="4">
 <tr>
   <td colspan="3" align="left"><strong style="font-size: 15px;">Engraved Name Badge Pricing:</strong></td>
   <td align="center">&nbsp;</td>
@@ -111,6 +112,7 @@ if ($_SESSION["customerloginid"])
   <td colspan="10"><strong style="text-decoration: underline;"><em>Includes Free Shipping. New Customers $19 Setup Fee.</em></strong></td>
   </tr>
 </table>
+</div>
 <br />
 
 <hr color="#CCCCCC" />
@@ -133,22 +135,22 @@ if ($_SESSION["customerloginid"])
         <h3>Fastener Options</h3>
         <p>We offer many options to fit almost any uniform or situation including: <em>Premium  Magnetic Fastener, Standard Pin, Premium Pin, Pocket Slide, Bulldog Swivel Clip, Strap Clip, Military Clutch, and Adhesive.</em></p>
         
-        <img src="/images/name-badge-fasteners.jpg" alt="Name Badge Fasteners - Magnetic Pins Bulldog Clips Pocket Slide" width="904" height="128" />
+        <img src="/images/name-badge-fasteners.jpg" alt="Name Badge Fasteners - Magnetic Pins Bulldog Clips Pocket Slide" class="printed-name-badges-fasterimg" />
         
       <h3>Custom Shapes and Sizes, Special Requests</h3>
         <p>Using our advanced laser cutter, we can handle custom shapes with ease. And we'll make them with no minimum.  Need a custom size badge that you don't see on our site?  That's no problem either.  We never charge extra for custom sizes. With our wide array of manufacturing equipment, we can make almost anything.  Don't hesitate to reach out to us with your special requests.</p>
   
-  <div style="width: 960px; padding: 5px 0 20px 0; background-color: #fff4d6; text-align: center; float: left;">
-<div style="float: left; width: 480px;">
+  <div class="printed-name-badges-bottomdiv">
+<div class="printed-name-badges-left">
 <form action="sign-up.php" id="sign-up" name="sign-up" method="POST">
-<p style="font-weight: bold; font-size: 20px;">Start A New Badge Design<br />
+<p class="pin-cahtwith-text">Start A New Badge Design<br />
   <span style="font-size: 12px;">Use our QuickCreate™ tool and setup your badge in minutes!</span></p>
 
 <a id="6" class="engraved_order_submit" href="javascript:void()"><img src="/images/get-started.jpg" width="244" height="49" /></a>
 </div>
 
-<div style="float: right; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Send Us A Completed Design<br /><span style="font-size: 12px;">Have a design already? Send us the files and we'll do the rest!</span></p>
+<div class="printed-name-badges-right">
+<p class="pin-cahtwith-text">Send Us A Completed Design<br /><span style="font-size: 12px;">Have a design already? Send us the files and we'll do the rest!</span></p>
 
 <a id="8" class="engraved_order_submit" href="javascript:void()"><img src="/images/get-started.jpg" width="244" height="49" /></a>
 </div>

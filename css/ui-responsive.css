@@ -33,6 +33,7 @@
 }
 .herobgnone{
 	background:none !important;
+	position:relative;
 	height:inherit !important;
 }
 .boxsubtopimg{
@@ -77,6 +78,118 @@ float: left; width: 253px; padding-top: 10px;
 	float: left;margin-left: 10px;
 	padding-top:5px;
 }
+.printed-name-badges-content{
+	width: 960px; padding: 5px 0 20px 0; background-color: #fff4d6; text-align: center; float: left;
+}
+.printed-name-badges-topimg{
+	width: 959px;
+	height:246px;
+}
+.printed-name-badges-left{
+	float: left; width: 480px;
+}
+.printed-name-badges-right{
+	float: right; width: 480px;
+}
+.printed-name-badges-table{
+	width:960px;
+}
+.printed-name-badges-fasterimg{
+	width:904px;
+	height:128px;
+	
+}
+.printed-name-badges-bottomdiv{
+	width: 960px; padding: 5px 0 20px 0; background-color: #fff4d6; text-align: center; float: left;
+}
+.printed-name-badges-table-outer{
+	width:960px;
+}
+.pin-cahtwith-text{
+	font-weight: bold; font-size: 20px;
+}
+#loginButton.active span{
+	background-position: 100px -77px;
+}
+.pinclikhear-button-outer{
+	padding:0px;margin:0px;width:auto;
+}
+.reusable-name-topimg{
+	width:960px;
+	height:359px;
+}
+.photoid-badges-topimg{
+	width:960px;
+	height:237px;
+}
+.photoid-attachmentimg{
+	width:908px;
+	height:176px;
+}
+.custom-lanyards-content{
+	width: 960px; padding: 5px 0 0px 0; background-color: #fff4d6; text-align: center; float: left;
+}
+.order-table-outer{
+	width:454px;
+	float:left;
+}
+#navigationBottomRight {
+    float: right;
+    width: 320px;
+}
+.logrighttext{
+	color: #e4e4e4;
+    font-family: arial;
+    font-size: 13px;
+    overflow: hidden;
+    padding-right: 20px;
+    padding-top: 5px;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  
+}
+.header-activated-button{
+	position:absolute;
+	top:90px;
+	right:0;
+}
+#heroButton{
+	margin-top:0px;
+}
+.tesimonials-leftbgouter{
+	width:100%;
+	
+}
+.customerpanel2-fullcolorouterdiv{
+	text-align: left; line-height: 30px; margin-top:5px; margin-bottom: 5px; padding-left: 20px;
+}
+.customerpanel2-radiooutre{
+	float: left; padding-left: 25px;
+}
+.customerpanel5-boxusb{
+	width: 350px; margin: auto; border: none;
+}
+.boxSub,.boxHeader{
+	float:left;
+}
+.logo-upload-text{
+	margin:20px 0px;
+}
+.order-radio-righttext{
+	width:90%;
+	float:left;
+	
+}
+.order-radio2{
+	line-height: 20px;padding-top:5px;height:24px;
+}
+.qq-upload-button{
+	position:absolute !important;
+	left:inherit !important ;
+	right:2px !important;
+}
+
 @media (min-width : 1024px) and (max-width : 1200px){
 }
 @media  (min-width : 768px) and (max-width : 1023px){
@@ -135,7 +248,7 @@ float: left; width: 253px; padding-top: 10px;
 	max-width:100%;
 }
 .signUpFieldRight{
-	width:217px;
+	width:217px !important;
 	padding-right:10px;
 }
 #navigationWrapper{
@@ -149,10 +262,10 @@ float: left; width: 253px; padding-top: 10px;
 	width:100%;
 }
 #navigationTop ul li a{
-	padding:0px 14px;
+	padding:0px 10px;
 }
 #navigationBottomLeft{
-	width:70%;
+	width:50%;
 	padding-left:13px;
 }
 #container{
@@ -162,7 +275,7 @@ float: left; width: 253px; padding-top: 10px;
 	width:35%;
 }
 #navigationBottomRight{
-	width: 135px !important;
+	width: 50% !important;
 }
 #subFooterLeft form #signup_email{
 	width:100%;
@@ -279,6 +392,243 @@ h2{
 .subright p,.what-bestme p{
 	text-align:justify;
 }
+.printed-name-badges-topimg,.printed-name-badges-fasterimg,.reusable-name-topimg,.photoid-badges-topimg,.photoid-attachmentimg{
+	max-width:100%;
+	height:inherit;
+}
+.printed-name-badges-content,.custom-lanyards-content{
+	width:100%;
+}
+.printed-name-badges-left,.printed-name-badges-right{
+	width:50%;
+}
+.printed-name-badges-table-outer{
+	width:100%;
+	overflow:auto;
+	border:1px solid #ddd;
+	margin:20px 0px;
+}
+.printed-name-badges-bottomdiv{
+	width:100%;
+}
+.printend-badges-maindiv p{
+	text-align:justify;
+}
+.printed-name-badges-left p,.printed-name-badges-right p{
+	text-align:center;
+}
+.pin-cahtwith-text{
+	text-align:center !important;
+	min-height:62px; 
+}
+.custom-lanyards-main img{
+	max-width:100%;
+	height:inherit;
+}
+.reusable-topboxdiv p{
+	text-align:center !important;
+}
+#logoBox{
+	width:100% !important;
+}
+#addNamesLeft{
+	width:48%;
+}
+#addNamesRight{
+	
+	width:48%;
+}
+.order-table-outer{
+	 border: 1px solid #dddddd;
+    overflow: auto;
+    width: 100%;
+}
+.headergraybuttonouter{
+	display:none;
+}
+.logrighttext{
+	color: #e4e4e4;
+    font-family: arial;
+    font-size: 13px;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+#testimonialsContainer{
+	width:275px;
+}
+.b-all-rightdiv{
+	width:420px;
+	
+}
+#testimonials{
+	width:100%;
+}
+#testimonialsContainer2{
+	width:100%;
+	padding:20px;
+	background-image:none;
+}
+#testimonialsTop,.testimonialsMain{
+	width:100%;
+}
+.testQuote1{
+	width:100%;
+}
+.testQuote2{
+	width:100%;
+}
+.testimonialsMain{
+	padding-left:10px;
+	padding-right:10px;
+	background-image:none;
+	
+}
+#testimonialsTop{
+	background-image:none;
+	border-radius:10px 10px 0px 0px;
+	
+}
+#testimonialsBottom{
+	background-image:none;
+	border-radius:0px 0px 10px 10px;
+	
+	width:100%;
+}
+#clients{
+	width:100%;
+	text-align:center;
+}
+#clients img{
+	max-width:100%;
+	height:inherit
+}
+.testP{
+	text-align:justify
+}
+.tesimonials-leftbgouter{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7aa0bd+0,7aa0bd+35,7aa0bd+45,6c91ad+100 */
+background: rgb(122,160,189); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(122,160,189,1) 0%, rgba(122,160,189,1) 35%, rgba(122,160,189,1) 45%, rgba(108,145,173,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(122,160,189,1) 0%,rgba(122,160,189,1) 35%,rgba(122,160,189,1) 45%,rgba(108,145,173,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(122,160,189,1) 0%,rgba(122,160,189,1) 35%,rgba(122,160,189,1) 45%,rgba(108,145,173,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7aa0bd', endColorstr='#6c91ad',GradientType=0 ); /* IE6-9 */
+  border-radius:10px ;
+  margin-top:10px;
+}
+#testimonialsContainer{
+	 border-radius:10px ;
+	 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#497da5+0,497da5+41,497da5+56,19496e+100 */
+background: rgb(73,125,165); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(73,125,165,1) 0%, rgba(73,125,165,1) 41%, rgba(73,125,165,1) 56%, rgba(25,73,110,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(73,125,165,1) 0%,rgba(73,125,165,1) 41%,rgba(73,125,165,1) 56%,rgba(25,73,110,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(73,125,165,1) 0%,rgba(73,125,165,1) 41%,rgba(73,125,165,1) 56%,rgba(25,73,110,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#497da5', endColorstr='#19496e',GradientType=0 ); /* IE6-9 */
+
+
+}
+#testimonialsContainer h3{
+	text-align:center;
+}
+.b-all-rightdiv p{
+	text-align:justify;
+}
+.header-activated-button{
+	top:62px;
+}
+.signUpFieldRight{
+	height:inherit !important;
+}
+.customerpanel2-fullcolorouterdiv{
+	padding-left:10px ;
+	padding-right:10px;
+	line-height:22px;
+	
+}
+.customerpanel2-fullcolorouterdiv h4{
+	font-size:10px !important;
+ }
+.coustmpanel2-rightdiv input{
+	width:79% !important;
+}
+.signUpFieldLeft{
+	width:125px !important;
+}
+.customerpanel2-name-left{
+	width:48% !important;
+	font-size:9px;
+}
+.customerpanel2-radiooutre {
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 50%;
+}
+.customerpanel2-radiooutre img{
+	max-width:100%;
+	height:inherit;
+}
+.customerpanel5-boxusb{
+	width:100%;
+}
+.customerpanel5-boxusb #imageshow{
+	width:100% !important;
+}
+.customerpanel2-name-right{
+	width:85px !important;
+}
+.customerpanel2-name-right > table {
+    display: inline;
+}
+#mainContentFull .logobox-responsive{
+	width:48% !important;
+}
+.logo-input{
+	border:none;
+}
+.logobox-responsive .signUpFieldRight{
+	height:30px !important;
+}
+.magnetice-content p{
+	text-align:justify;
+}
+.order2-designlabel,.order2-designlabel .signUpFieldLeft{
+	height:80px !important;
+}
+.order2-designlabel2,.order2-designlabel2 .signUpFieldLeft{
+	height:50px !important;
+}
+.order-radio-righttext{
+	width:88%;
+}
+.order-complete-engraved-browse-outer{
+	padding-right:0px;
+}
+.res-what-this-text{
+	width:100%;
+	padding-left:7px;
+	float:left;
+}
+.signUpFieldRight textarea{
+	width:100% !important;
+}
+.order-engraved-label-height{
+	height:60px;
+}
+.order-engraved-label-shipping{
+	height:100px !important;
+}
+.order-engraved-orders-text{
+	line-height:16px;
+	float:left;
+	padding-left:7px;
+}
+
 }
 @media only screen and (max-width : 767px) {
 *{
@@ -305,7 +655,7 @@ h2{
 	width:100%;
 }	
 #navigationBottomLeft{
-	width:70%;
+	width:50%;
 	padding:6px 0px 0px 10px;
 	text-align:left;
 }
@@ -407,11 +757,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#487ca4', end
 	padding-right:25px;
 }
 #navigationBottomRight {
-    width: 125px !important;
+    width: 50% !important;
 }
-#loginContainer{
-	float:left;
-}
+
 #subFooterMain{
 	background-image:none;
 	background:#fff;
@@ -450,7 +798,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#487ca4', end
 	text-align:center;
 }
 .signUpField,div.signUpField:hover{
-	background:#f5f6e7;
+	/*background:#f5f6e7;*/
 }
 .boxHeader{
 	float:left;
@@ -687,6 +1035,213 @@ ul.left-seeus,.left-h-t{
 .slider span{
 	padding-top:0px;
 }
+.printed-name-badges-topimg,.printed-name-badges-fasterimg,.reusable-name-topimg,.photoid-badges-topimg,.photoid-attachmentimg{
+	max-width:100%;
+	height:inherit;
+}
+.printed-name-badges-content,.custom-lanyards-content{
+	width:100%;
+}
+.printed-name-badges-left,.printed-name-badges-right{
+	width:100%;
+	padding:0px 10px;
+}
+.printed-name-badges-table-outer{
+	width:100%;
+	overflow:auto;
+	border:1px solid #ddd;
+	margin:20px 0px;
+}
+.printed-name-badges-bottomdiv{
+	width:100%;
+}
+.printend-badges-maindiv p{
+	text-align:justify;
+}
+.printed-name-badges-left p,.printed-name-badges-right p{
+	text-align:center;
+}
+.reusable-topboxdiv{
+	padding-left:10px;
+	padding-right:10px;
+}
+.pin-cahtwith-text{
+	text-align:center !important; 
+}
+.custom-lanyards-main img{
+	max-width:100%;
+	height:inherit;
+}
+#logoBox{
+	width:100% !important;
+}
+#addNamesLeft{
+	width:100%;
+}
+#addNamesRight{
+	margin-top:10px;
+	width:100%;
+}
+.order-table-outer{
+	 border: 1px solid #dddddd;
+    margin: 20px 0;
+    overflow: auto;
+    width: 100%;
+}
+.logrighttext{
+	color: #e4e4e4;
+    font-family: arial;
+    font-size: 13px;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.headergraybuttonouter{
+	display:none;
+}
+#testimonialsContainer{
+	width:100%;
+}
+.b-all-rightdiv{
+	width:100%;
+	margin-top:20px;
+}
+#testimonials{
+	width:100%;
+}
+#testimonialsContainer2{
+	width:100%;
+	padding:20px;
+	background-image:none;
+}
+#testimonialsTop,.testimonialsMain{
+	width:100%;
+}
+.testQuote1{
+	width:100%;
+}
+.testQuote2{
+	width:100%;
+}
+.testimonialsMain{
+	padding-left:10px;
+	padding-right:10px;
+	background-image:none;
+	
+}
+#testimonialsTop{
+	background-image:none;
+	border-radius:10px 10px 0px 0px;
+	
+}
+#testimonialsBottom{
+	background-image:none;
+	border-radius:0px 0px 10px 10px;
+	
+	width:100%;
+}
+#clients{
+	width:100%;
+	text-align:center;
+}
+#clients img{
+	max-width:100%;
+	height:inherit
+}
+.testP{
+	text-align:justify
+}
+.tesimonials-leftbgouter{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7aa0bd+0,7aa0bd+35,7aa0bd+45,6c91ad+100 */
+background: rgb(122,160,189); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(122,160,189,1) 0%, rgba(122,160,189,1) 35%, rgba(122,160,189,1) 45%, rgba(108,145,173,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(122,160,189,1) 0%,rgba(122,160,189,1) 35%,rgba(122,160,189,1) 45%,rgba(108,145,173,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(122,160,189,1) 0%,rgba(122,160,189,1) 35%,rgba(122,160,189,1) 45%,rgba(108,145,173,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7aa0bd', endColorstr='#6c91ad',GradientType=0 ); /* IE6-9 */
+  border-radius:10px ;
+  margin-top:10px;
+}
+#testimonialsContainer{
+	 border-radius:10px ;
+	 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#497da5+0,497da5+41,497da5+56,19496e+100 */
+background: rgb(73,125,165); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(73,125,165,1) 0%, rgba(73,125,165,1) 41%, rgba(73,125,165,1) 56%, rgba(25,73,110,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(73,125,165,1) 0%,rgba(73,125,165,1) 41%,rgba(73,125,165,1) 56%,rgba(25,73,110,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(73,125,165,1) 0%,rgba(73,125,165,1) 41%,rgba(73,125,165,1) 56%,rgba(25,73,110,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#497da5', endColorstr='#19496e',GradientType=0 ); /* IE6-9 */
+
+
+}
+#testimonialsContainer h3{
+	text-align:center;
+}
+.b-all-rightdiv p{
+	text-align:justify;
+}
+.header-activated-button{
+	top:52px;
+}
+.need-fast{
+	width:100% !important;
+	margin-bottom:20px;
+}
+#testimonials{
+	text-align:center;
+}
+.signUpFieldRight{
+	height:inherit !important;
+}
+.customerpanel2-name-left{
+	width:50% !important;
+}
+.customerpanel2-fullcolorouterdiv{
+	padding-left:10px ;
+	padding-right:10px;
+	line-height:26px;
+}
+.customerpanel2-radiooutre{
+	float:none;
+	display:inline-block;
+	padding-left:0px;
+}
+.customerpanel5-boxusb{
+	width:100%;
+}
+.customerpanel5-boxusb #imageshow{
+	width:100% !important;
+}
+.logo-input{
+	border:none;
+}
+.magnetice-content p{
+	text-align:justify;
+}
+.order2-designlabel,.order2-designlabel .signUpFieldLeft{
+	height:inherit !important;
+}
+.order-complete-engraved-browse-outer{
+	float: left;
+    height: 30px !important;
+    padding-right: 0;
+    width: 100%;
+}
+.signUpFieldRight textarea{
+	width:100% !important;
+}
+.order-engraved-orders-text{
+	line-height:16px;
+	float:left;
+	padding-left:10px;
+}
+.signUpFieldLeft{
+	height:inherit !important;
+}
 }
 @media only screen and (max-width : 480px){
 	.slider dt{
@@ -700,6 +1255,14 @@ ul.left-seeus,.left-h-t{
     background-image: url(../images/sevenReasonsButtonMinus-mobile.png);
 	background-size:100%;
 	width:100%;
+}
+.header-activated-button{
+	width:auto !important;
+	top:37px;
+}
+.header-activated-button img{
+	width:130px;
+	height:inherit;
 }
 }
 @media only screen and (max-width : 479px) {
@@ -721,11 +1284,67 @@ ul.left-seeus,.left-h-t{
 	display:inline-block;
 }
 .headergraybuttonouter{
-	margin-left:0px;
-	width:100%;
+	margin-left:2px;
+	
 	float:left;
 }
 #navigationBottomLeft{
-	width:56%;
+	width:50%;
+	padding: 6px 0 0 6px;
 }
+.print_order_submit img,.photo_order_submit img,.pinclikhear-button-outer img,.engraved_order_submit img,.reusable_name_submit img,.desk-wall-name-plates img{
+	width:200px;
+	height:inherit; 
 }
+.pin-cahtwith-text{
+	text-align:center !important; 
+	font-size:16px;
+}
+#navigationBottomRight {
+    width: 50% !important;
+	text-align:left;
+}
+.logrighttext{
+	color: #e4e4e4;
+    font-family: arial;
+    font-size: 13px;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+#testimonialsContainer h3{
+	font-size:16px;
+}
+.header-activated-button{
+	width:auto !important;
+	top:15px;
+}
+.header-activated-button img{
+	width:100px;
+	height:inherit;
+}
+.customerpanel2-radiooutre{
+	width:100%;
+	padding-left:0px;
+}
+.customerpanel5-color{
+	width:58px !important;
+}
+h2{
+	font-size:16px;
+}
+
+}
+@media only screen and (max-width : 359px){
+.desktopknone-mobiletext{
+	font-size:8px;
+}
+
+}
+

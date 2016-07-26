@@ -27,9 +27,8 @@ if ($_SESSION["customerloginid"])
      
     <div id="mainContentFull">
 	  <h2>Name Badge Ordering</h2>
-	  <h3><br /><br />
-	    Upload Your Logo(s):</h3>
-	  <br /><br />
+	  <h3 class="logo-upload-text">Upload Your Logo(s):</h3>
+	 
 	  
 	  <?php if ($_SESSION["designoption"] == 3) { ?>
 	  <form method="post" action="logo.php">
@@ -55,7 +54,7 @@ if ($_SESSION["customerloginid"])
 	  <?php } else { ?>
 	  <form method="post" action="logo.php">
 	  <input type="hidden" name="logos" value="1" />
-      <div id="logoBox">
+      <div id="logoBox" class="logobox-responsive">
       	<div class="boxHeader"><span style="float: left;">Upload Your Logo(s)</span> <span style="font-size:9px;">(Optional)</span></div>
       	<div class="boxSub" style="border-bottom: none;">
         	  <div class="boxSub2">
@@ -66,11 +65,11 @@ if ($_SESSION["customerloginid"])
 
         </div><div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;">
             <div class="signUpFieldLeft">Logo Image 1:</div>
-            <div class="signUpFieldRight"><input type="file" value="Upload Image 1" name="image1" style="width: 200px; height: 22px;" class="signupFieldInput" /></div>
+            <div class="signUpFieldRight"><input type="file" value="Upload Image 1" name="image1" style="width: 200px; height: 22px;" class="signupFieldInput logo-input" /></div>
           </div>
           <div class="signUpField">
             <div class="signUpFieldLeft">Logo Image 2:</div>
-            <div class="signUpFieldRight"><input type="file" value="Upload Image 2" name="image2" style="width: 200px; height: 22px;" class="signupFieldInput" /></div>
+            <div class="signUpFieldRight"><input type="file" value="Upload Image 2" name="image2" style="width: 200px; height: 22px;" class="signupFieldInput logo-input" /></div>
           </div>
 		<div class="signUpField">
             <div style="height: 30px; text-align: center; line-height: 30px; margin-top:15px; margin-bottom: 15px;"><input type="image" value="submit" src="images/uploadButton.png" /><input type="image" value="submit" style="margin-left: 15px;" src="images/donothavelogoButton.png" /></div>

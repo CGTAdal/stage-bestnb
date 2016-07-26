@@ -539,7 +539,7 @@ function change_material(value)
           </div>
           
     <div class="signUpField">
-            <div class="signUpFieldLeft">Imprint Method: </div>
+            <div class="signUpFieldLeft order-engraved-label-height">Imprint Method: </div>
             <div class="signUpFieldRight">
             	<input type="radio" name="ImprintMethod"  value="1" checked /> Printed <span style="font-size: 10px; font-weight:normal;">(Full Color)</span> &nbsp;&nbsp;<input type="radio" name="ImprintMethod" value="0" /> Engraved <span style="font-size: 10px; font-weight:normal;">(Black or White Only)</span> &nbsp;&nbsp;  
             	
@@ -547,7 +547,7 @@ function change_material(value)
           </div>
           <div class="boxHeader"><span style="float: left;">Holder Selection</span></div>
           <div class="signUpField">
-            <div class="signUpFieldLeft">Type:</div>
+            <div class="signUpFieldLeft order-engraved-label-height">Type:</div>
             <div class="signUpFieldRight">
             	<input onclick="change_type(this.value);" type="radio" name="HolderType"  value="1" checked /> Desk Plate Holder &nbsp;&nbsp;<input onclick="change_type(this.value);" type="radio" name="HolderType" value="0" /> Wall Plate Holder &nbsp;&nbsp;  
                 <input type="radio" name="HolderType" onclick="change_type(this.value);" value="none" /> None 
@@ -556,7 +556,7 @@ function change_material(value)
           </div>
           
           <div id="material" class="signUpField">
-            <div class="signUpFieldLeft">Material:</div>
+            <div class="signUpFieldLeft order-engraved-label-height">Material:</div>
             <div class="signUpFieldRight">
             	<input onclick="change_material(this.value);" type="radio" name="DeskHolderMaterial"  value="1" checked /> Aluminum <span style="font-size: 10px; font-weight:normal;">(Add 4.80)</span> &nbsp;&nbsp;<input type="radio" onclick="change_material(this.value);" name="DeskHolderMaterial" value="0" /> Stained Wood <span style="font-size: 10px; font-weight:normal;">(Add 9.92)</span> 
             	
@@ -564,8 +564,8 @@ function change_material(value)
           </div>
           
           <div id="holder_color_first" class="signUpField">
-            <div class="signUpFieldLeft">Holder Color:</div>
-            <div class="signUpFieldRight">
+            <div class="signUpFieldLeft ">Holder Color:</div>
+            <div class="signUpFieldRight ">
             	<select id="hodler_color_first_value" onchange="color_first_change(this.value);" name="DeskHolderColor" class="signupFieldInput" style="height: 20px;">
               	<option value="silver">Silver</option>
                 <option value="gold">Gold</option>
@@ -604,7 +604,7 @@ function change_material(value)
           <div class="boxHeader"><span style="float: left;">UPLOAD YOUR FILES</span></div>
           <div class="signUpField">
             <div class="signUpFieldLeft">Design File 1:</div>
-            <div class="signUpFieldRight">         
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">         
 	            	<div>
 						<div id="file-1">		
 							<noscript>			
@@ -805,7 +805,7 @@ function change_material(value)
           </div>
 	      <div id="design_2" class="signUpField">
             <div class="signUpFieldLeft">Design File 2:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-2">		
 							<noscript>			
@@ -819,7 +819,7 @@ function change_material(value)
           </div>  
           <div id="design_3" class="signUpField">
             <div class="signUpFieldLeft">Design File 3:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-3">		
 							<noscript>			
@@ -833,7 +833,7 @@ function change_material(value)
           </div> 
           <div id="design_4" class="signUpField">
             <div class="signUpFieldLeft">Design File 4:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 				<div>
 						<div id="file-4">		
 							<noscript>			
@@ -848,7 +848,7 @@ function change_material(value)
          
          <div id="design_5" class="signUpField">
             <div class="signUpFieldLeft">Design File 5:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-5">		
 							<noscript>			
@@ -862,7 +862,7 @@ function change_material(value)
         </div>    
 		<div id="design_6" class="signUpField">
             <div class="signUpFieldLeft">Design File 6:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-6">		
 							<noscript>			
@@ -876,7 +876,7 @@ function change_material(value)
         </div>   
         <div id="design_7" class="signUpField">
             <div class="signUpFieldLeft">Design File 7:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 				<div>
 						<div id="file-7">		
 							<noscript>			
@@ -890,7 +890,7 @@ function change_material(value)
         </div>
         <div id="design_8" class="signUpField">
             <div class="signUpFieldLeft">Design File 8:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 				<div>
 						<div id="file-8">		
 							<noscript>			
@@ -904,7 +904,7 @@ function change_material(value)
         </div> 
         <div id="design_9" class="signUpField">
             <div class="signUpFieldLeft">Design File 9:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-9">		
 							<noscript>			
@@ -919,7 +919,7 @@ function change_material(value)
         
         <div id="design_10" class="signUpField">
             <div class="signUpFieldLeft">Design File 10:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-10">		
 							<noscript>			
@@ -939,7 +939,7 @@ function change_material(value)
         </div>
         <div class="signUpField">
             <div class="signUpFieldLeft">Upload Your Files</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="your_file">		
 							<noscript>			
@@ -986,19 +986,22 @@ function change_material(value)
 				</div>
           <div class="boxHeader"><span style="float: left;">ORDER DETAILS</span></div>
           <div class="signUpField">
-            <div class="signUpFieldLeft">How Many Plates:</div>
+            <div class="signUpFieldLeft order-engraved-label-height">How Many Plates:</div>
             <div class="signUpFieldRight"><input type="text" name="num_plates" value="" style="width: 50px;" class="signupFieldInput" /> quantity</div>
           </div>
           <div class="signUpField">
-            <div class="signUpFieldLeft">How Many Holders:</div>
+            <div class="signUpFieldLeft order-engraved-label-height">How Many Holders:</div>
             <div class="signUpFieldRight"><input type="text" name="num_holders" value="" style="width: 50px;" class="signupFieldInput" /> quantity</div>
           </div>
           <div class="signUpField">
-            <div class="signUpFieldLeft" style="height: 55px;">Shipping:</div>
+            <div class="signUpFieldLeft order-engraved-label-shipping" style="height: 55px;">Shipping:</div>
             <div class="signUpFieldRight" style="height: 55px;">
-            	<input type="radio" name="Delivery" onclick="change_shipping(this.value);"  value="1" checked /> Standard &nbsp;&nbsp;<input onclick="change_shipping(this.value);" type="radio" name="Delivery" value="0" /> Expedited &nbsp;&nbsp;  <a class="hotspot" onmouseover="tooltip.show('<br/><strong>Your Timeline Is Important To Us</strong><br/><br/>We deliver on-time, everytime.<br/><br/>We can oftentimes ship out the same or next day, with delivery options as fast as overnight. We accomodate every rush order request with NO rush fees.<br/><br/>You have 2 ways to do this, first, please try calling us at 888-445-7601.  If it is after hours, please submit your order, then email support@bestnamebadges.com with your request and we will reach out to you right away.<br/><br/>');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;" href="javascript:void()">(Need It Fast?)</a>
+            	<input type="radio" name="Delivery" onclick="change_shipping(this.value);"  value="1" checked /> Standard &nbsp;&nbsp;<input onclick="change_shipping(this.value);" type="radio" name="Delivery" value="0" /> Expedited &nbsp;&nbsp; 
+                <span class="res-what-this-text">
+                 <a class="hotspot" onmouseover="tooltip.show('<br/><strong>Your Timeline Is Important To Us</strong><br/><br/>We deliver on-time, everytime.<br/><br/>We can oftentimes ship out the same or next day, with delivery options as fast as overnight. We accomodate every rush order request with NO rush fees.<br/><br/>You have 2 ways to do this, first, please try calling us at 888-445-7601.  If it is after hours, please submit your order, then email support@bestnamebadges.com with your request and we will reach out to you right away.<br/><br/>');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;" href="javascript:void()">(Need It Fast?)</a>
+                 </span>
             	<br />
-                 <span style="font-size: 10px; color: #999;"> Orders under $25 will have a small $3.95 shipping charge</span>
+                 <span style="font-size: 10px; color: #999;" class="order-engraved-orders-text"> Orders under $25 will have a small $3.95 shipping charge</span>
             </div>
           </div>
           <div class="signUpField" id="need_order">

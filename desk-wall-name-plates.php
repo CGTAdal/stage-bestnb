@@ -41,30 +41,30 @@ if ($_SESSION["customerloginid"])
   
 </div>
 <div id="content">
-     <div id="mainContentFull">
+     <div id="mainContentFull" class="printend-badges-maindiv custom-lanyards-main">
 	  
       
 
    
 <br />
 
-<img src="/images/desk-name-plates-wall-plates.jpg" width="956" height="237" />
+<img src="/images/desk-name-plates-wall-plates.jpg" class="photoid-badges-topimg" />
 <br />
 
    <br />
 
 
-<div style="width: 960px; padding: 5px 0 20px 0; background-color: #fff4d6; text-align: center; float: left;">
+<div class="printed-name-badges-content">
 <form action="sign-up.php" id="sign-up" name="sign-up" method="POST">
-<div style="float: left; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Start A New Name Plate Design<br />
+<div class="printed-name-badges-left">
+<p class="pin-cahtwith-text">Start A New Name Plate Design<br />
   <span style="font-size: 12px;">Use our QuickCreate™ tool and setup your name plate in minutes!</span></p>
 
 <a id="12" class="desk-wall-name-plates" href="javascript:void()"><img src="/images/get-started.jpg" width="244" height="49" /></a>
 </div>
 
-<div style="float: right; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Send Us A Completed Design<br /><span style="font-size: 12px;">Have a design already? Send us the files and we'll do the rest!</span></p>
+<div class="printed-name-badges-right">
+<p class="pin-cahtwith-text">Send Us A Completed Design<br /><span style="font-size: 12px;">Have a design already? Send us the files and we'll do the rest!</span></p>
 
 <a id="13" class="desk-wall-name-plates" href="javascript:void()" href="/sign-up.php"><img src="/images/get-started.jpg" width="244" height="49" /></a>
 </div>
@@ -74,6 +74,7 @@ if ($_SESSION["customerloginid"])
 <input type="hidden" id="designoption" value="0" name="designoption" />
 </form>
 <br />
+<div class="printed-name-badges-table-outer">
 <table width="960" cellpadding="4" cellspacing="4">
 <tr>
   <td colspan="3" align="left"><strong style="font-size: 15px;">Desk and Wall Plate Pricing:</strong></td>
@@ -113,7 +114,7 @@ if ($_SESSION["customerloginid"])
   <td colspan="10"><strong style="text-decoration: underline;"><em>Includes Free Shipping. New Customers $19 Setup Fee.</em></strong></td>
   </tr>
 </table>
-
+</div>
 <br />
 <br />
 

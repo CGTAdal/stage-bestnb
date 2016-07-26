@@ -39,11 +39,10 @@ if ($_SESSION["customerloginid"])
     &nbsp;
   </div>
   
-</div
-    
-    
-    ><div id="content">
-     <div id="mainContentFull">
+</div>
+
+<div id="content">
+     <div id="mainContentFull" class="printend-badges-maindiv custom-lanyards-main">
 	  
       
 
@@ -56,22 +55,22 @@ if ($_SESSION["customerloginid"])
    <br />
 
 
-<div style="width: 960px; padding: 5px 0 20px 0; background-color: #fff4d6; text-align: center; float: left;">
-<div style="float: left; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Get A Free Quote<br />
+<div class="printed-name-badges-content">
+<div class="printed-name-badges-left">
+<p class="pin-cahtwith-text">Get A Free Quote<br />
   <span style="font-size: 12px;">Contact us now and get a quote within minutes.</span></p>
 
 <a id="10" class="photo_order_submit" href="/contact-us.php"><img src="/images/call-or-contact.jpg" width="244" height="49" /></a>
 </div>
 
-<div style="float: right; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Chat With A Live Representative<br />
+<div class="printed-name-badges-right">
+<p class="pin-cahtwith-text">Chat With A Live Representative<br />
   <span style="font-size: 12px;">Talk to us right online! We can provide a free quote right away.</span></p>
 
 <!--Start AliveChat Button Code-->
-<div style='padding:0px;margin:0px;width:auto'>
+<div class="pinclikhear-button-outer">
 <img src="https://images.websitealive.com/images/hosted/upload/47741.jpg" border="0" onClick="javascript:window.open('http://a5.websitealive.com/1572/rRouter.asp?groupid=1572&websiteid=177&departmentid=7727&dl='+escape(document.location.href),'','width=400,height=400');" style="cursor:pointer"><br>
-<div style='background-color:; padding:4px; font-size:8px; color:#fff; font-family:Verdana, Helvetica, sans-serif;'><a href='http://www.websitealive.com' style='text-decoration:none; font-size:8px; color:#fff; font-family:Verdana, Helvetica, sans-serif;' target='_blank'>Live Chat</a> by <a href='http://www.websitealive.com' style='text-decoration:none; font-size:8px; color:#fff; font-family:Verdana, Helvetica, sans-serif;' target='_blank'><b>AliveChat</b></a></div>
+<div style='background-color:; padding:4px; font-size:8px; font-family:Verdana, Helvetica, sans-serif;'><a href='http://www.websitealive.com' style='text-decoration:none; font-size:8px;  font-family:Verdana, Helvetica, sans-serif;' target='_blank'>Live Chat</a> by <a href='http://www.websitealive.com' style='text-decoration:none; font-size:8px;  font-family:Verdana, Helvetica, sans-serif;' target='_blank'><b>AliveChat</b></a></div>
 </div>
 <!--End AliveChat Button Code-->
 
@@ -81,6 +80,7 @@ if ($_SESSION["customerloginid"])
 </div>
 
 <div style="clear: both;"></div>
+<div class="printed-name-badges-table-outer">
 <table width="960" cellpadding="4" cellspacing="4">
 <tr>
   <td colspan="3" align="left"><strong style="font-size: 15px;">Poster Pricing:</strong></td>
@@ -120,6 +120,7 @@ if ($_SESSION["customerloginid"])
   <td colspan="10"><strong style="text-decoration: underline;"><em>11&quot; x 17&quot; Standard Size.</em></strong> <strong style="text-decoration: underline;"><em>Custom Sizes, No Problem!</em></strong> <strong style="text-decoration: underline;"><em>Shipping Not Included..</em></strong></td>
   </tr>
 </table>
+</div>
 <br />
       
       

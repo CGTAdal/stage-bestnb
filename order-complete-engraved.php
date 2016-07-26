@@ -351,7 +351,7 @@ $(document).ready(function(){
     <?php //echo $_SESSION['logo1'];?>
      <div id="mainContentFull">
 	 <form method="post" id="wizard-next" name="wizard-next" action="wizard-next.php" enctype="multipart/form-data" >
-	  <h2>Digitally Printed Name Badge Ordering</h2>
+	    <h2>Digitally Printed Name Badge Ordering</h2>
   		<h4>Please select the configuration for your name badges below.</h4>
         
                
@@ -396,7 +396,7 @@ $(document).ready(function(){
           </div>
 		  
           <div id="try_frame" class="signUpField">
-            <div class="signUpFieldLeft">Frame: <span style="font-size: 10px; font-weight:normal;">(Add 2.00)</span></div>
+            <div class="signUpFieldLeft order-engraved-label-height">Frame: <span style="font-size: 10px; font-weight:normal;">(Add 2.00)</span></div>
             <div class="signUpFieldRight">            		
             		<input type="radio" name="frame" value="none" checked onclick="javascript:framechange(this.value);changedbakbadges();"/> None&nbsp;&nbsp;
             		<input type="radio" name="frame" value="GF" onclick="javascript:framechange(this.value);changedbakbadges();"/> Gold&nbsp;&nbsp;
@@ -437,7 +437,7 @@ $(document).ready(function(){
          
           <div class="signUpField">
             <div class="signUpFieldLeft">Design File 1:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-1">		
 							<noscript>			
@@ -623,7 +623,7 @@ $(document).ready(function(){
           </div>
 	      <div id="design_2" class="signUpField">
             <div class="signUpFieldLeft">Design File 2:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-2">		
 							<noscript>			
@@ -637,7 +637,7 @@ $(document).ready(function(){
           </div>  
           <div id="design_3" class="signUpField">
             <div class="signUpFieldLeft">Design File 3:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-3">		
 							<noscript>			
@@ -651,7 +651,7 @@ $(document).ready(function(){
           </div> 
           <div id="design_4" class="signUpField">
             <div class="signUpFieldLeft">Design File 4:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-4">		
 							<noscript>			
@@ -666,7 +666,7 @@ $(document).ready(function(){
          
          <div id="design_5" class="signUpField">
             <div class="signUpFieldLeft">Design File 5:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-5">		
 							<noscript>			
@@ -680,7 +680,7 @@ $(document).ready(function(){
         </div>    
 		<div id="design_6" class="signUpField">
             <div class="signUpFieldLeft">Design File 6:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-6">		
 							<noscript>			
@@ -694,7 +694,7 @@ $(document).ready(function(){
         </div>   
         <div id="design_7" class="signUpField">
             <div class="signUpFieldLeft">Design File 7:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 				<div>
 						<div id="file-7">		
 							<noscript>			
@@ -708,7 +708,7 @@ $(document).ready(function(){
         </div>
         <div id="design_8" class="signUpField">
             <div class="signUpFieldLeft">Design File 8:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 				<div>
 						<div id="file-8">		
 							<noscript>			
@@ -722,7 +722,7 @@ $(document).ready(function(){
         </div> 
         <div id="design_9" class="signUpField">
             <div class="signUpFieldLeft">Design File 9:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-9">		
 							<noscript>			
@@ -737,7 +737,7 @@ $(document).ready(function(){
         
         <div id="design_10" class="signUpField">
             <div class="signUpFieldLeft">Design File 10:</div>
-            <div class="signUpFieldRight">            	
+            <div class="signUpFieldRight order-complete-engraved-browse-outer">            	
 					<div>
 						<div id="file-10">		
 							<noscript>			
@@ -786,36 +786,42 @@ $(document).ready(function(){
 		
 		 <div class="boxHeader"><span style="float: left;">Additional Options</span></div>
 		  <div class="signUpField">
-            <div class="signUpFieldLeft">Velvet Carry Pouch:</div>
+            <div class="signUpFieldLeft order-engraved-label-height">Velvet Carry Pouch:</div>
             <div class="signUpFieldRight">
             	<input onclick="change_velvet(this.value);" type="radio" name="VelvetPouch" checked value="No"  /> No&nbsp;&nbsp;
             	<input onclick="change_velvet(this.value);" type="radio" name="VelvetPouch" value="Yes" /> 
             	Yes (Add .97)&nbsp;&nbsp;
-                
-                <a class="hotspot" onmouseover="tooltip.show('<br/><strong>Keep Your Name Badges Safe</strong><br/><br/>Add our black velvet carrying pouch for each of your name badges.  Keep them safe when not in use.<br/><br/>Click &quot;Yes&quot; to see a picture on the right.');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;" href="javascript:void()">(What's this?)</a>
-            	
+                <span class="res-what-this-text">
+                <a class="hotspot" onmouseover="tooltip.show('<br/><strong>Keep Your Name Badges Safe</strong><br/><br/>Add our black velvet carrying pouch for each of your name badges.  Keep them safe when not in use.<br/><br/>Click &quot;Yes&quot; to see a picture on the right.');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;" href="javascript:void()" >(What's this?)</a>
+            	</span>
             	
             </div>
           </div> 
           <div class="boxHeader"><span style="float: left;">ORDER DETAILS</span></div>
           <div class="signUpField">
-            <div class="signUpFieldLeft">How Many Badges:</div>
+            <div class="signUpFieldLeft order-engraved-label-height">How Many Badges:</div>
             <div class="signUpFieldRight"><input type="text" name="quantity" value="" style="width: 50px;" class="signupFieldInput" /> total order quantity</div>
           </div>
           
           <div class="signUpField">
-            <div class="signUpFieldLeft" style="height: 55px;">Shipping:</div>
+            <div class="signUpFieldLeft order-engraved-label-shipping" style="height: 55px;">Shipping:</div>
             <div class="signUpFieldRight" style="height: 55px;">
-            	<input type="radio" name="Delivery" onclick="change_shipping(this.value);"  value="1" checked /> Standard &nbsp;&nbsp;<input onclick="change_shipping(this.value);" type="radio" name="Delivery" value="0" /> Expedited &nbsp;&nbsp;  <a class="hotspot" onmouseover="tooltip.show('<br/><strong>Your Timeline Is Important To Us</strong><br/><br/>We deliver on-time, everytime.<br/><br/>We can oftentimes ship out the same or next day, with delivery options as fast as overnight. We accomodate every rush order request with NO rush fees.<br/><br/>You have 2 ways to do this, first, please try calling us at 888-445-7601.  If it is after hours, please submit your order, then email support@bestnamebadges.com with your request and we will reach out to you right away.<br/><br/>');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;" href="javascript:void()">(Need It Fast?)</a>
+            	<input type="radio" name="Delivery" onclick="change_shipping(this.value);"  value="1" checked /> Standard &nbsp;&nbsp;<input onclick="change_shipping(this.value);" type="radio" name="Delivery" value="0" /> Expedited &nbsp;&nbsp;  
+                <span class="res-what-this-text">
+                <a class="hotspot" onmouseover="tooltip.show('<br/><strong>Your Timeline Is Important To Us</strong><br/><br/>We deliver on-time, everytime.<br/><br/>We can oftentimes ship out the same or next day, with delivery options as fast as overnight. We accomodate every rush order request with NO rush fees.<br/><br/>You have 2 ways to do this, first, please try calling us at 888-445-7601.  If it is after hours, please submit your order, then email support@bestnamebadges.com with your request and we will reach out to you right away.<br/><br/>');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;" href="javascript:void()">(Need It Fast?)</a>
+                </span>
             	<br />
-                 <span style="font-size: 10px; color: #999;"> Orders under $25 will have a small $3.95 shipping charge</span>
+                 <span style="font-size: 10px; color: #999;" class="order-engraved-orders-text"> Orders under $25 will have a small $3.95 shipping charge</span>
             </div>
           </div>
           
           <div class="signUpField" id="need_order">
             <div class="signUpFieldLeft">I Need My Order By:</div>
             <div class="signUpFieldRight">
-            	<input type="text" name="DeliverBy" id="DeliverBy" value="" style="width: 100px;" class="signupFieldInput" />  <a class="hotspot" onmouseover="tooltip.show('<br/><strong>Your Timeline Is Important To Us</strong><br/><br/>We deliver on-time, everytime.<br/><br/>We can oftentimes ship out the same or next day, with delivery options as fast as overnight. We accomodate every rush order request with NO rush fees.<br/><br/>You have 2 ways to do this, first, please try calling us at 888-445-7601.  If it is after hours, please submit your order, then email support@bestnamebadges.com with your request and we will reach out to you right away.<br/><br/>');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;" href="javascript:void()">(Need It Fast?)</a>
+            	<input type="text" name="DeliverBy" id="DeliverBy" value="" style="width: 100px;" class="signupFieldInput" /> 
+                <span class="res-what-this-text">
+                 <a class="hotspot" onmouseover="tooltip.show('<br/><strong>Your Timeline Is Important To Us</strong><br/><br/>We deliver on-time, everytime.<br/><br/>We can oftentimes ship out the same or next day, with delivery options as fast as overnight. We accomodate every rush order request with NO rush fees.<br/><br/>You have 2 ways to do this, first, please try calling us at 888-445-7601.  If it is after hours, please submit your order, then email support@bestnamebadges.com with your request and we will reach out to you right away.<br/><br/>');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;" href="javascript:void()">(Need It Fast?)</a>
+                 </span>
             	<script type="text/javascript">
                                           Calendar.setup(
                                             {
@@ -835,10 +841,7 @@ $(document).ready(function(){
           
         </div> 
         
-        
-        
-       	</form>         
-  		<div id="signUpRight">
+        <div id="signUpRight">
         	<h3>Your Badge Configuration:</h3>
         	<br />
 			<div><strong>Badge Plate:</strong> </div>
@@ -854,6 +857,9 @@ $(document).ready(function(){
   		 		 
   		 	</div>
         </div>
+        
+       	</form>         
+  		
          
         </div>
 <br />

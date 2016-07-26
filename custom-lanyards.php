@@ -33,42 +33,42 @@ if ($_SESSION["customerloginid"])
 	</script>
     
     
-    <div id="hero">
-  <div id="heroHeader">
+    <div id="hero" class="herobgnone">
+    <img src="images/heroBG.jpg"  />
+  <div id="heroHeader" class="heroheadrnone">
     &nbsp;
   </div>
   
-</div
-    
-    
-    ><div id="content">
-     <div id="mainContentFull">
+</div>
+
+<div id="content">
+     <div id="mainContentFull" class="printend-badges-maindiv custom-lanyards-main">
 	  
        <br />
 
-<img src="/images/custom-blank-lanyards.jpg" alt="Custom And Blank Lanyards" width="960" height="237" />
+<img src="/images/custom-blank-lanyards.jpg" alt="Custom And Blank Lanyards" class="photoid-badges-topimg" />
 <br />
 
    <br />
 
 
 
-<div style="width: 960px; padding: 5px 0 0px 0; background-color: #fff4d6; text-align: center; float: left;">
-<div style="float: left; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Get A Free Quote<br />
+<div class="custom-lanyards-content" >
+<div class="printed-name-badges-left">
+<p class="pin-cahtwith-text">Get A Free Quote<br />
   <span style="font-size: 12px;">Contact us now and get a quote within minutes.</span></p>
 
 <a id="10" class="photo_order_submit" href="/contact-us.php"><img src="/images/call-or-contact.jpg" width="244" height="49" /></a>
 </div>
 
-<div style="float: right; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Chat With A Live Representative<br />
+<div class="printed-name-badges-right">
+<p class="pin-cahtwith-text">Chat With A Live Representative<br />
   <span style="font-size: 12px;">Talk to us right online! We can provide a free quote right away.</span></p>
 
 <!--Start AliveChat Button Code-->
-<div style='padding:0px;margin:0px;width:auto'>
+<div class="pinclikhear-button-outer">
 <img src="https://images.websitealive.com/images/hosted/upload/47741.jpg" border="0" onClick="javascript:window.open('http://a5.websitealive.com/1572/rRouter.asp?groupid=1572&websiteid=177&departmentid=7727&dl='+escape(document.location.href),'','width=400,height=400');" style="cursor:pointer"><br>
-<div style='background-color:; padding:4px; font-size:8px; color:#fff; font-family:Verdana, Helvetica, sans-serif;'><a href='http://www.websitealive.com' style='text-decoration:none; font-size:8px; color:#fff; font-family:Verdana, Helvetica, sans-serif;' target='_blank'>Live Chat</a> by <a href='http://www.websitealive.com' style='text-decoration:none; font-size:8px; color:#fff; font-family:Verdana, Helvetica, sans-serif;' target='_blank'><b>AliveChat</b></a></div>
+<div style='background-color:; padding:4px; font-size:8px;  font-family:Verdana, Helvetica, sans-serif;'><a href='http://www.websitealive.com' style='text-decoration:none; font-size:8px;  font-family:Verdana, Helvetica, sans-serif;' target='_blank'>Live Chat</a> by <a href='http://www.websitealive.com' style='text-decoration:none; font-size:8px;  font-family:Verdana, Helvetica, sans-serif;' target='_blank'><b>AliveChat</b></a></div>
 </div>
 <!--End AliveChat Button Code-->
 
@@ -79,6 +79,7 @@ if ($_SESSION["customerloginid"])
 <div style="clear: both;"></div>
 
 <br />
+<div class="printed-name-badges-table-outer">
 <table width="960" cellpadding="4" cellspacing="4">
 <tr>
   <td colspan="3" align="left"><strong style="font-size: 15px;">Standard Custom Lanyard Pricing:</strong></td>
@@ -112,7 +113,9 @@ if ($_SESSION["customerloginid"])
   <td colspan="8"><strong style="text-decoration: underline;"><em>Standard Polyester 1/2&quot; Lanyard. 1-Color Imprint. New Customers $19 Setup Fee. 5 - 15 Day Production. Free Shipping</em></strong></td>
   </tr>
 </table>
+</div>
 <br />
+<div class="printed-name-badges-table-outer">
 <table width="960" cellpadding="4" cellspacing="4">
   <tr>
     <td colspan="3" align="left"><strong style="font-size: 15px;">Blank Lanyard Pricing:</strong></td>
@@ -146,7 +149,9 @@ if ($_SESSION["customerloginid"])
     <td colspan="8"><strong style="text-decoration: underline;"><em>Free Shipping. No Setup Fee. Any Standard Color And Standard Attachment.</em></strong></td>
   </tr>
 </table>
+</div>
 <br />
+<div class="printed-name-badges-table-outer">
 <table width="960" cellpadding="4" cellspacing="4">
   <tr>
     <td colspan="4" align="left"><strong style="font-size: 15px;">NO MINIMUM Lanyard Pricing: (24 HourTurnaround)</strong></td>
@@ -179,6 +184,7 @@ if ($_SESSION["customerloginid"])
     <td colspan="8"><strong style="text-decoration: underline;"><em>5/8&quot;  Full Color Dye Sub. J-Hook Attachment. Breakaway. Single Sided. Free Shipping. New Customers $19 Setup Fee</em></strong></td>
   </tr>
 </table>
+</div>
 <br />
 
 <hr color="#CCCCCC" />
@@ -208,22 +214,22 @@ if ($_SESSION["customerloginid"])
 <h3>Don't See It Here?</h3>
 <p>While we try and offer as many options on our website as possible, we realize that we may not have listed just what you are looking for. If you are looking for a custom lanyard or product that you don't see here, just reach out to us directly. 99% of the time we will have just what you are looking for.<em></em></p>
 <p>&nbsp;</p>
-<div style="width: 960px; padding: 5px 0 0px 0; background-color: #fff4d6; text-align: center; float: left;">
-<div style="float: left; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Get A Free Quote<br />
+<div class="custom-lanyards-content">
+<div class="printed-name-badges-left">
+<p class="pin-cahtwith-text">Get A Free Quote<br />
   <span style="font-size: 12px;">Contact us now and get a quote within minutes.</span></p>
 
 <a id="10" class="photo_order_submit" href="/contact-us.php"><img src="/images/call-or-contact.jpg" width="244" height="49" /></a>
 </div>
 
-<div style="float: right; width: 480px;">
-<p style="font-weight: bold; font-size: 20px;">Chat With A Live Representative<br />
+<div class="printed-name-badges-right">
+<p class="pin-cahtwith-text">Chat With A Live Representative<br />
   <span style="font-size: 12px;">Talk to us right online! We can provide a free quote right away.</span></p>
 
 <!--Start AliveChat Button Code-->
-<div style='padding:0px;margin:0px;width:auto'>
+<div class="pinclikhear-button-outer">
 <img src="https://images.websitealive.com/images/hosted/upload/47741.jpg" border="0" onClick="javascript:window.open('http://a5.websitealive.com/1572/rRouter.asp?groupid=1572&websiteid=177&departmentid=7727&dl='+escape(document.location.href),'','width=400,height=400');" style="cursor:pointer"><br>
-<div style='background-color:; padding:4px; font-size:8px; color:#fff; font-family:Verdana, Helvetica, sans-serif;'><a href='http://www.websitealive.com' style='text-decoration:none; font-size:8px; color:#fff; font-family:Verdana, Helvetica, sans-serif;' target='_blank'>Live Chat</a> by <a href='http://www.websitealive.com' style='text-decoration:none; font-size:8px; color:#fff; font-family:Verdana, Helvetica, sans-serif;' target='_blank'><b>AliveChat</b></a></div>
+<div style='background-color:; padding:4px; font-size:8px;  font-family:Verdana, Helvetica, sans-serif;'><a href='http://www.websitealive.com' style='text-decoration:none; font-size:8px;  font-family:Verdana, Helvetica, sans-serif;' target='_blank'>Live Chat</a> by <a href='http://www.websitealive.com' style='text-decoration:none; font-size:8px;  font-family:Verdana, Helvetica, sans-serif;' target='_blank'><b>AliveChat</b></a></div>
 </div>
 <!--End AliveChat Button Code-->
 

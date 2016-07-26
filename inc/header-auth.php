@@ -107,8 +107,8 @@ document.getElementById("phplive_btn_1430322739").appendChild( phplive_e_1430322
 
 </script>
           </div></div></div>
-          <div id="navigationBottomRight" style="width: 320px !important;padding-top: 0px">
-       			<div style="padding-top: 5px; color: #e4e4e4; text-align: right; padding-right: 25px;font-family:arial; font-size: 13px;">Logged In: <?php echo $_SESSION["username"]; ?></div>
+          <div id="navigationBottomRight" >
+       			<div class="logrighttext">Logged In: <?php echo $_SESSION["username"]; ?></div>
           </div>
         </div>
       </div>

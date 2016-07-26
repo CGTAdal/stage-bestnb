@@ -32,7 +32,7 @@ if ($_SESSION["customerloginid"])
     <?php include_once 'inc/leftcolumn1_new.php' ; ?>
     </div><!-- end leftColumn -->
     
-    <div id="mainContent">
+    <div id="mainContent" class="magnetice-content">
     	<h2>Our Magnetic Name Tag Products</h2>
         
 	 <div class="box-products clb">
@@ -41,18 +41,18 @@ if ($_SESSION["customerloginid"])
           <div class="boxSub" style="float: left;">
             <div class="boxSub2">
               <div style="width: 100%; float: left;">
-                <div style="width: 253px; float: left;"> <a href="/printed-name-badges.php"><img src="images/digitally-printed-pro-badges.jpg" width="249" height="128" alt="Full Color Digitally Printed Name Badges" /></a></div>
+                <div class="boxsubtopimg"> <a href="/printed-name-badges.php"><img src="images/digitally-printed-pro-badges.jpg" width="249" height="128" alt="Full Color Digitally Printed Name Badges" /></a></div>
               </div>
               <br />
               <br />
-              <div style="float: left; width: 253px; padding-top: 10px;">
-                <div style="float: left; width: 250px;">
+              <div class="boxSub2textouter">
+                
                   <ul style="margin-top:0; margin-bottom: 0; padding-top:0; padding-bottom: 0;">
                     <li>Full Color Crystal Clear Print </li>
                     <li>Custom Colors, Shapes and Sizes</li>
                     <li>Frames, Doming, Beveling and more!</li>
                   </ul>
-                </div>
+               
               </div>
               <div style="text-align: center; float: left; width: 100%; padding-top: 15px;"> <span class="lowAs">Pricing From: </span><span class="price">$0.92 - $6.35</span><br />
                 <br />
@@ -68,18 +68,18 @@ if ($_SESSION["customerloginid"])
           <div class="boxSub" style="float: left;">
             <div class="boxSub2">
               <div style="width: 100%; float: left;">
-                <div style="width: 253px; float: left;"> <a href="/engraved-name-badges.php"><img src="images/engraved-name-tags.jpg" width="249" height="128" alt="Laser Engraved Name Tags" /></a></div>
+                <div class="boxsubtopimg"> <a href="/engraved-name-badges.php"><img src="images/engraved-name-tags.jpg" width="249" height="128" alt="Laser Engraved Name Tags" /></a></div>
               </div>
               <br />
               <br />
-              <div style="float: left; width: 253px; padding-top: 10px;">
-                <div style="float: left; width: 250px;">
+              <div class="boxSub2textouter">
+                
                   <ul style="margin-top:0; margin-bottom: 0; padding-top:0; padding-bottom: 0;">
                     <li>Laser Engraved Quality</li>
                     <li>Custom Colors and Sizes</li>
                     <li>Ovals, Frames, and more!</li>
                   </ul>
-                </div>
+                
               </div>
               <div style="text-align: center; float: left; width: 100%; padding-top: 15px;"> <span class="lowAs">Pricing From: </span><span class="price">$0.77 - $6.20</span><br />
                 <br />
@@ -95,18 +95,18 @@ if ($_SESSION["customerloginid"])
           <div class="boxSub" style="float: left;">
             <div class="boxSub2">
               <div style="width: 100%; float: left;">
-                <div style="width: 253px; float: left;"> <a href="/reusable-name-badges.php"><img src="images/reusable-name-badges.jpg" width="249" height="128" alt="Reusable Name Badges and Tags" /></a></div>
+                <div class="boxsubtopimg"> <a href="/reusable-name-badges.php"><img src="images/reusable-name-badges.jpg" width="249" height="128" alt="Reusable Name Badges and Tags" /></a></div>
               </div>
               <br />
               <br />
-              <div style="float: left; width: 253px; padding-top: 10px;">
-                <div style="float: left; width: 250px;">
+              <div class="boxSub2textouter">
+                
                   <ul style="margin-top:0; margin-bottom: 0; padding-top:0; padding-bottom: 0;">
                     <li>8 Shapes and Sizes</li>
                     <li>Super Easy To Use</li>
                     <li>Print On Any InkJet or Laser Printer</li>
                   </ul>
-                </div>
+                
               </div>
               <div style="text-align: center; float: left; width: 100%; padding-top: 15px;"> <span class="lowAs">Pricing From: </span><span class="price">$1.75 - $4.35</span><br />
                 <br />

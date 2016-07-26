@@ -42,7 +42,7 @@ if ($_SESSION["customerloginid"])
       </div>
               
          <div class="signUpField" >
-        <div style="text-align: left; line-height: 30px; margin-top:5px; margin-bottom: 5px; padding-left: 20px;">
+        <div class="customerpanel2-fullcolorouterdiv" >
             	<h4>You have <span class="quantityNumber">6</span> Blank Badges Available- <a href="purchase.php">Purchase More Inventory</a></h4>
                 <h4>You have <span class="quantityNumber">6</span> Frames Available- <a href="purchase.php">Purchase More Inventory</a></h4> 
             </div>
@@ -64,7 +64,7 @@ if ($_SESSION["customerloginid"])
           <div class="signUpField">
             <div style=" line-height: 30px; margin-top:5px; margin-bottom: 5px;">
             
-            <div class="boxSub" style="width: 350px; margin: auto; border: none;">
+            <div class="boxSub customerpanel5-boxusb" >
          <div class="boxSub2" style="text-align: center; float: left;">
               <div id="imageshow" name="imageshow" style="height:133px; width: 330px; float: left; margin-top: 15px;">
   				<img src="/images/loading.gif" width="75" height="75" />
@@ -75,7 +75,7 @@ if ($_SESSION["customerloginid"])
              <p style="float: right; font-size: 10px; width: 60px; text-align: left;">Frame:<br />
               <strong>None</strong>
               </p>
-              <p style="float: right; font-size: 10px; width: 85px; text-align: left;">Color:<br />
+              <p style="float: right; font-size: 10px; width: 85px; text-align: left;" class="customerpanel5-color">Color:<br />
               <strong>Silver</strong>
               </p>
          </div>
@@ -133,11 +133,11 @@ if ($_SESSION["customerloginid"])
       <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;">
             <div class="signUpFieldLeft" style="width: 75px; height: 48px;">Product:</div>
             <div class="signUpFieldRight" style="width: 363px; font-size: 11px; height: 48px; line-height: 14px;">
-            	<div style="float: left; width: 250px;">
+            	<div style="float: left; width: 250px;" class="customerpanel2-name-left">
                 <table cellpadding="0" cellspacing="0" height="48"><tr>
                   <td valign="middle"><strong>Blank Name Badges</strong><br />Quantity: 10</td></tr></table>
                 </div>
-                <div style="float: right; width: 100px; text-align: center; font-size: 11px;">
+                <div style="float: right; width: 100px; text-align: center; font-size: 11px;" class="customerpanel2-name-right">
                 <table cellpadding="0" cellspacing="0" height="48"><tr>
                   <td valign="middle">
                 Fastener: Pin<br />
@@ -154,14 +154,14 @@ if ($_SESSION["customerloginid"])
         <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;">
             <div class="signUpFieldLeft" style="width: 75px; height: 48px;">Name 1:</div>
             <div class="signUpFieldRight" style="width: 363px; font-size: 11px; height: 48px; line-height: 14px;">
-            	<div style="float: left; width: 250px;">
+            	<div style="float: left; width: 250px;" class="customerpanel2-name-left">
                 <table cellpadding="0" cellspacing="0" height="48"><tr><td valign="middle">
                 	<strong>Line 1:</strong>  Testing Name <br />
                 	<strong>Line 2:</strong>  Testing Name <br />
                 	<strong>Line 3:</strong>  Testing Name <br />
                  </td></tr></table>
                 </div>
-                <div style="float: right; width: 100px; text-align: center; font-size: 11px;">
+                <div style="float: right; width: 100px; text-align: center; font-size: 11px;" class="customerpanel2-name-right">
                 <table cellpadding="0" cellspacing="0" height="48"><tr>
                   <td valign="middle">
                 Fastener: Magnet<br />
@@ -176,7 +176,7 @@ if ($_SESSION["customerloginid"])
       <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;">
             <div class="signUpFieldLeft" style="width: 75px; height: 48px;">Name 2:</div>
             <div class="signUpFieldRight" style="width: 363px; font-size: 11px; height: 48px; line-height: 14px;">
-            	<div style="float: left; width: 250px;">
+            	<div style="float: left; width: 250px;" class="customerpanel2-name-left">
                 <table cellpadding="0" cellspacing="0" height="48"><tr>
                   <td valign="middle"><strong>&lt; BLANK &gt;</strong></td></tr></table>
                 </div>
