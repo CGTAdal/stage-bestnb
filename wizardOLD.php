@@ -622,7 +622,7 @@ function checkstyle()
     <div id="mainContentFull">
 	  <h2>Create Your Custom Name Badge</h2><br />
       
-    <div style="width: 840px; float: left; padding: 15px 20px 15px 100px; background:url(images/attention.png) left center no-repeat; border-top: solid 1px #c1c1c1; border-bottom: solid 1px #c1c1c1; margin-bottom: 15px;">
+    <div class="wizard2-topdiv">
       <strong style="font-size: 18px;">For Layout Purposes Only</strong>
       <p>This online design tool is for layout purposes only.  Our professional designers always <strong>review every order</strong>.  All badges will have proper alignment, crisp and clear logos, and the right colors.  Please submit your layout the best you can, but rest assured that all finalized badges will fall within our strict quality standards. Please specify in the notes below any special instructions.
       
@@ -632,7 +632,7 @@ function checkstyle()
       
     <br /><br />
 	  
-      <div id="logoBox">
+      <div id="logoBox" class="wizard-leftbox">
       	<div class="boxHeader"><span style="float: left;">Create Your Design</span></div>
       	<div class="boxSub" style="border-bottom: none;">
         	  <div class="boxSub2" style="display: none;"></div>
@@ -647,21 +647,21 @@ function checkstyle()
 </select></div>
           </div>
           <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;">
-            <div class="signUpFieldLeft" style="height: 160px;">Add Your Logo(s):<br />(optional)
+            <div class="signUpFieldLeft wizardresponsive-logoheight" style="height: 160px;">Add Your Logo(s):<br />(optional)
             </div>
             <div class="signUpFieldRight" style="height: auto;">
-            	<div style="float: left; width: 165px; margin-top: 0;">
+            	<div class="wizard-leftphotodiv">
                 Logo 1: 
-                 <div style="clear: both; margin-top: 0px; height: 75px; text-align: center;"><table height="75"><tr>
+                 <div class="wizard-tableouter"><table ><tr>
                    <td valign="middle" align="center"><?php if ($_SESSION["logo1"]) { ?>
 				   <img src="logos/<?php echo $_SESSION["logo1"]; ?>" class="resize" onClick="enlarge(this);" longdesc="logos/<?php echo $_SESSION["logo1"]; ?>" id="photo1"/>&nbsp;<a href="wizard.php?remove=1" style="font-size: 11px;">remove image</a><?php } else { ?>(<a href="logo-upload.php?logo=1&wizard=wizard" style="font-size: 11px;" title="Upload Logo 1" rel="gb_page_center[400, 200]">click to upload</a>)<?php } ?></td></tr></table></div>
 				  
                 <div style="clear: both; margin-top: 10px;" class="wizardButtons">
                	 <img src="images/wizard/arrow1.png" width="25" height="28" onclick="javascript:moveobject('left',-4);" /><img src="images/wizard/arrow2.png" width="21" height="28" onclick="javascript:moveobject('down',-4);" /><img src="images/wizard/arrow3.png" width="22" height="28" onclick="javascript:moveobject('down',4);" /><img src="images/wizard/arrow4.png" width="26" height="28" onclick="javascript:moveobject('left',4);" /><img src="images/wizard/arrow5.png" width="27" height="28" onclick="javascript:imagesize('image1',10);" /><img src="images/wizard/arrow6.png" width="27" height="28" onclick="javascript:imagesize('image1',-10);" /></div>
                 </div>
-              	<div style="float: right; width: 165px; margin-top: 0;">
+              	<div class="wizard-rightlogodiv">
                 Logo 1: 
-                 <div style="clear: both; margin-top: 0px; height: 75px; text-align: center;"><table height="75"><tr>
+                 <div class="wizard-tableouter"><table ><tr>
                    <td valign="middle"><?php if ($_SESSION["logo2"]) { ?><img src="logos/<?php echo $_SESSION["logo2"]; ?>" class="resize" longdesc="logos/<?php echo $_SESSION["logo2"]; ?>" id="photo2" />&nbsp;<a href="wizard.php?remove=2" style="font-size: 11px;">remove image</a><?php } else { ?>(<a href="logo-upload.php?logo=2&wizard=wizard" style="font-size: 11px;" title="Upload Logo 2" rel="gb_page_center[400, 200]">click to upload</a>)<?php } ?></td></tr></table></div>
 				  
                 <div style="clear: both; margin-top: 10px;" class="wizardButtons">
@@ -670,11 +670,11 @@ function checkstyle()
             </div>
           </div>
           <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;">
-            <div class="signUpFieldLeft" style="height: 65px;">Add Text 1:</div>
+            <div class="signUpFieldLeft wizardresponsive-addtext1" style="height: 65px;">Add Text 1:</div>
             <div class="signUpFieldRight" style="height: 65px;">
-              <div class="wizardText"><div style="float: left; width: 350px; margin-top: 3px;"><div style="float: left; width: 200px;">
-              	<input type="text" name="badgetext1" value="<?php echo $_SESSION["logotext1"]; ?>" class="signupFieldInput" style="width: 200px;" onchange="textchange('1', this.value);"/></div><div style="float: right; width: 125px;"><img src="images/wizard/textArrow1.png" width="22" height="28" onclick="javascript:moveobject('leftt',-4);")/><img src="images/wizard/textArrow2.png" width="21" height="28" onclick="javascript:moveobject('downt',-4);"/><img src="images/wizard/textArrow3.png" width="22" height="28" onclick="javascript:moveobject('downt',4);"/><img src="images/wizard/textArrow4.png" width="22" height="28" onclick="javascript:moveobject('leftt',4);"/></div></div>
-                <div style="float: left; width: 350px;">
+              <div class="wizardText"><div style="float: left; width: 100%; margin-top: 3px;"><div class="wizard-textboxouter">
+              	<input type="text" name="badgetext1" value="<?php echo $_SESSION["logotext1"]; ?>" class="signupFieldInput" style="width: 200px;" onchange="textchange('1', this.value);"/></div><div class="wizard-smalliconouter"><img src="images/wizard/textArrow1.png" width="22" height="28" onclick="javascript:moveobject('leftt',-4);")/><img src="images/wizard/textArrow2.png" width="21" height="28" onclick="javascript:moveobject('downt',-4);"/><img src="images/wizard/textArrow3.png" width="22" height="28" onclick="javascript:moveobject('downt',4);"/><img src="images/wizard/textArrow4.png" width="22" height="28" onclick="javascript:moveobject('leftt',4);"/></div></div>
+                <div style="float: left; width: 100%;">
                 <select name="font1post" onchange="javascript:fontchange('font1',this.value);" style="height: 21px; width: 158px;" class="signupFieldInput">
 	<option value="arial.ttf">Arial Normal</option>
 	<option value="arialblack.ttf" <?php if ($_SESSION["font1"] == "arialblack.ttf") { ?> selected="selected"<?php } ?>>Arial Black</option>
@@ -702,11 +702,11 @@ function checkstyle()
             </div>
           </div>
           <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;">
-            <div class="signUpFieldLeft" style="height: 65px;">Add Text 2:</div>
+            <div class="signUpFieldLeft wizardresponsive-addtext1" style="height: 65px;">Add Text 2:</div>
             <div class="signUpFieldRight" style="height: 65px;">
-              <div class="wizardText"><div style="float: left; width: 350px; margin-top: 3px;"><div style="float: left; width: 200px;">
-              	<input type="text" name="badgetext2" value="<?php echo $_SESSION["logotext2"]; ?>" class="signupFieldInput" style="width: 200px;" onchange="textchange('2', this.value);"/></div><div style="float: right; width: 125px;"><img src="images/wizard/textArrow1.png" width="22" height="28" onclick="javascript:moveobject('leftt2',-4);")/><img src="images/wizard/textArrow2.png" width="21" height="28" onclick="javascript:moveobject('downt2',-4);"/><img src="images/wizard/textArrow3.png" width="22" height="28" onclick="javascript:moveobject('downt2',4);"/><img src="images/wizard/textArrow4.png" width="22" height="28" onclick="javascript:moveobject('leftt2',4);"/></div></div>
-                <div style="float: left; width: 350px;">
+              <div class="wizardText"><div style="float: left; width: 100%; margin-top: 3px;"><div class="wizard-textboxouter">
+              	<input type="text" name="badgetext2" value="<?php echo $_SESSION["logotext2"]; ?>" class="signupFieldInput" style="width: 200px;" onchange="textchange('2', this.value);"/></div><div class="wizard-smalliconouter"><img src="images/wizard/textArrow1.png" width="22" height="28" onclick="javascript:moveobject('leftt2',-4);")/><img src="images/wizard/textArrow2.png" width="21" height="28" onclick="javascript:moveobject('downt2',-4);"/><img src="images/wizard/textArrow3.png" width="22" height="28" onclick="javascript:moveobject('downt2',4);"/><img src="images/wizard/textArrow4.png" width="22" height="28" onclick="javascript:moveobject('leftt2',4);"/></div></div>
+                <div style="float: left; width: 100%;">
                 <select name="font2post" onchange="javascript:fontchange('font2',this.value);" style="height: 21px; width: 158px;" class="signupFieldInput">
 	<option value="arial.ttf">Arial Normal</option>
 	<option value="arialblack.ttf" <?php if ($_SESSION["font2"] == "arialblack.ttf") { ?> selected="selected"<?php } ?>>Arial Black</option>
@@ -734,11 +734,11 @@ function checkstyle()
             </div>
           </div>
           <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;">
-            <div class="signUpFieldLeft" style="height: 65px;">Add Text 3:</div>
+            <div class="signUpFieldLeft wizardresponsive-addtext1" style="height: 65px;">Add Text 3:</div>
             <div class="signUpFieldRight" style="height: 65px;">
-              <div class="wizardText"><div style="float: left; width: 350px; margin-top: 3px;"><div style="float: left; width: 200px;">
-              	<input type="text" name="badgetext3" value="<?php echo $_SESSION["logotext3"]; ?>" class="signupFieldInput" style="width: 200px;"  onchange="textchange('3', this.value);" /></div><div style="float: right; width: 125px;"><img src="images/wizard/textArrow1.png" width="22" height="28" onclick="javascript:moveobject('leftt3',-4);")/><img src="images/wizard/textArrow2.png" width="21" height="28" onclick="javascript:moveobject('downt3',-4);"/><img src="images/wizard/textArrow3.png" width="22" height="28" onclick="javascript:moveobject('downt3',4);"/><img src="images/wizard/textArrow4.png" width="22" height="28" onclick="javascript:moveobject('leftt3',4);"/></div></div>
-                <div style="float: left; width: 350px;">
+              <div class="wizardText"><div style="float: left; width: 100%; margin-top: 3px;"><div class="wizard-textboxouter">
+              	<input type="text" name="badgetext3" value="<?php echo $_SESSION["logotext3"]; ?>" class="signupFieldInput" style="width: 200px;"  onchange="textchange('3', this.value);" /></div><div class="wizard-smalliconouter"><img src="images/wizard/textArrow1.png" width="22" height="28" onclick="javascript:moveobject('leftt3',-4);")/><img src="images/wizard/textArrow2.png" width="21" height="28" onclick="javascript:moveobject('downt3',-4);"/><img src="images/wizard/textArrow3.png" width="22" height="28" onclick="javascript:moveobject('downt3',4);"/><img src="images/wizard/textArrow4.png" width="22" height="28" onclick="javascript:moveobject('leftt3',4);"/></div></div>
+                <div style="float: left; width: 100%;">
                 <select name="font3post" onchange="javascript:fontchange('font3',this.value);" style="height: 21px; width: 158px;" class="signupFieldInput">
 	<option value="arial.ttf">Arial Normal</option>
 	<option value="arialblack.ttf" <?php if ($_SESSION["font3"] == "arialblack.ttf") { ?> selected="selected"<?php } ?>>Arial Black</option>
@@ -802,8 +802,8 @@ function checkstyle()
          </div>
 		 </div>
          <div class="signUpField" style="border: none;">
-            <div style="height: 30px; margin-left: 20px; line-height: 30px;"><input type="checkbox" name="whitebox" value="1" checked />     Have a designer remove the white box around my logo</div>
-            <div style="height: 30px; margin-left: 20px; line-height: 30px;"><input type="checkbox" name="tweak" value="1" checked />
+            <div class="wizard-inputouter"><input type="checkbox" name="whitebox" value="1" checked />     Have a designer remove the white box around my logo</div>
+            <div class="wizard-inputouter"><input type="checkbox" name="tweak" value="1" checked />
               It's ok if a designer tweaks my design</div>
           </div>
       </div>
@@ -817,19 +817,19 @@ function checkstyle()
 		<dd>
 			<span>
 		 
-          <div id="logoBox" style="width: 560px;">
+          <div id="logoBox" class="wizard-leftbox">
       			<div class="signUpField" style="border-top-width: 1px; border-top-style: solid; border-top-color: #CCC;">
             <div class="signUpFieldLeft">Name This Layout:</div>
-            <div class="signUpFieldRight" style="padding-right: 35px;"><input type="text" name="stylename" id="stylename" style="width: 200px;" class="signupFieldInput"/></div>
+            <div class="signUpFieldRight" ><input type="text" name="stylename" id="stylename" style="width: 200px;" class="signupFieldInput"/></div>
          	</div>
             <div class="signUpField">
             <div class="signUpFieldLeft" style="height: 150px; ">Notes:<br />
               <p style="margin:0; padding: 0; line-height: 12px; font-weight: normal;">Any specific instructions?</p> </div>
-            <div class="signUpFieldRight" style="height: 150px; padding-right: 35px;"><textarea name="note" cols="40" rows="5" style="margin-top: 5px; width: 325px; height: 130px;"></textarea></div>
+            <div class="signUpFieldRight" style="height: 150px; "><textarea name="note" cols="40" rows="5" style="margin-top: 5px; width: 325px; height: 130px;"></textarea></div>
          	</div>   
             </div>			  
-           <div class="signUpField" style="width: 560px;">
-            <div style="height: 30px; text-align: center; line-height: 30px; margin-top:15px; margin-bottom: 15px; width: 560px;"><input type="image" value="submit" src="images/continueButton.png" /></div>
+           <div class="signUpField" style="width: 100%;">
+            <div style="height: 30px; text-align: center; line-height: 30px; margin-top:15px; margin-bottom: 15px; width: 100%;"><input type="image" value="submit" src="images/continueButton.png" /></div>
           
       </div>
 	  

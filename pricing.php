@@ -18,12 +18,13 @@ if ($_SESSION["customerloginid"])
 
 
 
-  <div id="hero">
-    <div id="heroHeader">
+  <div id="hero" class="herobgnone">
+    <img src="images/heroBG.jpg"  />
+    <div id="heroHeader" class="heroheadrnone">
     	<h1>Best Prices. Best Quality. Best Name Badges.</h1>
         <p>The <strong><u>Highest Quality On The Market</u></strong>. Always The <strong><u>Lowest Prices</u></strong>. Lightning fast <strong><u>1-day turnaround</u></strong>.</p>
     </div>
-    <div id="heroButton"><a href="/sign-up.php"><img src="images/getStartedButton.png" width="159" height="35" alt="Get Started" /></a></div>
+    <div id="heroButton" class="header-activated-button"><a href="/sign-up.php"><img src="images/getStartedButton.png" width="159" height="35" alt="Get Started" /></a></div>
   </div><!-- end hero -->
   
   <div id="content">
@@ -32,6 +33,7 @@ if ($_SESSION["customerloginid"])
     </div><!-- end leftColumn -->
     
     <div id="mainContent">
+       <div class="b-all-rightdiv">
 	  <h2>Name Badge Pricing</h2>
   		<h4>Full Color. Free Magnet or Pin Fasteners. Free Shipping</h4>
         <br />
@@ -50,6 +52,7 @@ if ($_SESSION["customerloginid"])
 
 <h3>Pro Name Badges:</h3>
 <br />
+<div  class="pricing-table-outer">
 <table width="565" border="0" align="center" cellpadding="2" cellspacing="3" style="font-size: 11px;">
   <tr>
     <td width="113" align="center" bgcolor="#738539"><strong style="color: #FFF">Badge Quantity</strong></td>
@@ -144,6 +147,7 @@ if ($_SESSION["customerloginid"])
     <td align="center" bgcolor="#ececec">&nbsp;</td>
   </tr>
 </table>
+</div>
 <br />
       <p>Compare us to any competitor and look out for hidden fees! Not only do we include shipping, but we include the fastener as well. Once you purchase your name badge inventory there are no more charges. Plus you can save money by pre-paying for as many as you like.</p>
 
@@ -152,7 +156,7 @@ if ($_SESSION["customerloginid"])
 
 <h3>Ready To Buy Name Badges?</h3>
 <p>Our staff is geared up and ready to make your name badges. Let us prove to you why we are the internets #1 source for quality custom name badges. <a href="/order2.php">Click here</a> to order. </p>
-  
+     </div>
     </div><!-- end mainContent -->
   
   </div><!-- end content -->

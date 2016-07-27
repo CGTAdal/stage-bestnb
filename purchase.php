@@ -319,9 +319,9 @@ function removepromo()
       <p>On this page, you will purchase additional inventory.  Having inventory will allow you to place orders for name badges.  Remember, you can purchase high quantities of inventory now to take advantage of volume discounts, but still just use what you need, when you need it.</p><p>  Meaning, you may purchase an inventory of 51 badges now, but only use 15 of the badges today and save the other 36 to be used later as needed.</p>
       <h4>Once you have purchased your inventory, return to the &quot;Order Badges&quot; screen to place your badge order.</h4>
       
-      <div style="clear: both; float: left; width: 960px; margin-top: 25px; padding-bottom: 25px; border-top: solid 1px #CCC;"></div>
+      <div  class="purchase-border"></div>
       
-      <div style="width: 394px; float: right; text-align: center;">
+      <div  class="purchase-table-outer">
     <table width="565" border="0" align="center" cellpadding="2" cellspacing="3" style="font-size: 11px;">
   <tr>
     <td width="123" align="center" bgcolor="#738539"><strong style="color: #FFF">Badge Quantity</strong></td>
@@ -418,8 +418,8 @@ function removepromo()
 </table>
     </div>
     
-      <div style="float: left; width: 500px;">
-      <form method="post" action="purchase.php" name="checkoutform" id="checkoutform" style="width: 500px;">
+      <div class="payment-left-panel">
+      <form method="post" action="purchase.php" name="checkoutform" id="checkoutform" >
         <input type="hidden" name="badgeunit" id="badgeunit" value="0" />
 	  <input type="hidden" name="frameunit" id="frameunit" value="0" />
 	  <input type="hidden" name="domeunit" id="domeunit" value="0" />
@@ -428,10 +428,10 @@ function removepromo()
 	  <input type="hidden" name="promocode" id="promocode" value="<?php echo $code["name"]; ?>" />
 	  <input type="hidden" name="discount" id="discount" value="0" />
       
-      <div style="width: 960px;">
-        <div style="width: 500px; float: left;">
+      
+        <div class="payment-left-first" >
           
-          <div id="signUpLeft" style="margin-top: 0px;">
+          <div id="signUpLeft" style="margin-top: 0px;" class="payment-left-first">
           <div class="boxHeader"><span>Purchase Inventory</span></div>
           
           <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;">
@@ -458,15 +458,15 @@ function removepromo()
 				<p style="text-align: center;"><a style="cursor: pointer;">Update Totals</a></p>
 		 </div>
         <div class="boxHeader"><span>Your Order</span></div>
-  		
-            <div style="float: left; width: 265px; padding-left: 15px;">
+  		<div class="signUpField">
+            <div class="purcahse-yourorder-first" >
             <p class="popBoxSmall">Pro Badges Total: <input type="text" name="badgetimes" id="badgetimes" maxlength="15" style="width: 70px; border:none;" value="0" class="popBoxSmall"  readonly/> <input type="text" name="badgetotal" id="badgetotal" maxlength="15" style="width: 60px; border:none; font-size:14px;" value="" class="quantityNumber" readonly/></p>
 			</div>
               
-       		<div style="float: right; width: 215px;">
+       		<div class="purcahse-yourorder-second" >
         	<p class="popBoxSmall">Frame Total: <input type="text" name="frametimes" id="frametimes" maxlength="15" style="width: 70px; border:none;" value="0" class="popBoxSmall" readonly/> <input type="text" name="frametotal" id="frametotal" maxlength="15" style="width: 60px; border:none; font-size:14px;" value="" class="quantityNumber" readonly/></p>
         	</div>
-			 <div style="float: left; width: 465px; padding-left: 15px;">
+			 <div class="purcahse-yourorder-third">
             <p class="popBoxSmall">Domes Total: <input type="text" name="dometimes" id="dometimes" maxlength="15" style="width: 70px; border:none;" value="0" class="popBoxSmall"  readonly/> <input type="text" name="dometotal" id="dometotal" maxlength="15" style="width: 60px; border:none; font-size:14px;" value="" class="quantityNumber" readonly/></p>
 			</div>
 			 <?php if ($code) {  ?>
@@ -476,18 +476,19 @@ function removepromo()
 			<?php } ?>
 			<p class="popBoxSmall" style="display: none;">Subtotal: <span class="quantityNumber" style="font-size: 14px;"><input type="text" name="subtotal" id="subtotal" maxlength="15" style="width: 50px; border:none; font-size:14px;" value="0" class="quantityNumber" readonly/></span></p>
 			 <?php if ($_SESSION["state"] == "FL") { ?>
-			 <div style="width: 200px; text-align: center;">
+			 <div class="purcahse-yourorder-fourth" >
     	    	<p class="popBoxSmall">FL 6% Sales Tax: $<input type="text" name="tax" id="tax" maxlength="15" style="width: 50px; border:none; font-size:14px;" value="0" class="quantityNumber" readonly/></p>
         	 </div>
 			 <?php } else { ?>
-			 <div style="width: 200px; text-align: center;">
+			 <div class="purcahse-yourorder-fourth" >
     	    	<p class="popBoxSmall">Sales Tax: $<input type="text" name="tax" id="tax" maxlength="15" style="width: 50px; border:none; font-size:14px;" value=" N/A" class="quantityNumber" readonly/></p>
         	 </div>
 			 <?php } ?>
-		     <div style="width: 500px; text-align: center;">
+		     <div class="purcahse-yourorder-five">
     	    	<p class="popBoxSmall">Order Total:  <input type="text" name="ordertotal" id="ordertotal" maxlength="15" style="width: 60px; border:none; font-size:14px;" value="0" class="quantityNumber" readonly/></p>
         	 </div>
-     	</div>
+          </div>   
+     	
           
 		  <div class="boxHeader"><span style="float: left;">Billing Address Information</span></div>
            <div class="signUpField">
@@ -569,11 +570,11 @@ function removepromo()
           <div class="signUpField">
             <div style="height: 30px; text-align: center; line-height: 30px; margin-top:15px; margin-bottom: 15px;"><img src="images/placeOrderButton.png" onclick="validateform();"/></div>
           </div>
-          </form>
+          
         </div>
-    
-    
-      </div>
+    </form>
+    </div>
+      
     </div><!-- end mainContentFull -->  
   </div><!-- end content -->
 </div><!-- end wrapper -->

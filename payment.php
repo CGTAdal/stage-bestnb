@@ -226,31 +226,33 @@ function validateform()
         <br />
       </p>
       
-      <div style="float: left; width: 500px;">
-      <form method="post" action="payment.php" name="checkoutform" id="checkoutform" style="width: 500px;">
+      <div class="payment-left-panel">
+      <form method="post" action="payment.php" name="checkoutform" id="checkoutform" >
 	  <input type="hidden" name="attempt2" value="1" />
       
-      <div style="width: 960px;">
-        <div style="width: 500px; float: left;">
+      
+        <div class="payment-left-first" >
           
-          <div id="signUpLeft" style="margin-top: 0px;">
+          <div id="signUpLeft" style="margin-top: 0px;" class="payment-left-first">
           <div class="boxHeader"><span>Enter Payment Amount</span></div>
           <?php if ($msg) { ?>
           <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;"><font color='green'><?php echo $msg; ?></font></div>
-     	<?php } ?>
-     <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;"></div>
-          
-         
-          
-          <div style="width: 500px; text-align: center;">
+     	  <?php } ?>
+           <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;">
+       <div style="width: 100%; text-align: center;">
     	    	<p class="popBoxSmall">Order Total: $ 
     	    	  <input type="text" name="ordertotal" id="ordertotal" maxlength="15" style="width: 60px;font-size:14px;" value="0" /></p>
        	    </div>
+     </div>
+          
+         
+          
+          
      	</div>
           
 		  <input type="hidden" name="attempt2" value="1" />
 		  <div class="boxHeader"><span style="float: left;">Billing Address Information</span></div>
-           <div class="signUpField">
+          <div class="signUpField">
             <div class="signUpFieldLeft">First Name*:</div>
             <div class="signUpFieldRight"><input type="text" name="firstname" id="firstname" value="<?php echo $_POST["firstname"]; ?>" style="width: 200px;" class="signupFieldInput" /></div>
           </div>
@@ -258,7 +260,7 @@ function validateform()
             <div class="signUpFieldLeft">Last Name*:</div>
             <div class="signUpFieldRight"><input type="text" name="lastname" id="lastname" value="<?php echo $_POST["lastname"]; ?>" style="width: 200px;" class="signupFieldInput" /></div>
           </div>
-              <div class="signUpField">
+          <div class="signUpField">
             <div class="signUpFieldLeft"> Address*:</div>
             <div class="signUpFieldRight"><input type="text" name="street" id="street" value="<?php echo $_POST["street"]; ?>" style="width: 200px;" class="signupFieldInput" /></div>
           </div>
@@ -298,7 +300,7 @@ function validateform()
             <div class="signUpFieldRight"><input type="text" size="19" maxlength="19" name="creditCardNumber" id="creditCardNumber" class="signupFieldInput"  style="width: 200px;"  /></div>
           </div>
           <div class="signUpField">
-            <div class="signUpFieldLeft">Card Expiration*:</div>
+            <div class="signUpFieldLeft order-engraved-label-height">Card Expiration*:</div>
             <div class="signUpFieldRight">
             <select name=expDateMonth class="signupFieldInput" style="height: 20px;">
 							      <option value=1>01</option>
@@ -333,21 +335,23 @@ function validateform()
             <div class="signUpFieldLeft">Card Verfication #*:</div>
             <div class="signUpFieldRight"><input type="text" size="4" maxlength="4" name="cvv2Number" id="cvv2Number" class="signupFieldInput"  style="width: 40px;"/></div>
           </div>
-           <div class="boxHeader"><span style="float: left;">Notes / Process</span></div>
-        <div class="signUpField">
+          <div class="boxHeader"><span style="float: left;">Notes / Process</span></div>
+          <div class="signUpField">
            <div class="signUpFieldLeft" style="height: 85px;">Notes:</div>
           <div class="signUpFieldRight" style="height: 85px;"><textarea rows="3" cols="35" name="notes" style="width: 300px; height: 75px;"></textarea></div>
           </div>
           <div class="signUpField">
             <div style="height: 30px; text-align: center; line-height: 30px; margin-top:15px; margin-bottom: 15px;"><img src="images/placeOrderButton.png" onclick="validateform();"/></div>
           </div>
-        </form>
+        
       </div>
     
     
-      </div>
+      
+      </form>
     </div><!-- end mainContentFull --><!-- end wrapper -->
 <div style="display: none;"><img src="/images/wizard/continueMinus.png" /></div>
+</div>
 </div>
 <?php include_once 'inc/footer.php' ; ?>
 <script language="javascript">

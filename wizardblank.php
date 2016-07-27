@@ -26,7 +26,7 @@ if ($_SESSION["customerloginid"])
 
 	  <br /><br />
 	  
-      <div id="logoBox">
+      <div id="logoBox" class="wizard-leftbox">
       	<div class="boxHeader"><span style="float: left;">Badge Information</span></div>
       	<div class="boxSub" style="border-bottom: none;">
         	  <div class="boxSub2" style="display: none;"></div>
@@ -64,23 +64,23 @@ if ($_SESSION["customerloginid"])
      </div>
 
 
-<div style="width: 500px; float: left; padding-top: 25px; border-right: solid 1px #CCC; border-left: solid 1px #CCC; border-bottom: dashed 1px #CCC;">
-     	<div style="float: left; width: 200px; padding-left: 15px;">
+<div style="width: 100%; float: left; padding-top: 25px; border-right: solid 1px #CCC; border-left: solid 1px #CCC; border-bottom: dashed 1px #CCC;">
+     	<div  class="wizardbalnk-left">
         	<p class="popBox">Badges This Order: <span class="quantityNumber">8</span></p>
         </div>
-        <div style="float: right; width: 200px;">
+        <div class="wizardbalnk-right">
         	<p class="popBox">Frames This Order: <span class="quantityNumber">8</span></p>
         </div>
         <div style="clear: both; padding-bottom: 5px;"></div>
         <div style="clear: both; border-bottom: solid 1px #CCC; height: 15px; margin-bottom: 10px;"></div>
-        <div style="float: left; width: 220px; padding-left: 15px;">
+        <div class="wizardbalnk-left">
         	<p class="popBoxSmall">Badge Total: 14 x $9.45 = <span class="quantityNumber" style="font-size: 14px;">$75.60</span></p>
         </div>
-        <div style="float: right; width: 220px;">
+        <div class="wizardbalnk-right">
         	<p class="popBoxSmall">Frame Total: 14 x $2.00 = <span class="quantityNumber" style="font-size: 14px;">$16.00</span></p>
         </div>
         <div style="clear: both;"></div>
-        <div style="width: 500px; text-align: center;">
+        <div style="width: 100%; text-align: center;">
         	<p class="popBoxSmall">Order Total: <span class="quantityNumber">$91.60</span></p>
          </div>
      </div>
@@ -92,8 +92,8 @@ if ($_SESSION["customerloginid"])
             <div class="signUpFieldRight" style="height: 150px; "><textarea name="note" cols="40" rows="5" style="margin-top: 5px; width: 325px; height: 130px;"></textarea></div>
          	</div>
 
-<div class="signUpField" style="width: 500px;">
-            <div style="height: 30px; text-align: center; line-height: 30px; margin-top:15px; margin-bottom: 15px; width: 500px;"><input type="image" value="submit" src="images/continueButton.png" /></div>
+<div class="signUpField" style="width: 100%;">
+            <div style="height: 30px; text-align: center; line-height: 30px; margin-top:15px; margin-bottom: 15px; width: 100%;"><input type="image" value="submit" src="images/continueButton.png" /></div>
           
       </div>
 
@@ -112,7 +112,7 @@ if ($_SESSION["customerloginid"])
              <p style="float: right; font-size: 10px; width: 60px; text-align: left;">Frame:<br />
               <strong>None</strong>
               </p>
-              <p style="float: right; font-size: 10px; width: 85px; text-align: left;">Color:<br />
+              <p style="float: right; font-size: 10px; width: 85px; text-align: left;" class="wizardblankcolordiv">Color:<br />
               <strong>Silver</strong>
               </p>
             <p style="float: left; font-size: 10px; width: 85px; text-align: left; clear: both; margin: 0; padding: 0;">Fastener:<br />

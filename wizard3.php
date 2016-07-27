@@ -307,7 +307,7 @@ function add_dome(value)
     <div id="mainContentFull">
 	  <h2>Name Badge Ordering</h2>
 
-	  <br /><div style="width: 840px; float: left; padding: 15px 20px 15px 100px; background:url(images/attention.png) left center no-repeat; border-top: solid 1px #c1c1c1; border-bottom: solid 1px #c1c1c1; margin-bottom: 15px;">
+	  <br /><div class="wizard2-topdiv">
       <strong style="font-size: 18px;">Important Information</strong>
       <p>We only display your badge style here, NOT the badge with your logo/design.<br/><br>Our designers will supply a <strong>custom proof</strong> once you have placed your order.  You will be able to review and approve of this design before any badges are created.
       
@@ -315,7 +315,7 @@ function add_dome(value)
       
     </div>
 	  
-      <div id="logoBox">
+      <div id="logoBox" class="wizard-leftbox">
       	<div class="boxHeader"><span style="float: left;">Badge Information</span></div>
       	<div class="boxSub" style="border-bottom: none;">
         	  <div class="boxSub2" style="display: none;"></div>
@@ -341,15 +341,15 @@ function add_dome(value)
 			 <strong>File</strong>
 			</div>
             <div class="signUpFieldRight" style="height: auto;">
-            	<div style="float: left; width: 165px; margin-top: 0;">
+            	<div class="wizard-leftphotodiv">
                 Logo 1: 
-                 <div style="clear: both; margin-top: 0px; height: 75px; text-align: center;"><table height="75"><tr><td valign="middle"><?php if ($_SESSION["logo1"]) { ?><font color='green'>Image Uploaded</font><br /><a href="wizard3.php?remove=1" style="font-size: 11px;">remove image</a><?php } else { ?>(<a href="logo-upload2.php?logo=1&wizard=wizard3" style="font-size: 11px;" title="Upload Logo 1" rel="gb_page_center[400, 200]">click to upload</a>)<?php } ?></td></tr></table></div>
+                 <div class="wizard-tableouter"><table ><tr><td valign="middle"><?php if ($_SESSION["logo1"]) { ?><font color='green'>Image Uploaded</font><br /><a href="wizard3.php?remove=1" style="font-size: 11px;">remove image</a><?php } else { ?>(<a href="logo-upload2.php?logo=1&wizard=wizard3" style="font-size: 11px;" title="Upload Logo 1" rel="gb_page_center[400, 200]">click to upload</a>)<?php } ?></td></tr></table></div>
 				  
                 </div>
-              <div style="float: right; width: 165px; margin-top: 0;">
+              <div class="wizard-rightlogodiv">
                 Logo 2:
-                <div style="clear: both; margin-top: 0px; height: 75px; text-align: center;">
-                <table height="75"><tr><td valign="middle"><?php if ($_SESSION["logo2"]) { ?><font color='green'>Image Uploaded</font><br /><a href="wizard3.php?remove=2" style="font-size: 11px;">remove image</a><?php } else { ?>(<a href="logo-upload2.php?logo=2&wizard=wizard3" style="font-size: 11px;" title="Upload Logo 2" rel="gb_page_center[400, 200]">click to upload</a>)<?php } ?></td></tr></table> </div>
+                <div class="wizard-tableouter">
+                <table ><tr><td valign="middle"><?php if ($_SESSION["logo2"]) { ?><font color='green'>Image Uploaded</font><br /><a href="wizard3.php?remove=2" style="font-size: 11px;">remove image</a><?php } else { ?>(<a href="logo-upload2.php?logo=2&wizard=wizard3" style="font-size: 11px;" title="Upload Logo 2" rel="gb_page_center[400, 200]">click to upload</a>)<?php } ?></td></tr></table> </div>
                 
               </div> 
             </div>
@@ -412,19 +412,19 @@ function add_dome(value)
 		<dd>
 			<span>
 			<input type="hidden" name="tag" value="2" />
-          <div id="logoBox" style="width: 560px;">
+          <div id="logoBox" >
       			<div class="signUpField" style="border-top-width: 1px; border-top-style: solid; border-top-color: #CCC;">
             <div class="signUpFieldLeft">Name This Style:</div>
-            <div class="signUpFieldRight" style="padding-right: 35px;"><input type="text" name="stylename" id="stylename" style="width: 200px;" class="signupFieldInput"/></div>
+            <div class="signUpFieldRight" ><input type="text" name="stylename" id="stylename" style="width: 200px;" class="signupFieldInput"/></div>
          	</div>
             <div class="signUpField">
             <div class="signUpFieldLeft" style="height: 150px; ">Notes:<br />
               <p style="margin:0; padding: 0; line-height: 12px; font-weight: normal;">Any specific instructions?</p> </div>
-            <div class="signUpFieldRight" style="height: 150px; padding-right: 35px;"><textarea name="note" cols="40" rows="5" style="margin-top: 5px; width: 325px; height: 130px;"></textarea></div>
+            <div class="signUpFieldRight" style="height: 150px; "><textarea name="note" cols="40" rows="5" style="margin-top: 5px; width: 325px; height: 130px;"></textarea></div>
          	</div>   
             </div>			  
-           <div class="signUpField" style="width: 560px;">
-            <div style="height: 30px; text-align: center; line-height: 30px; margin-top:15px; margin-bottom: 15px; width: 560px;"><input type="image" value="submit" src="images/continueButton.png" /></div>
+           <div class="signUpField" >
+            <div style="height: 30px; text-align: center; line-height: 30px; margin-top:15px; margin-bottom: 15px; width: 100%;"><input type="image" value="submit" src="images/continueButton.png" /></div>
           
       </div>
 

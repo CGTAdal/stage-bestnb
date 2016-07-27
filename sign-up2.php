@@ -1145,12 +1145,12 @@ function changestatediv(country)
 
         </div>
 
-  		<div id="signUpRight" style="width: 391px; padding-top: 30px;">
+  		<div id="signUpRight" class="signup2-coverdiv">
 
         <h3 style="text-align: center; color: #777777; font-size: 13px;">Our Customers Love Us!<br />Independantly Verified Reviews.</h3>
-        <div style="width:391px; height: 173px; background-image: url(images/signUp-boxbg.jpg);">
+        <div  class="signup2-rightbox">
         <div style="padding: 10px;">
-        <div style="float: left; width: 140px;">
+        <div  class="signup2-image-left">
          
                  
         <a href="https://www.resellerratings.com" onclick="window.open('https://seals.resellerratings.com/landing.php?seller=39017','name','height=760,width=780,scrollbars=1'); 
@@ -1161,7 +1161,7 @@ function changestatediv(country)
     
         </div>
         
-        <div style="float: right; width: 210px;">
+        <div  class="signup2-image-right">
         <img src="images/reseller-ratings-satisfaction.jpg" />
         </div>
         
@@ -1171,7 +1171,7 @@ function changestatediv(country)
 
 <h3 style="text-align: center; color: #777777; font-size: 13px;">100% Safe And Secure.<br /> Independantly Monitored and Verified DAILY!</h3>
 
-<div style="width:391px; height: 173px; background-image: url(images/signUp-boxbg.jpg);">
+<div class="signup2-rightbox">
         <div style="padding: 35px; text-align:center;">
         
         

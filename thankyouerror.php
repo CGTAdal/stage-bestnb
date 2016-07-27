@@ -25,21 +25,16 @@ if ($_SESSION["customerloginid"])
 
 	  <br /><br />
       
-      <div style="width: 960px;">
-      <div style="width: 400px; float: right;">
       
+     
     
     
-    
-    </div>
-    
-    <div style="width: 500px; float: left;">
     
     <div id="signUpLeft" style="margin-top: 0px;">
         <div class="boxHeader"><span>Error Processing Order</span></div>
   		  <form method="post" action="sign-up.php">
           
-          <div style="width: 500px; float: left; border-right: solid 1px #CCC; border-left: solid 1px #CCC; border-bottom: dashed 1px #CCC;">
+          <div style="width: 100%; float: left; border-right: solid 1px #CCC; border-left: solid 1px #CCC; border-bottom: dashed 1px #CCC;">
             
             <div class="signUpField" style="border: none;">
             <div style="text-align: left; padding: 15px; ">
@@ -53,7 +48,7 @@ if ($_SESSION["customerloginid"])
             <div style="clear: both; padding-bottom: 5px;"></div>
         <div style="clear: both; border-bottom: solid 1px #CCC; height: 15px; margin-bottom: 10px;"></div>
         <div style="clear: both;"></div>
-        <div style="width: 500px; text-align: center;">
+        <div style="width: 100%; text-align: center;">
         
          </div>
      </div>
@@ -62,10 +57,10 @@ if ($_SESSION["customerloginid"])
           </form>
         </div>
     
-    </div>
     
     
-      </div>
+    
+    
     </div><!-- end mainContentFull -->
   
   </div><!-- end content -->

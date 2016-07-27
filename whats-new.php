@@ -87,7 +87,7 @@ if ($_SESSION["customerloginid"])
 				<p align="right"><strong>-L. Flippen, UMEA</strong></p>
             </li>
         </ul>
-        <p align="right" class="clb"><strong><a href="#">&raquo; Read More Testimonials</a></strong></p>
+        <p align="right" class="clb"><strong><a href="#"><span style="vertical-align:text-bottom;">&raquo;</span> Read More Testimonials</a></strong></p>
     </div>
            
     </div><!-- end mainContent -->

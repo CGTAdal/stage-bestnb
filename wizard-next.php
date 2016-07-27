@@ -223,10 +223,10 @@ if(isset($_REQUEST['completed'])){
      <div id="mainContentFull">
 	  <br/>
    <br />
-       <div style="width: 960px;">
-       <h3 style="text-align: center; font-size: 24px;">Your Proof Order Number: <span style="color: #397820;"><?php echo $id_wizard_order;?></span></h3>
-       <div style="width: 960px;">
-       <div style="width: 540px; float: left;">
+       <div style="width: 100%;">
+       <h3  class="wizard-nexttoptext">Your Proof Order Number: <span style="color: #397820;"><?php echo $id_wizard_order;?></span></h3>
+       <div style="width: 100%">
+       <div  class="wizard-next-left">
        <br />
 <br />
 
@@ -254,7 +254,7 @@ if(isset($_REQUEST['completed'])){
        
        
        </div>
-       <div style="float: right; width: 355px; padding-top: 30px;">
+       <div  class="wizard-next-right">
        <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -263,12 +263,12 @@ if(isset($_REQUEST['completed'])){
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-like-box" data-href="http://www.facebook.com/BestNameBadges" data-width="350" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
+<div class="fb-like-box wizardfb-likebox" data-href="http://www.facebook.com/BestNameBadges"  data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
 <div style="clear: both; padding-top: 10px;"></div>
 <a href="http://www.bnbpromos.com"><img src="images/promos-next.jpg" width="359" height="326" alt="Promotional Products" /></a> </div>
        </div>
       </div>
-      <div style="width: 880px; padding-left: 70px; padding-top: 35px; clear: both;">
+      <div  class="wizard-next-bottom">
       
        <h2>Save 10%! Add Additional Custom Products To Your Order. </h2>
        <p>We create a variety of products right here in-house.  With only a 5 item minimum, we can meet any budget.  Add any of the products below to your order and save 10% on your additional items.  Simply ask your service representative for a free proof on any of the items below.</p>

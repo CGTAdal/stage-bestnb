@@ -489,37 +489,37 @@ $(document).ready(function(){
           </div>
            <div class="boxHeader"><span style="float: left;">Additional Options</span></div>
            <div class="signUpField">
-            <div class="signUpFieldLeft">Pre-Printed Logo:</div>
+            <div class="signUpFieldLeft order-engraved-label-height">Pre-Printed Logo:</div>
             <div class="signUpFieldRight">
             	<input type="radio" name="PrintedLogo" checked value="No"  /> No&nbsp;&nbsp;
             	<input type="radio" name="PrintedLogo" value="Yes" /> Yes (Add 1.00)&nbsp;&nbsp;
-                
+                <span class="res-what-this-text">
                 <a class="hotspot" onmouseover="tooltip.show('<br/><strong>Just Add Names</strong><br/><br/>We can pre-print the plates with your logo in full color.  You just add the names to the inserts.<br/><br/>  This is NOT required to have your logo printed.  You can easily print your logo using your printer on the inserts.<br/><br/>');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;" href="javascript:void()">(What's this?)</a>
-            	
+            	</span>
             	
             </div>
           </div>
           
           <div class="signUpField">
-            <div class="signUpFieldLeft">Software:</div>
+            <div class="signUpFieldLeft order-engraved-label-height">Software:</div>
             <div class="signUpFieldRight">
             	<input type="radio" name="Software" checked value="Yes"  /> Yes (Add $39.00)&nbsp;&nbsp;
             	<input type="radio" name="Software" value="No" /> No&nbsp;&nbsp;
-                
+                <span class="res-what-this-text">
                 <a class="hotspot" onmouseover="tooltip.show('<br/><strong>NamePrint Graphics Software</strong><br/><br/>Regular price of $135, we offer our wholesale price of just $39.00<br/><br/>We supply Microsoft Word templates free of charge for all sizes.<br/><br/>We HIGHLY recommend using NamePrint Graphics as it makes creating, designing, and printing your badges substantially easier.<br/><br/>Included free, lifetime technical support to help with all your badge printing needs.<br/><br/> ');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;" href="javascript:void()">(Do I Need This?)</a>
-            	
+            	</span>
             	
             </div>
           </div>
           <div class="signUpField">
-            <div class="signUpFieldLeft">Velvet Carry Pouch:</div>
+            <div class="signUpFieldLeft order-engraved-label-height">Velvet Carry Pouch:</div>
             <div class="signUpFieldRight">
             	<input onclick="change_velvet(this.value);" type="radio" name="VelvetPouch" checked value="No"  /> No&nbsp;&nbsp;
             	<input onclick="change_velvet(this.value);" type="radio" name="VelvetPouch" value="Yes" />
            	    Yes (Add .97)&nbsp;&nbsp;
-                
+                <span class="res-what-this-text">
                 <a class="hotspot" onmouseover="tooltip.show('<br/><strong>Keep Your Name Badges Safe</strong><br/><br/>Add our black velvet carrying pouch for each of your name badges.  Keep them safe when not in use.<br/><br/>Click &quot;Yes&quot; to see a picture on the right.');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;" href="javascript:void()">(What's this?)</a>
-            	
+            	</span>
             	
             </div>
           </div>
@@ -625,7 +625,7 @@ $(document).ready(function(){
 				<div class="signUpFieldRight" style="height: 150px;"><textarea name="note" cols="40" rows="5" style="margin-top: 5px; width: 275px; height: 130px;"></textarea></div>
 				</div>
                 <div class="signUpField">
-            <div class="signUpFieldLeft">Printer Type:</div>
+            <div class="signUpFieldLeft order-engraved-label-height">Printer Type:</div>
             <div class="signUpFieldRight">
             	<input type="radio" name="Printer" checked value="InkJet"  /> InkJet&nbsp;&nbsp;
             	<input type="radio" name="Printer" value="Laser" /> Laser&nbsp;&nbsp;
@@ -635,14 +635,17 @@ $(document).ready(function(){
           </div>
           
           <div class="signUpField">
-            <div class="signUpFieldLeft">How Many Badges:</div>
+            <div class="signUpFieldLeft order-engraved-label-height">How Many Badges:</div>
             <div class="signUpFieldRight"><input type="text" name="quantity" value="" style="width: 50px;" class="signupFieldInput" /> 
             quantity</div>
           </div>
           <div class="signUpField">
-            <div class="signUpFieldLeft">Shipping:</div>
+            <div class="signUpFieldLeft order-engraved-label-height">Shipping:</div>
             <div class="signUpFieldRight">
-            	<input type="radio" name="Delivery" onclick="change_shipping(this.value);"  value="1" checked /> Standard &nbsp;&nbsp;<input onclick="change_shipping(this.value);" type="radio" name="Delivery" value="0" /> Expedited &nbsp;&nbsp;  <a class="hotspot" onmouseover="tooltip.show('<br/><strong>Your Timeline Is Important To Us</strong><br/><br/>We deliver on-time, everytime.<br/><br/>We can oftentimes ship out the same or next day, with delivery options as fast as overnight. We accomodate every rush order request with NO rush fees.<br/><br/>You have 2 ways to do this, first, please try calling us at 888-445-7601.  If it is after hours, please submit your order, then email support@bestnamebadges.com with your request and we will reach out to you right away.<br/><br/>');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;" href="javascript:void()">(Need It Fast?)</a>
+            	<input type="radio" name="Delivery" onclick="change_shipping(this.value);"  value="1" checked /> Standard &nbsp;&nbsp;<input onclick="change_shipping(this.value);" type="radio" name="Delivery" value="0" /> Expedited &nbsp;&nbsp;  
+                <span class="res-what-this-text">
+                <a class="hotspot" onmouseover="tooltip.show('<br/><strong>Your Timeline Is Important To Us</strong><br/><br/>We deliver on-time, everytime.<br/><br/>We can oftentimes ship out the same or next day, with delivery options as fast as overnight. We accomodate every rush order request with NO rush fees.<br/><br/>You have 2 ways to do this, first, please try calling us at 888-445-7601.  If it is after hours, please submit your order, then email support@bestnamebadges.com with your request and we will reach out to you right away.<br/><br/>');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal;" href="javascript:void()">(Need It Fast?)</a>
+                </span>
             	
             </div>
           </div>
