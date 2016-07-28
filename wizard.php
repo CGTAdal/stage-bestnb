@@ -83,7 +83,7 @@ height : auto;
 <script type="text/javascript" src="<?php echo $base_url;?>/admin/greybox/AJS_fx.js"></script>
 <script type="text/javascript" src="<?php echo $base_url;?>/admin/greybox/gb_scripts.js"></script>
 <link href="<?php echo $base_url;?>/admin/greybox/gb_styles.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $base_url;?>/style.css" />
+<!--<link rel="stylesheet" type="text/css" href="<?php echo $base_url;?>/style.css" />-->
 <link rel="stylesheet" href="<?php echo $base_url;?>/css/jquery.ui.all.css" />
 <script src="<?php echo $base_url;?>/js/ui/jquery.ui.1.10.3.js"></script>
 <script src="<?php echo $base_url;?>/js/ui/jquery.ui.core.js"></script>
@@ -1108,45 +1108,56 @@ function updateTextCaption(captionID)
 <div id="layer1" class="layer1_class">
       <img src="images/loading1.gif" />
     </div>
-    <div id="content">
+    <div id="content" class="wizard-newcontent">
     <div id="mainContentFull">
 	  <h2 style="margin-bottom: 20px">CREATE YOUR BADGE TEMPLATE</h2>    
 	  <hr noshade size="1" width="100%" align="center" style="margin-bottom: 15px;background: #CCCCCC;" />
-	  <div style="margin-bottom: 15px;font-family: Arial;">	
-		 <div style="float: left; width: 200px;padding-top: 15px;"><h3 style="font-family:Arial black;font-size: 15px;float: right; padding-right: 15px;text-shadow: 1px 0px #000;">Just 3 Simple Steps:</h3></div> <div class="step stepactive"><h1>Step 1:</h1> Create A Badge Template</div><div style="margin-left: -22px;" class="step"><h1>Step 2:</h1> <div style="weight: 1px;"></div> Add Names And Review Pricing</div><div style="margin-left: -22px;"  class="step"><h1>Step 3:</h1> Submit Your Order</div>
+	  <div style="margin-bottom: 15px;font-family: Arial;" class="add-names-step-outer">	
+		 <div class="add-names-justsimple-text"><h3 style="font-family:Arial black;font-size: 15px;float: right; padding-right: 15px;text-shadow: 1px 0px #000;">Just 3 Simple Steps:</h3></div> <div class="step stepactive"><h1>Step 1:</h1> Create A Badge Template</div><div style="margin-left: -22px;" class="step"><h1>Step 2:</h1> <div style="weight: 1px;"></div> Add Names And Review Pricing</div><div style="margin-left: -22px;"  class="step"><h1>Step 3:</h1> Submit Your Order</div>
 	  </div>
       <div id="logoBox" style="width: 100%">
 		<div class="boxHeader"><span style="float: left;">Create Your Design</span></div>
 		<div class="boxSub" style="border-bottom: none;">
 			<div class="boxSub2" style="display: none;"></div>
 		</div>
-          <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;height: 65px;">
-			
-				<div class="signUpFieldLeft" style="height: 65px;padding-left: 0px !important;width: 135px !important">
-						<div style="border-bottom: 1px dashed #CCCCCC;padding-left: 10px;">Select Your Badge:</div>
-						<div style="padding-left: 10px;">Add Your Logo(s):</div>
-				</div>
-				<div class="signUpFieldRight" style="height: 65px;float:left;border-right: 1px solid #CCCCCC;padding-left: 0px;">
-						
-						<div class="signUpFieldRight" style="float:left;border-bottom: 1px dashed #CCCCCC;width:  340px;">
-							<select name="changestyle" id="changestyle" onchange="changecstyle(this.value);" style="width: 325px; height: 22px;" class="signupFieldInput">
+          <div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;">
+            <div class="wizardnew-topleft">
+			   <div class="signUpField wizardnew-topleft-label1">
+                <div class="signUpFieldLeft wizardnew-left-label"   >
+                 Select Your Badge:
+                </div>
+                <div class="signUpFieldRight wizardnew-responsive-logoouter"  style="width:324px;padding-right:10px;">
+                  
+							<select name="changestyle" id="changestyle" onchange="changecstyle(this.value);" style="width: 100%; height: 22px;" class="signupFieldInput">
 								<option value="0">Choose One...</option>
 								<?php do { ?>
 								<option value="<?php echo $newstyle["id"].",".$newstyle["colorid"]; ?>" <?php if ($newstyle["id"] == $_SESSION["styleid"] && $newstyle["colorid"] == $_SESSION["color"]) {?>selected<?php } ?>><?php echo $newstyle["name"]." - ".$newstyle["size"]." - ".$newstyle["colorname"];?></option>
 								<?php } while ($newstyle = mysql_fetch_assoc($newstyles)); ?>
 							</select>
-						</div>
-						<div style="float: left; width: 165px; margin-top: 0;padding-left: 5px;">
+						
+                </div>
+               </div>
+               <div class="signUpField wizardnew-topleft-label2">
+				<div class="signUpFieldLeft wizardnew-left-label"   >
+						
+						Add Your Logo(s):
+				</div>
+				<div class="signUpFieldRight wizardnew-responsive-logoouter"  style="width:324px;padding-right:10px;">
+						
+						
+						<div  class="wizardnew-logoouter">
 							Logo 1:  <?php if ($_SESSION["logo1"]) { ?> <a href="wizard.php?remove=1" style="font-size: 11px;">remove image</a><?php } else { ?>(<a href="logo-upload.php?logo=1&wizard=wizard" style="font-size: 11px;" title="Upload Logo 1" rel="gb_page_center[400, 200]">click to upload</a>)<?php } ?>
 						</div>
-						<div style="float: right; width: 165px; margin-top: 0;">
+						<div class="wizardnew-logoouter-right">
 							Logo 2: <?php if ($_SESSION["logo2"]) { ?><a href="wizard.php?remove=2" style="font-size: 11px;">remove image</a><?php } else { ?>(<a href="logo-upload.php?logo=2&wizard=wizard" style="font-size: 11px;" title="Upload Logo 2" rel="gb_page_center[400, 200]">click to upload</a>)<?php } ?>				  
 						<div style="clear: both; margin-top: 10px;" class="wizardButtons"></div>
 						</div>
 						
 				</div>
-				<div class="signUpFieldRight" style="height: 65px;float:left;padding-left: 10px;"> 		
-					<div style="float: left; width: 350px; margin-top: 0;">
+               </div> 
+		      </div> 		
+                <div class="signUpFieldRight" style="float:left;padding-left: 10px;"> 		
+					<div  class="wizardnewbades-style">
 						<div id="styleinfo">  
 							 <div id="badgestyle">
 								<p style="float: left; font-size: 10px; width: 200px; text-align: left;">Badge Style:<br />
@@ -1166,14 +1177,14 @@ function updateTextCaption(captionID)
 					</div>
 				</div>
           </div>
-          <div class="signUpField" style="height: 30px;">
+          <div class="signUpField wizardnew-addtext1" >
             <div class="signUpFieldLeft" style="height: 30px;">Add Text 1:</div>
 	    
 			<span id="lblMessage" style="color:Blue;"></span>
-				<div style="width: 190px;float:left;padding-top:3px"><input id="txtText1" type="text" value="<?php if(isset( $_SESSION['text1'])){ echo $_SESSION['text1'];}else{ echo " ";}?>" style="width: 170px;margin-left:13px;" /></div>
+				<div  class="wizardnew-addtextbox"><input id="txtText1" type="text" value="<?php if(isset( $_SESSION['text1'])){ echo $_SESSION['text1'];}else{ echo " ";}?>" style="width: 170px;margin-left:13px;" /></div>
 
-				<div style="width: 140px;float:left;padding-top:3px"><input id="btnText1" type="button" value="Add/Update Text" onclick="addText('txtText1','ptext1');" /></div>
-				<div style="float:left;width: 150px;padding-top:0px;margin-left: 15px;"> 
+				<div  class="wizardnew-addbutton"><input id="btnText1" type="button" value="Add/Update Text" onclick="addText('txtText1','ptext1');" /></div>
+				<div  class="wizardnew-selectdiv"> 
 					<select id="font1_select" name="font1post" onchange="javascript:fontchange('font1',this.value);" style="height: 21px; width: 140px;" class="signupFieldInput">
 						<option value="arial.ttf">Arial Normal</option>
 						<option value="arialblack.ttf" <?php if ($_SESSION["font1"] == "arialblack.ttf") { ?> selected="selected"<?php } ?>>Arial Black</option>
@@ -1193,7 +1204,7 @@ function updateTextCaption(captionID)
 						
 					</select>&nbsp;&nbsp;
 				</div>
-				<div style="width: 50px;float:left;padding-top:0px;">
+				<div  class="wizardnew-numberselect">
 					<select id="text_fontsize_1" name="font1sizec" onchange="javascript:fontchange('font1size', this.value);add_style('ptext1',this.value);" style="height: 21px;" class="signupFieldInput">
 						<option value="20" <?php if ($_SESSION["font1size"] == 20) {?>selected <?php } ?>>10</option>
 						<option value="22" <?php if ($_SESSION["font1size"] == 22) {?>selected <?php } ?>>12</option>
@@ -1212,22 +1223,22 @@ function updateTextCaption(captionID)
 						<option value="98" <?php if ($_SESSION["font1size"] == 98) {?> selected<?php } ?>>88</option>
 					</select>&nbsp;&nbsp;
 				</div>
-				<div style="padding-right: 160px;width: 110px;float: right;padding-top:3px;">
+				<div  class="wizardnew-colordiv">
 					<div style="width: 1px;float: left;padding-top: 2px;">Color:</div><div id="colorSelector1"><div style="background-color:  <?php if ($_SESSION["font1color"]) { ?>#<?php echo $_SESSION["font1color"]; ?><?php } else { ?> black <?php } ?>"></div></div>
 				</div>
 				 <input   type="hidden" name="badgetext1color" id="badgetext1color_1" <?php if (isset($_SESSION["font1color"])) { ?>value="<?php echo $_SESSION["font1color"]; ?>"<?php } else { ?>value="000000"<?php } ?> class="signupFieldInput color" style="width: 75px; border: none;" />
 				<div style="clear:both;"></div>
           </div>
 		  <div style="clear:both;"></div>
-          <div class="signUpField" style="height: 30px;">
+          <div class="signUpField wizardnew-addtext1" >
             <div class="signUpFieldLeft" style="height: 30px;">Add Text 2:</div>
 			<span id="lblMessage" style="color:Blue;"></span>
-				<div style="width: 190px;float:left;padding-top:3px"><input id="txtText2" value="<?php if(isset( $_SESSION['text2'])){ echo $_SESSION['text2'];}else{ echo " ";}?>" type="text" style="width: 170px;margin-left:13px" />
+				<div class="wizardnew-addtextbox"><input id="txtText2" value="<?php if(isset( $_SESSION['text2'])){ echo $_SESSION['text2'];}else{ echo " ";}?>" type="text" style="width: 170px;margin-left:13px" />
 				</div>
-				<div style="width: 140px;float:left;padding-top:3px">
+				<div class="wizardnew-addbutton">
 				<input id="btnText2" type="button" value="Add/Update Text" onclick="addText('txtText2','ptext2');" />
 				</div>
-				<div style="float:left;width: 150px;padding-top:0px;margin-left: 15px;"> 
+				<div class="wizardnew-selectdiv"> 
 				<select id="font2_select" name="font2post" onchange="javascript:fontchange('font2',this.value);" style="height: 21px; width: 140px;" class="signupFieldInput">
 					<option value="arial.ttf">Arial Normal</option>
 					<option value="arialblack.ttf" <?php if ($_SESSION["font2"] == "arialblack.ttf") { ?> selected="selected"<?php } ?>>Arial Black</option>
@@ -1247,7 +1258,7 @@ function updateTextCaption(captionID)
 					
 				</select>&nbsp;&nbsp;
 				</div>
-				<div style="width: 50px;float:left;padding-top:0px">
+				<div class="wizardnew-numberselect">
 				<select id="text_fontsize_2" name="font2sizec" onchange="javascript:fontchange('font2size', this.value);add_style('ptext2',this.value);" style="height: 21px;" class="signupFieldInput">
 					<option value="20" <?php if ($_SESSION["font2size"] == 20) {?>selected<?php } ?>>10</option>
 					<option value="22" <?php if ($_SESSION["font2size"] == 22) {?>selected<?php } ?>>12</option>
@@ -1266,21 +1277,21 @@ function updateTextCaption(captionID)
 					<option value="98" <?php if ($_SESSION["font2size"] == 98) {?> selected<?php } ?>>88</option>
 				</select>&nbsp;&nbsp;
 				</div>
-				<div style="padding-right: 160px;width: 110px;float: right;padding-top: 3px;">
+				<div class="wizardnew-colordiv">
 				<div style="width: 1px;float: left;padding-top: 2px;">Color:</div><div id="colorSelector2"><div style="background-color: <?php if ($_SESSION["font2color"]) { ?>#<?php echo $_SESSION["font2color"]; ?><?php } else { ?> black <?php } ?>"></div></div>
 				</div>
 				<div style="clear:both;"></div>
           </div>
 		  <div style="clear:both;"></div>
 		  <div style="position: absolute; top: -2000px; left:2000px;"><input   type="hidden" name="badgetext2color" id="badgetext2color_2" <?php if (isset($_SESSION["font2color"])) { ?>value="<?php echo $_SESSION["font2color"]; ?>"<?php } else { ?>value="000000"<?php } ?> class="signupFieldInput color" style="width: 75px; border: none;" onchange="javascript:colorchange('2', this.value);" /></div> 
-          <div class="signUpField" style="height: 30px;">
+          <div class="signUpField wizardnew-addtext1" >
             <div class="signUpFieldLeft" style="height: 30px;">Add Text 3:</div>
 			<span id="lblMessage" style="color:Blue;"></span>
-				<div style="width: 190px;float:left;padding-top:3px"><input id="txtText3" value="<?php if(isset( $_SESSION['text3'])){ echo $_SESSION['text3'];}else { echo " ";}?>" type="text" style="width: 170px;margin-left:13px" />
+				<div class="wizardnew-addtextbox"><input id="txtText3" value="<?php if(isset( $_SESSION['text3'])){ echo $_SESSION['text3'];}else { echo " ";}?>" type="text" style="width: 170px;margin-left:13px" />
 				</div>
-				<div style="width: 140px;float:left;padding-top:3px"><input id="btnText2" type="button" value="Add/Update Text" onclick="addText('txtText3','ptext3');" />
+				<div class="wizardnew-addbutton"><input id="btnText2" type="button" value="Add/Update Text" onclick="addText('txtText3','ptext3');" />
 				</div>
-				<div style="float:left;width: 150px;padding-top:0px;margin-left: 15px;"> 
+				<div class="wizardnew-selectdiv"> 
 				 <select name="font3post" id="font3_select" onchange="javascript:fontchange('font3',this.value);" style="height: 21px; width: 140px;" class="signupFieldInput">
 					<option value="arial.ttf">Arial Normal</option>
 					<option value="arialblack.ttf" <?php if ($_SESSION["font3"] == "arialblack.ttf") { ?> selected="selected"<?php } ?>>Arial Black</option>
@@ -1300,7 +1311,7 @@ function updateTextCaption(captionID)
 				</select>&nbsp;&nbsp;
 				</div>
 				
-				<div style="width: 50px;float:left;padding-top:0px">
+				<div class="wizardnew-numberselect">
 				<select id="text_fontsize_3" name="font3sizec" onchange="javascript:fontchange('font3size', this.value); add_style('ptext3',this.value);" style="height: 21px;" class="signupFieldInput">
 					<option value="20" <?php if ($_SESSION["font3size"] == 20) {?>selected<?php } ?>>10</option>
 					<option value="22" <?php if ($_SESSION["font3size"] == 22) {?>selected<?php } ?>>12</option>
@@ -1319,7 +1330,7 @@ function updateTextCaption(captionID)
 					<option value="98" <?php if ($_SESSION["font3size"] == 98) {?> selected<?php } ?>>88</option>
 				</select>&nbsp;&nbsp;
 				</div>
-				<div style="padding-right: 160px;width: 110px;float: right;padding-top: 3px;">
+				<div class="wizardnew-colordiv">
 				<div style="width: 1px;float: left;padding-top: 2px;">Color:</div><div id="colorSelector3"><div style="background-color:  <?php if ($_SESSION["font3color"]) { ?>#<?php echo $_SESSION["font3color"]; ?><?php } else { ?> black <?php } ?>"></div></div>
 				</div>		
           </div>
@@ -1334,8 +1345,8 @@ function updateTextCaption(captionID)
 				<input type="radio" name="frame" value="none" checked onclick="javascript:framechange(document.getElementById('store_bgr_frame').value);"/> None&nbsp;&nbsp;<input type="radio" name="frame" value="gold" <?php if ($_SESSION["frame"] == "gold") { ?>checked<?php } ?> onclick="javascript:framechange(document.getElementById('store_bgr_frame').value); "/> Gold&nbsp;&nbsp;<input type="radio" name="frame" value="silver" <?php if ($_SESSION["frame"] == "silver") { ?>checked<?php } ?> onclick="javascript:framechange(document.getElementById('store_bgr_frame').value); " /> Silver
             </div>
 			</form>
-			<div class="signUpFieldLeft" style="float:left;width: 160px;border-left: 1px solid #CCCCCC;">Add A Dome: <span class="hotspot" style="font-family: Arial, Helvetica, sans-serif; font-size: 8px; font-weight: normal;" onmouseover="tooltip.show('<strong>Polyurethane Domed Lens</strong><br>Give your badges added protection and a professional glassy appearance with our hand applied domed lenses.  A permanent polyurethane coating is added to the top of the badge and cured.  The result is a stunning domed lens with some serious added protection.');" onmouseout="tooltip.hide();">(What's This?)</span></div>
-				<div class="signUpFieldRight" style="float:left;width: 210px;">
+			<div class="signUpFieldLeft winzardnew-adddome" style="float:left;width: 160px;border-left: 1px solid #CCCCCC;">Add A Dome: <span class="hotspot" style="font-family: Arial, Helvetica, sans-serif; font-size: 8px; font-weight: normal;" onmouseover="tooltip.show('<strong>Polyurethane Domed Lens</strong><br>Give your badges added protection and a professional glassy appearance with our hand applied domed lenses.  A permanent polyurethane coating is added to the top of the badge and cured.  The result is a stunning domed lens with some serious added protection.');" onmouseout="tooltip.hide();">(What's This?)</span></div>
+				<div class="signUpFieldRight winzardnew-yesnoradioourer" style="float:left;width: 210px;">
 					<input type="radio" onclick="add_dome(this.value); " name="dome_choose" <?php if($_SESSION['dome']==1){ echo 'checked';}?> value="1" /> Yes&nbsp;&nbsp;<input onclick="add_dome(this.value);" <?php if($_SESSION['dome']==0){ echo 'checked';}?> type="radio" name="dome_choose" value="0" /> No&nbsp;&nbsp;
 				</div>
         </div>
@@ -1404,7 +1415,7 @@ function updateTextCaption(captionID)
 						}
 					?>
 					<input type="hidden" id="backgroundimage" value="<?php echo $_SESSION["backgroundimage"];?>" name="backgroundimage"/>   
-					<div style="padding-left: 200px;">
+					<div  class="wizard-droppableouter">
                         
                         
 						<div id="droppable" class="ui-widget-header" style="background: <?php echo $bg;?>; border: 0px;">
@@ -1528,25 +1539,25 @@ function updateTextCaption(captionID)
 	</div><!-- end wizardRight -->
     <div style="clear: both; float: left;"></div>
     
-    <div id="slider3" style="margin-top: 15px; clear: both; float: left;padding-left: 45px; font-family: arial">
+    <div id="slider3"  class="wizard-butoomform">
 		<dl class="slider3" id="slider3">
 			<dt></dt>
 			<dd>
 				<span>
 			 
-			  <div id="logoBox" style="width: 560px;">
+			  <div id="logoBox" style="width: 100%;">
 					<div class="signUpField" style="border-top-width: 1px; border-top-style: solid; border-top-color: #CCC;">
-				<div class="signUpFieldLeft" style="width: 200px;">Name This Layout: <a href="javascript:void()" style="font-family: Arial, Helvetica, sans-serif; font-size: 8px; font-weight: normal;" onmouseout="tooltip.hide();" onmouseover="tooltip.show('Use this as your own generic name for your template.  This is useful when you are reordering this badge style in the future.');" class="hotspot">(What's This?)</a></div>
-				<div class="signUpFieldRight" style="padding-right: 35px;width: 250px;"><input type="text" name="stylename" id="stylename" style="width: 200px;" class="signupFieldInput"/></div>
+				<div class="signUpFieldLeft wizardnew-namethis-label" >Name This Layout: <a href="javascript:void()" style="font-family: Arial, Helvetica, sans-serif; font-size: 8px; font-weight: normal;" onmouseout="tooltip.hide();" onmouseover="tooltip.show('Use this as your own generic name for your template.  This is useful when you are reordering this badge style in the future.');" class="hotspot">(What's This?)</a></div>
+				<div class="signUpFieldRight wizardnew-namethis-input"><input type="text" name="stylename" id="stylename" style="width: 200px;" class="signupFieldInput"/></div>
 				</div>
 				<div class="signUpField">
-				<div class="signUpFieldLeft" style="height: 150px;width: 200px; ">Notes:<br />
+				<div class="signUpFieldLeft wizardnew-namethis-label" style="height: 150px;">Notes:<br />
 				  <p style="margin:0; padding: 0; line-height: 12px; font-weight: normal;">Any specific instructions?</p> </div>
-				<div class="signUpFieldRight" style="height: 150px; padding-right: 35px;width: 250px;"><textarea name="note" cols="40" rows="5" style="margin-top: 5px; width: 250px; height: 130px;"></textarea></div>
+				<div class="signUpFieldRight wizardnew-namethis-input" style="height: 150px; "><textarea name="note" cols="40" rows="5" style="margin-top: 5px; width: 250px; height: 130px;"></textarea></div>
 				</div>   
 				</div>			  
-			   <div class="signUpField" style="width: 560px;">
-				<div style="height: 30px; text-align: center; line-height: 30px; margin-top:15px; margin-bottom: 15px; width: 560px;">
+			   <div class="signUpField" style="width: 100%;">
+				<div style="height: 30px; text-align: center; line-height: 30px; margin-top:15px; margin-bottom: 15px; width: 100%;">
 					<input class="img_btn"  type="button" id="continues" value="" name="continues" />
 				</div>
 			  

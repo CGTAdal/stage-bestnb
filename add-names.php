@@ -808,8 +808,13 @@ $(document).ready(function(){
 	  <h2>Review Your Badge Selection And Pricing</h2>
 
 	  <br /><br />
-	<div style="margin-bottom: 15px;font-family: Arial;">	
-		 <div style="float: left; width: 200px;padding-top: 15px;"><h3 style="font-family:Arial black;font-size: 15px;float: right; padding-right: 15px;text-shadow: 1px 0px #000;">Just 3 Simple Steps:</h3></div> <div class="step"><a href="<?php echo $base_url?>/wizard.php"><h1>Step 1:</h1> Create A Badge Template</a></div><div style="margin-left: -22px;" class="step stepactive"><h1>Step 2:</h1> <div style="weight: 1px;"></div> Add Names And Review Pricing</div><div style="margin-left: -22px;"  class="step"><h1>Step 3:</h1> Submit Your Order</div>
+	<div style="margin-bottom: 15px;font-family: Arial;" class="add-names-step-outer">	
+		 <div class="add-names-justsimple-text">
+           <h3 style="font-family:Arial black;font-size: 15px;float: right; padding-right: 15px;text-shadow: 1px 0px #000;">Just 3 Simple Steps:</h3>
+         </div> 
+         <div class="step"><a href="<?php echo $base_url?>/wizard.php"><h1>Step 1:</h1> Create A Badge Template</a></div>
+         <div style="margin-left: -22px;" class="step stepactive"><h1>Step 2:</h1> <div style="weight: 1px;"></div> Add Names And Review Pricing</div>
+         <div style="margin-left: -22px;"  class="step"><h1>Step 3:</h1> Submit Your Order</div>
 	</div>
     <div style="clear: both;"></div>
     <div style="padding-bottom: 5px;">
@@ -825,13 +830,13 @@ $(document).ready(function(){
              <a onclick="return GB_showCenter('', this.href,800,1000)"   style="color: #435F86;" href="instruction.php">Click Here</a> For Instructions 
     </div>
     
-    <div  style="width: 960px;margin: 0 auto;">
-        <div style="float: left;width: 350px;padding-left: 100px;">
-            <div style="float: left;width: 150px; text-align:center;margin-top: 25px;" >
+    <div  style="width: 100%;margin: 0 auto;">
+        <div class="addnames-leftimg-div">
+            <div class="addnames-leftimg-textdiv" >
                 <a onclick="return GB_showCenter('', this.href,310,580)" style="color: #435F86;" href="<?php echo $base_url?>/output/<?php echo $_SESSION["bannername"] ?>">Click Here </a> <font color="#7D9834">To<br /> Enlarge Badge Preview: </font> 
                <!--  <a rel="gb_image[]" style="color: #435F86;" href="<?php echo $base_url?>/output/<?php echo $_SESSION["bannername"] ?>">Click Here </a> <font color="#7D9834">To<br /> Enlarge Badge Preview: </font> -->
             </div>
-            <div style="float: right;width: 200px;" >
+            <div  class="addnames-leftimg-imgouter">
                 <?php 
     			  $rate  = 580/200;;
     			  ?>
@@ -851,9 +856,9 @@ $(document).ready(function(){
                 </div>    
             </div>
         </div>
-        <div style="float: right;width: 480px;">
-            <div style="float: left;width: 150px; text-align:center;margin-top: 25px;" ><a onclick="return GB_showCenter('', this.href,400,900)" style="color: #435F86;" href="price.php">Click Here </a> <font color="#7D9834">To View<br /> Quantity Pricing Table: </font></div>
-            <div style="float: right;width: 320px;" >
+        <div class="addnames-rightimg-div">
+            <div class="addnames-leftimg-textdiv" ><a onclick="return GB_showCenter('', this.href,400,900)" style="color: #435F86;" href="price.php">Click Here </a> <font color="#7D9834">To View<br /> Quantity Pricing Table: </font></div>
+            <div class="addnames-rightimg-imgouter">
                 <img src="images/price.png" /> 
             </div>
         </div>
@@ -876,7 +881,7 @@ $(document).ready(function(){
         </div>
         <form method="post" name="namefields">     
       	<div class="signUpField" style="border-top-width: 1px; border-top-style: dashed; border-top-color: #CCC;">
-            <div class="signUpFieldLeft" style="height: 95px;">Text:</div>
+            <div class="signUpFieldLeft add-names-text-labelheight" style="height: 95px;">Text:</div>
             <?php if(($_SESSION["wirard"] == 1) && isset($_SESSION["wirard"])){?>
              <div class="signUpFieldRight" style="height: 95px; width: 303px;">
            		Name: <input type="text" name="text1" id="text1" style="width: 200px;" class="signupFieldInput" value="<?php echo $_SESSION["text1"]; ?>"/><br />
@@ -928,7 +933,8 @@ $(document).ready(function(){
 		}?>
 			</form>
             </div>
-			<div class="signUpFieldLeft">Add A Dome: <span class="hotspot" style="font-family: Arial, Helvetica, sans-serif; font-size: 8px; font-weight: normal;" onmouseover="tooltip.show('<strong>Polyurethane Domed Lens</strong><br>Give your badges added protection and a professional glassy appearance with our hand applied domed lenses.  A permanent polyurethane coating is added to the top of the badge and cured.  The result is a stunning domed lens with some serious added protection.');" onmouseout="tooltip.hide();">(What's This?)</span></div>
+			<div class="signUpFieldLeft add-name-add-labelheight">Add A Dome: 
+            <span class="hotspot" style="font-family: Arial, Helvetica, sans-serif; font-size: 8px; font-weight: normal;" onmouseover="tooltip.show('<strong>Polyurethane Domed Lens</strong><br>Give your badges added protection and a professional glassy appearance with our hand applied domed lenses.  A permanent polyurethane coating is added to the top of the badge and cured.  The result is a stunning domed lens with some serious added protection.');" onmouseout="tooltip.hide();">(What's This?)</span></div>
 			<div class="signUpFieldRight" style="width: 303px;">
 				<input type="radio" onclick="add_dome(this.value)" name="dome_choose" <?php if($_SESSION['dome']==1){ echo 'checked';}?> value="1" /> Yes&nbsp;&nbsp;<input onclick="add_dome(this.value)" <?php if($_SESSION['dome']==0){ echo 'checked';}?> type="radio" name="dome_choose" value="0" /> No&nbsp;&nbsp;
 			</div>
@@ -947,11 +953,11 @@ $(document).ready(function(){
         <div style="border-bottom: none;" class="boxSub">
         	  <div style="display: none;" class="boxSub2"></div>
         </div>
-     	<div style="float: left; width: 170px;border-bottom: 1px dashed #CCCCCC;height:30px;">
-        	<div style="padding-left: 5px;width: 100px;float: left;border-right: 1px solid #CCC;height: 100%;background-color: #F5F6E7;"  >                
+     	<div class="add-names-smallinputouter">
+        	<div class="add-names-smallinput-label" >                
                <div style="margin-top: 5px;font-size: 11px; font-weight: bold; line-height: 30px;color: #333333;">Badges:</div> 
             </div>
-            <div style="float: right;margin-top: 5px;">
+            <div class="add-names-smallinput-right">
 		<?php 
 			 if(isset($_SESSION["numofbadges"]) &&  $_SESSION["numofbadges"] >0)
 			{
@@ -964,84 +970,84 @@ $(document).ready(function(){
             </div>
         </div>
        
-       <div style="float: right; width: 280px;border-bottom: 1px dashed #CCCCCC;height:30px;">
-        	<div style="padding-left: 5px;width: 150px;float: left;border-left: 1px solid #CCC;height: 100%;background-color: #F5F6E7;border-right: 1px solid #CCC;"  >
+       <div class="add-names-prepay-inputouter" >
+        	<div class="add-names-prepay-label">
                 <div style="margin-top: 5px;font-size: 11px; font-weight: bold; line-height: 30px;color: #333333;">Prepay For Extra Badges:</div> 
             </div>
-            <div  style="float: left;padding-left: 5px;">    
+            <div class="add-names-prepay-right" >    
                 <input type="text" name="numofabadges" id="numofabadges"  maxlength="10" style="width: 30px;" class="signupFieldInput" onchange="javascript:recalc2();" value="<?php echo $_SESSION["numofabadges"]; ?>"/>     <a class="hotspot" onmouseover="tooltip.show('<strong>Take advantage of quantity ordering</strong> by prepaying for additional badges for later.  Add additional badges to your order and you can get great higher quantity rates.  You can simply log into your account at a later date and use these badges at your convenience, with no additional billing or shipping charges!');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 8px; font-weight: normal;" href="javascript:void()">(What's This?)</a>
             </div>
         </div>
        
-        <div style="float: left; width: 170px;border-bottom: 1px dashed #CCCCCC;height:30px;">
-        	<div style="padding-left: 5px;width: 100px;float: left;border-right: 1px solid #CCC;height: 100%;background-color: #F5F6E7;"  >  
+        <div class="add-names-smallinputouter">
+        	<div class="add-names-smallinput-label"  >  
                 <div style="margin-top: 5px;font-size: 11px; font-weight: bold; line-height: 30px;color: #333333;">Frames:</div>
              </div>
-             <div style="float: right;margin-top: 5px;">    
+             <div class="add-names-smallinput-right">    
                 <input type="text" name="numofframes" id="numofframes" maxlength="10" style="width: 30px; border:none;" class="quantityNumber" value="<?php echo $_SESSION["numofframes"]; ?>"/>
               </div>  
         </div>
        	
         
-        <div style="float: right; width: 280px;border-bottom: 1px dashed #CCCCCC;height:30px;">
-        	<div style="padding-left: 5px;width: 150px;float: left;border-left: 1px solid #CCC;height: 100%;background-color: #F5F6E7;border-right: 1px solid #CCC;"  >
+        <div class="add-names-prepay-inputouter" >
+        	<div class="add-names-prepay-label" >
                 <div style="margin-top: 5px;font-size: 11px; font-weight: bold; line-height: 30px;color: #333333;">Prepay For Extra Frames:</div>
             </div>
-            <div style="float: left;padding-left: 5px;">   
+            <div class="add-names-prepay-right">   
              <input type="text" name="numofaframes" id="numofaframes" maxlength="10" style="width: 30px;" class="signupFieldInput" onchange="javascript:recalc2();" value="<?php echo $_SESSION["numofaframes"]; ?>"/>  <a class="hotspot" onmouseover="tooltip.show('<strong>Take advantage of quantity ordering</strong> by prepaying for additional frames for later.  Add additional frames to your order and you can get great higher quantity rates.  You can simply log into your account at a later date and use these frames at your convenience, with no additional billing or shipping charges!');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 8px; font-weight: normal;" href="javascript:void()">(What's This?)</a>
             </div> 
         </div>
-		<div style="float: left; width: 170px;border-bottom: 1px dashed #CCCCCC;height:30px;">
-        	<div style="padding-left: 5px;width: 100px;float: left;border-right: 1px solid #CCC;height: 100%;background-color: #F5F6E7;"  > 
+		<div class="add-names-smallinputouter">
+        	<div class="add-names-smallinput-label"  > 
                 <div style="margin-top: 5px;font-size: 11px; font-weight: bold; line-height: 30px;color: #333333;">Domes:</div>
             </div>
-            <div style="float: right;margin-top: 5px;">     
+            <div class="add-names-smallinput-right">     
                 <input type="text" name="numofdomes" id="numofdomes" maxlength="10" style="width: 30px; border:none;" class="quantityNumber" value="<?php echo $_SESSION["numofdomes"]; ?>"/>
             </div>
         </div>
         
-         <div style="float: right; width: 280px;border-bottom: 1px dashed #CCCCCC;height:30px;">
-            <div style="padding-left: 5px;width: 150px;float: left;border-left: 1px solid #CCC;height: 100%;background-color: #F5F6E7;border-right: 1px solid #CCC;"  >    
+         <div class="add-names-prepay-inputouter">
+            <div class="add-names-prepay-label">    
         	<div style="margin-top: 5px;font-size: 11px; font-weight: bold; line-height: 30px;color: #333333;">Prepay For Extra Domes: </div>
             </div>
-            <div style="float: left;padding-left: 5px;">
+            <div class="add-names-prepay-right">
         	  <input type="text" name="numofadome" id="numofadome"  maxlength="10" style="width: 30px;" class="signupFieldInput" onchange="javascript:recalc2();" value="<?php echo $_SESSION["numofadome"]; ?>"/>  <a class="hotspot" onmouseover="tooltip.show('<strong>Take advantage of quantity ordering</strong> by prepaying for additional domes for later.  Add additional domes to your order and you can get great higher quantity rates.  You can simply log into your account at a later date and use these domes at your convenience, with no additional billing or shipping charges!');" onmouseout="tooltip.hide();" style="font-family: Arial, Helvetica, sans-serif; font-size: 8px; font-weight: normal;" href="javascript:void()">(What's This?)</a>
 			</div>
         </div>
         <div style="clear: both;"> </div>
-	    <div style="width: 450px;border-bottom: 1px dashed #CCCCCC;height: 30px;">
+	    <div  class="add-names-total-inputouter">
             <div style="padding-top: 5px;" align="center"><a style="text-align: right;text-align: center;cursor: pointer;">Update Totals</a></div>
         </div>  
 		 <div style="clear: both;"></div>
-        <div style="float: left; width: 450px;border-bottom: 1px dashed #CCC;height: 30px">
-        	<div style="padding-left: 5px;width: 100px;float: left;border-right: 1px solid #CCC;height: 100%;background-color: #F5F6E7;"  >
+        <div class="add-names-total-inputouter" >
+        	<div class="add-names-smallinput-label"  >
                  <div style="margin-top: 5px;font-size: 11px; font-weight: bold; line-height: 30px;color: #333333;">Badge Total:</div>
             </div>
-            <div style="float: right;width: 340px;">
+            <div class="add-names-total-right">
                  <div style="margin-top: 5px; padding-left: 20px;">
                   <input type="text" name="badgetimes" id="badgetimes" maxlength="15" style="width: 70px; border:none;" value="0" class="popBoxSmall" readonly/> <input type="text" name="badgetotal" id="badgetotal" maxlength="15" style="width: 65px; border:none; font-size:14px;" value="" class="quantityNumber" readonly/>
                 </div>  
             </div> 
         </div>
-        <div style="float: left; width: 450px;border-bottom: 1px dashed #CCC;height: 30px">            
-        	<div style="padding-left: 5px;width: 100px;float: left;border-right: 1px solid #CCC;height: 100%;background-color: #F5F6E7;"  >
+        <div  class="add-names-total-inputouter">            
+        	<div class="add-names-smallinput-label"  >
                  <div style="margin-top: 5px;font-size: 11px; font-weight: bold; line-height: 30px;color: #333333;">
                     Frame Total:
                  </div>
             </div>
-            <div style="float: right;width: 340px;">
+            <div class="add-names-total-right">
                 <div style="margin-top: 5px; padding-left: 20px;">
                     <input type="text" name="frametimes" id="frametimes" maxlength="15" style="width: 70px; border:none;" value="0" class="popBoxSmall" readonly /> <input type="text" name="frametotal" id="frametotal" maxlength="15" style="width: 65px; border:none; font-size:14px;" value="" class="quantityNumber" readonly/>
                 </div>    
             </div>             
         </div>
-		 <div style="float: left; width: 450px;border-bottom: 1px dashed #CCC;height: 30px">            
-        	<div style="padding-left: 5px;width: 100px;float: left;border-right: 1px solid #CCC;height: 100%;background-color: #F5F6E7;"  >
+		 <div  class="add-names-total-inputouter">            
+        	<div class="add-names-smallinput-label"  >
                  <div style="margin-top: 5px;font-size: 11px; font-weight: bold; line-height: 30px;color: #333333;">
                     Dome Total:
                  </div>
             </div>
-            <div style="float: right;width: 340px;">     
+            <div class="add-names-total-right">     
                 <div style="margin-top: 5px; padding-left: 20px;">   
         			<input type="hidden" name="dome_total" id="dome_total" maxlength="15" value="0" />
         			<input type="text" name="dome_show_calc"   id="dome_show_calc" style="width: 70px; border:none;" value="0" class="popBoxSmall" readonly /> 
@@ -1050,7 +1056,7 @@ $(document).ready(function(){
            </div> 
         </div>
         <div style="clear: both;"></div>
-        <div style="width: 450px; text-align: center;border-bottom: 1px dashed #CCC;">
+        <div class="add-names-totaltext">
         	<div style="margin-top: 15px;padding-bottom: 10px;" align="center">Order Total: <input type="text" name="ordertotal" id="ordertotal" maxlength="15" style="width: 75px; border:none; font-size:14px;" value="0" class="quantityNumber" readonly/></div>
             <div align="center" style="padding-bottom:  15px;margin-left:-35px"><img src="images/checkoutButton.png" onclick="checkoutpost.submit();"/></div>
         </div>

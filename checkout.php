@@ -719,14 +719,15 @@ function changestatediv1(country)
 	  <h2>Billing And Checkout</h2>
 		
 	  <br /><br />
-      <div style="margin-bottom: 15px;font-family: Arial;">	
-		 <div style="float: left; width: 200px;padding-top: 15px;"><h3 style="font-family:Arial black;font-size: 15px;float: right; padding-right: 15px;text-shadow: 1px 0px #000;">Just 3 Simple Steps:</h3></div> <div class="step"><a href="<?php echo $base_url?>/wizard.php"><h1>Step 1:</h1> Create A Badge Template</a></div><div style="margin-left: -22px;" class="step"><a href="<?php echo $base_url?>/add-names.php"><h1>Step 2:</h1> <div style="weight: 1px;"></div> Add Names And Review Pricing</a></div><div style="margin-left: -22px;"  class="step stepactive"><h1>Step 3:</h1> Submit Your Order</div>
+      <div style="margin-bottom: 15px;font-family: Arial;" class="add-names-step-outer">	
+		 <div class="add-names-justsimple-text"><h3 style="font-family:Arial black;font-size: 15px;float: right; padding-right: 15px;text-shadow: 1px 0px #000;">Just 3 Simple Steps:</h3></div> <div class="step"><a href="<?php echo $base_url?>/wizard.php"><h1>Step 1:</h1> Create A Badge Template</a></div><div style="margin-left: -22px;" class="step"><a href="<?php echo $base_url?>/add-names.php"><h1>Step 2:</h1> <div style="weight: 1px;"></div> Add Names And Review Pricing</a></div><div style="margin-left: -22px;"  class="step stepactive"><h1>Step 3:</h1> Submit Your Order</div>
       </div>
-      <div style="width: 960px;">
-      <div style="width: 500px; float: left;">
-    
-    <div id="signUpLeft" style="margin-top: 0px;width: 450px;">
-  		  <form method="post" action="checkout.php" name="checkoutform" id="checkoutform">
+      <div style="width: 100%;">
+      <form method="post" action="checkout.php" name="checkoutform" id="checkoutform">
+      <div  class="checkout-leftdiv">
+     
+      <div id="signUpLeft" style="margin-top: 0px;">
+  		 
 		  <input type="hidden"  readonly name="totalbadges" value="<?php echo $_POST["numofbadges"] + $_POST["numofabadges"]; ?>" />
 		  <input type="hidden"  readonly  name="totaldome" value="<?php echo $_POST['dome_total'] + $_POST['numofadome'];?>" />
 		  <input type="hidden"  readonly name="totalframes" value="<?php echo $_POST["numofframes"] + $_POST["numofaframes"]; ?>" />
@@ -751,13 +752,13 @@ function changestatediv1(country)
 		  <input type="hidden" name="promocode" id="promocode" value="<?php echo $code["name"]; ?>" />
           <input type="hidden" value="<?php echo $_POST["frametimes"]; ?>" name="frametimes" />          
      </div>
-	 	
+	  <div id="signUpLeft" style="margin-top: 0px;"> 	
 		 
-         <div class="boxHeader"><span style="float: left;">YOUR ORDER WILL SHIP TO</span></div>
+          <div class="boxHeader"><span style="float: left;">YOUR ORDER WILL SHIP TO</span></div>
           <div class="signUpField" style="padding-top: 15px; padding-bottom: 15px;">
             <div>
             
-                   <div  id="show_address" style="width: 150px;float: left; padding-left: 10px;">
+                    <div  id="show_address" style="width: 150px;float: left; padding-left: 10px;">
                    
                     <?php
                     	$qry_info = "SELECT * FROM customers WHERE id = ".$_SESSION["customerloginid"];
@@ -808,10 +809,9 @@ function changestatediv1(country)
                             <tr>
                                 <td><div id="stateprov1">State: </div></td>
                                 <td>		
-						<input type="hidden" value="0" name="state_submit" id="state_submit" />                          
-						<select id="state1" name="state1">
-						</select>
-                                    </div>        
+						       <input type="hidden" value="0" name="state_submit" id="state_submit" />                          
+						       <select id="state1" name="state1"><option></option></select>
+                                    
                                 </td>
                             </tr>
                             <tr>
@@ -829,7 +829,7 @@ function changestatediv1(country)
                             </tr>
                         </table>
                    </div> 
-                   <div id="link_edit" style="width: 200px;float: right; padding-top: 50px;">
+                    <div id="link_edit" style="width: 200px;float: right; padding-top: 50px;">
                     <a id="click_edit" href="javascript:void(0);">Click Here </a> To Update Address</a>
                    </div>
               </div>     
@@ -945,96 +945,97 @@ function changestatediv1(country)
           
         </div>
       </div>  
-      <div style="width: 450px; float: right;">
+      <div  class="checkout-rightdiv">
       <div id="wizardRight" style="float: right;width: 450px;">
       <div class="boxorder">
       <span style="float: left;">Your Order</span></div>
       <div class="boxSub" style="float: left;border-bottom: 1px dashed #CCC">         
-          <div>
-     	<div style="float: left; width: 200px;border-bottom: 1px dashed #CCC">
-            <div style="width: 150px;float: left;">	
-                <div class="signUpFieldLeft" style="width: 130px;">Badges This Order: <span class="quantityNumber"></div>            
+          
+     	<div class="checkout-yourorder-left">
+            <div  class="checkout-yourorder-left-label">	
+                <div class="signUpFieldLeft" style="width: 130px;">Badges This Order: <span class="quantityNumber"></span></div>            
             </div>
-            <div style="width: 50px;float: right;text-align: center;padding-top: 5px;">
-                <span class="quantityNumber"><?php echo $_POST["numofbadges"]; ?></span></div>
+            <div  class="checkout-yourorder-left-input">
+                <span class="quantityNumber"><?php echo $_POST["numofbadges"]; ?></span>
+              </div>
         </div>
         
-        <div style="float: right; width: 248px;border-bottom: 1px dashed #CCC;border-left: 1px solid #CCC">
-        	<div style="width: 160px;float: left;">	
+        <div class="checkout-yourorder-right">
+        	<div class="checkout-yourorder-right-label">	
                 <div class="signUpFieldLeft" style="width: 150px;">
                     Extra Badges For Later:
                 </div>
             </div>
-            <div style="width: 30px;float: left; text-align: center;padding-top: 5px;">
+            <div class="checkout-yourorder-right-input">
                 <span class="quantityNumber" style="font-size: 14px; font-weight: bold;"><?php echo $_POST["numofabadges"]; ?></span>
             </div>        
         </div>
         
-        <div style="float: left; width: 200px;border-bottom: 1px dashed #CCC">
-            <div style="width: 150px;float: left;">	
+        <div class="checkout-yourorder-left">
+            <div class="checkout-yourorder-left-label" >	
                 <div class="signUpFieldLeft" style="width: 130px;">
                     Frames This Order: 
                 </div>
             </div>
-            <div style="width: 50px;float: right;text-align: center;padding-top: 5px;"><span class="quantityNumber"><?php echo $_POST["numofframes"]; ?></span></div>        
+            <div class="checkout-yourorder-left-input"><span class="quantityNumber"><?php echo $_POST["numofframes"]; ?></span></div>        
         </div>
         
-        <div style="float: right; width: 248px;border-bottom: 1px dashed #CCC;border-left: 1px solid #CCC;">        	
-            <div style="width: 160px;float: left;">	
+        <div class="checkout-yourorder-right">        	
+            <div class="checkout-yourorder-right-label">	
                 <div class="signUpFieldLeft" style="width: 150px;">
                    Extra Frames For Later: 
                 </div>
            </div>
-           <div style="width: 30px;float: left; text-align: center;padding-top: 5px;"><span class="quantityNumber" style="font-size: 14px; font-weight: bold;"><?php echo $_POST["numofaframes"]; ?></span></div>        
+           <div class="checkout-yourorder-right-input"><?php echo $_POST["numofaframes"]; ?></span></div>        
         </div>
         
-		<div style="float: left; width: 200px;border-bottom: 1px dashed #CCC">
-        	<div style="width: 150px;float: left;">	
+		<div class="checkout-yourorder-left">
+        	<div class="checkout-yourorder-left-label">	
                 <div class="signUpFieldLeft" style="width: 130px;">
                     Domes This Order: 
                 </div>
             </div>
-            <div style="width: 50px; float: left; text-align: center;padding-top: 5px;"><span class="quantityNumber"><?php echo $_POST["numofdomes"]; ?></span></div>        
+            <div class="checkout-yourorder-left-input"><span class="quantityNumber"><?php echo $_POST["numofdomes"]; ?></span></div>        
         </div>
        
-		<div style="float: right; width: 248px;border-bottom: 1px dashed #CCC;border-left: 1px solid #CCC;">
-        	<div style="width: 160px;float: left;">	
+		<div class="checkout-yourorder-right">
+        	<div class="checkout-yourorder-right-label">	
                 <div class="signUpFieldLeft" style="width: 150px;">
                     Extra Dome For Later: 
                 </div>
             </div>
-            <div style="width: 30px;float: left; text-align: center;padding-top: 5px;"><span class="quantityNumber" style="font-size: 14px; font-weight: bold;"><?php echo $_POST["numofadome"]; ?></span></div>               
+            <div class="checkout-yourorder-right-input"><?php echo $_POST["numofadome"]; ?></span></div>               
 		</div>			
         <div style="clear: both;"></div>
-        <div style="float: left; width: 450px; border-bottom: 1px dashed #CCC;">
-      		<div style="width: 120px;float: left;">	
+        <div class="checkout-totlaouter">
+      		<div class="checkout-totlaouter-left" >	
                 <div class="signUpFieldLeft" style="width: 100px;">
                     Badge Total: 
                 </div>
             </div>
-            <div style="width: 200px;float:left;padding-top: 5px;">        <?php echo $_POST["badgetimes"]; ?> <span class="quantityNumber" style="font-size: 14px;"><?php echo $_POST["badgetotal"]; ?></span></div>            
+            <div class="checkout-totlaouter-right" > <?php echo $_POST["badgetimes"]; ?> <span class="quantityNumber" style="font-size: 14px;"><?php echo $_POST["badgetotal"]; ?></span></div>            
         </div>
 		
-        <div style="float: right; width: 450px;  border-bottom: 1px dashed #CCC;">
-      		<div style="width: 120px;float: left;">	
+        <div class="checkout-totlaouter">
+      		<div  class="checkout-totlaouter-left">	
                 <div class="signUpFieldLeft" style="width: 100px;">
                     Frame Total: 
                 </div>
             </div>    
-            <div style="width: 200px;float: left;padding-top: 5px;">    <?php echo $_POST["frametimes"]; ?> <span class="quantityNumber" style="font-size: 14px;"><?php echo $_POST["frametotal"]; ?></span></div>
+            <div class="checkout-totlaouter-right"><?php echo $_POST["frametimes"]; ?> <span class="quantityNumber" style="font-size: 14px;"><?php echo $_POST["frametotal"]; ?></span></div>
         </div>
-		<div style="float: left; width: 450px;  border-bottom: 1px dashed #CCC;">
-        	<div style="width: 120px;float: left;">	
+		<div class="checkout-totlaouter">
+        	<div class="checkout-totlaouter-left">	
                 <div class="signUpFieldLeft" style="width: 100px;">
                     Dome Total: 
                 </div>                
             </div>
-            <div style="width: 200px; float:left;padding-top: 5px;">
-                        <?php echo $_POST["dome_show_calc"]; ?> <span class="quantityNumber" style="font-size: 14px;"><?php echo $_POST["dometotal"]; ?></span>
+            <div class="checkout-totlaouter-right">
+                   <?php echo $_POST["dome_show_calc"]; ?> <span class="quantityNumber" style="font-size: 14px;"><?php echo $_POST["dometotal"]; ?></span>
             </div>
         </div>
         <div style="clear: both;"></div>
-        <div style="width: 450px; text-align: center;">
+        <div  class="checkout-buttomdiv">
 			<?php	
 				//echo $ordertotal.'----'.$_POST["ordertotal"];
 			?>
@@ -1107,7 +1108,7 @@ function changestatediv1(country)
     
     
     
-    </div>
+    
     <div style="clear: both;"></div>
     <div style="padding-top: 25px;" align="center">
         <div id="promo_ask"><a href="javascript:void(0);"><b>Have a promo code?</b></a></div>
@@ -1123,9 +1124,10 @@ function changestatediv1(country)
 	?>
          <!-- <input type="hidden" name="total"  readonly value="<?php echo $total; ?>" /> -->
 	  <input type="hidden" name="discount" id="discount" value="<?php echo $totaldec; ?>" />
-    </form>
+    
     </div>
-    	
+      </form> 
+      </div>	
     </div><!-- end mainContentFull -->
   
   </div><!-- end content -->

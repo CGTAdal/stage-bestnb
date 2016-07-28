@@ -304,6 +304,140 @@ float: left; width: 253px; padding-top: 10px;
 .wizard-nexttoptext{
 	text-align: center; font-size: 24px;
 }
+.add-names-justsimple-text{
+	float: left; width: 200px;padding-top: 15px;
+}
+.addnames-leftimg-div{
+	float: left;width: 350px;padding-left: 100px;
+}
+.addnames-rightimg-div{
+	float: right;width: 480px;
+}
+.addnames-leftimg-textdiv{
+	float: left;width: 150px; text-align:center;margin-top: 25px;
+}
+.addnames-leftimg-imgouter{
+	float: right;width: 200px;
+}
+.addnames-rightimg-imgouter{
+	float: right;width: 320px;
+}
+.add-names-smallinputouter{
+	float: left; width: 170px;border-bottom: 1px dashed #CCCCCC;height:30px;
+}
+.add-names-prepay-inputouter{
+	float: right; width: 280px;border-bottom: 1px dashed #CCCCCC;height:30px;
+}
+.add-names-total-inputouter{
+	float: left; width: 450px;border-bottom: 1px dashed #CCC;height: 30px;
+}
+.add-names-totaltext{
+	width: 450px; text-align: center;border-bottom: 1px dashed #CCC;
+}
+.add-names-total-right{
+	float: right;width: 340px;
+}
+.add-names-smallinput-label{
+	padding-left: 5px;width: 100px;float: left;border-right: 1px solid #CCC;height: 100%;background-color: #F5F6E7;
+}
+.add-names-smallinput-right{
+	float: right;margin-top: 5px;
+}
+.add-names-prepay-label{
+	padding-left: 5px;width: 150px;float: left;border-left: 1px solid #CCC;height: 100%;background-color: #F5F6E7;border-right: 1px solid #CCC;
+}
+.add-names-prepay-right{
+	float: left;padding-left: 5px;
+}
+.checkout-leftdiv{
+	width: 500px; float: left;
+}
+.checkout-rightdiv{
+	width: 450px; float: right;
+}
+.checkout-yourorder-left{
+	float: left; width: 200px;border-bottom: 1px dashed #CCC;
+}
+.checkout-yourorder-right{
+	float: right; width: 248px;border-bottom: 1px dashed #CCC;border-left: 1px solid #CCC;
+}
+.checkout-yourorder-left-label{
+	width: 150px;float: left;
+}
+.checkout-yourorder-left-input{
+	width: 50px;float: right;text-align: center;padding-top: 5px;
+}
+.checkout-yourorder-right-label{
+	width: 160px;float: left;
+}
+.checkout-yourorder-right-input{
+	width: 30px;float: left; text-align: center;padding-top: 5px;
+}
+.checkout-totlaouter{
+	float: left; width: 450px; border-bottom: 1px dashed #CCC;
+}
+.checkout-totlaouter-left{
+	width: 120px;float: left;
+}
+.checkout-totlaouter-right{
+	width: 200px;float:left;padding-top: 5px;
+}
+.checkout-buttomdiv{
+	width: 450px; text-align: center;
+}
+.wizardnew-left-label{
+	/*height: 65px;padding-left: 0px !important;width: 135px !important*/
+}
+.wizardnew-topleft{
+	width:50%;
+	float:left;
+}
+.wizardnew-topleft-label1{
+	border-left:none;
+}
+.wizardnew-topleft-label2{
+	border-left:none;
+	border-bottom:none;
+}
+.wizardnew-logoouter{
+	float: left; width: 160px; margin-top: 0;
+}
+.wizardnew-logoouter-right{
+	float: right; width: 160px; margin-top: 0;
+}
+.wizardnewbades-style{
+	float: left; width: 350px; margin-top: 0;
+}
+.wizardnew-addtext1{
+	height:30px;
+}
+.wizardnew-addtextbox{
+	width: 190px;float:left;padding-top:3px;
+}
+.wizardnew-addbutton{
+	width: 140px;float:left;padding-top:3px;
+}
+.wizardnew-selectdiv{
+	float:left;width: 150px;padding-top:0px;margin-left: 15px;
+}
+.wizardnew-numberselect{
+	width: 50px;float:left;padding-top:0px;
+}
+.wizardnew-colordiv{
+	padding-right: 160px;width: 110px;float: right;padding-top:3px;
+}
+.wizardnew-namethis-label{
+	width:200px;
+}
+.wizard-butoomform{
+	margin-top: 15px; clear: both; float: left;padding-left: 45px; font-family: arial;
+}
+.wizardnew-namethis-input{
+	width:278px;
+}
+.wizard-droppableouter{
+	padding-left: 200px;
+}
 @media (min-width : 1024px) and (max-width : 1200px){
 }
 @media  (min-width : 768px) and (max-width : 1023px){
@@ -838,6 +972,149 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#497da5', end
 }
 .wizard2-topdiv{
 	text-align:justify;
+}
+.add-names-justsimple-text{
+	width:100%;
+	text-align:center;
+}
+.add-names-justsimple-text h3{
+	display:inline-block;
+	float:none !important;
+}
+.step{
+	width:242px;
+	height:51px;
+}
+.addnames-leftimg-div{
+	width:48%;
+	padding-left:0px;
+}
+.addnames-rightimg-div{
+ width:48%;
+}
+.addnames-rightimg-imgouter{
+	width:190px;
+}
+.addnames-leftimg-imgouter{
+	width:180px;
+}
+.add-names-text-labelheight{
+	height:200px !important;
+}
+.hotspot{
+	
+	float:left;
+}
+.add-name-add-labelheight{
+	height:66px !important;
+}
+.add-names-smallinputouter,.add-names-prepay-inputouter,.add-names-total-inputouter,.add-names-totaltext{
+	width:100%;
+}
+.add-names-smallinput-label{
+	width:150px;
+}
+.add-names-smallinput-right{
+	float:left;
+	padding:0px 10px;
+}
+.add-names-prepay-right,.add-names-total-right{
+	width:55%;
+}
+.add-names-prepay-right .signupFieldInput{
+	width:70% !important;
+}
+.add-names-prepay-right .hotspot{
+	float:none;
+}
+.add-names-smallinputouter{
+	height:31px;
+}
+.add-names-total-right > div ,.add-names-total-right .popBoxSmall{
+	padding-left:0px !important;
+}
+.add-names-step-outer{
+	margin:0 auto;
+	width:685px;
+}
+.checkout-rightdiv,.checkout-leftdiv{
+	width:48%;
+}
+.checkout-leftdiv #signUpLeft{
+	width:100%;
+}
+.checkout-rightdiv #wizardRight{
+	width:100% !important;
+}
+.checkout-yourorder-left,.checkout-yourorder-right{
+	width:100%;
+}
+.checkout-yourorder-right{
+	border-left:none;
+}
+.checkout-totlaouter,.checkout-buttomdiv{
+	width:100%;
+}
+.checkout-totlaouter-left,.checkout-yourorder-left-label,.checkout-yourorder-right-label{
+	width:125px;
+}
+.checkout-yourorder-left-input,.checkout-yourorder-right-input{
+	float:left;
+	width:60%;
+}
+#link_edit{
+	width:100% !important;
+	padding-top:20px !important;
+	text-align:center;
+}
+.wizardnew-addtextbox{
+	width:140px;
+	
+}
+.wizardnew-addtextbox input{
+	width:85% !important;
+}
+.wizardnew-addbutton{
+	width:120px;
+}
+.wizardnew-colordiv{
+	padding-right:0px;
+}
+.wizard-butoomform{
+	padding-left:0px;
+}
+.wizard-butoomform .slider3,.wizard-butoomform .slider3 span,.wizard-butoomform .slider3 dt{
+	width: 420px;
+}
+.wizardnew-namethis-label .hotspot{
+	float:none;
+}
+.wizardnew-namethis-label{
+	width:200px !important;
+}
+.wizardnew-responsive-logoouter{
+	width:233px !important;
+}
+.wizardnew-logoouter,.wizardnew-logoouter-right{
+	width:100%;
+	float:left;
+}
+.wizard-droppableouter{
+	margin:0 auto;
+	width:580px;
+	padding-left:0px;
+}
+.winzardnew-adddome{
+	width:160px !important;
+}
+.winzardnew-adddome .hotspot{
+	float:none;
+}
+.winzardnew-yesnoradioourer{
+	width:210px !important;
+}
+.wizardnew-topleft-label2 .wizardnew-left-label{
+	height:70px;
 }
 }
 @media only screen and (max-width : 767px) {
@@ -1534,6 +1811,124 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#497da5', end
 .wizard2-topdiv{
 	text-align:justify;
 }
+.add-names-step-outer{
+	margin: 0 auto;
+    text-align: center;
+    width: 242px;
+}
+.add-names-justsimple-text{
+	width:100%;
+	text-align:center;
+}
+.add-names-justsimple-text h3{
+	display:inline-block;
+	float:none !important;
+}
+.step{
+	width:242px;
+	height:51px;
+	padding-left:0px;
+	float:none;
+	display:inline-block;
+	margin-left:0px !important;
+}
+.addnames-leftimg-div{
+	width:100%;
+	padding-left:0px;
+}
+.addnames-rightimg-div{
+	width:100%;
+}
+.addnames-leftimg-textdiv,.addnames-leftimg-imgouter,.addnames-rightimg-imgouter{
+	width:100%;
+	text-align:center;
+}
+.add-names-smallinputouter,.add-names-prepay-inputouter,.add-names-total-inputouter,.add-names-totaltext{
+	width:100%;
+}
+.add-names-smallinput-label,.add-names-smallinput-right,.add-names-prepay-label,.add-names-prepay-right{
+	width:100%;
+}
+.add-names-smallinputouter,.add-names-prepay-inputouter,.add-names-total-inputouter{
+	height:inherit;
+}
+.add-names-prepay-right,.add-names-smallinput-right{
+	padding:0px 5px;
+}
+.add-names-prepay-label,.add-names-smallinput-label{
+	padding:0px 5px;
+	border-right:none;
+}
+.add-names-total-right{
+	padding:0px 5px;
+	width:100%;
+}
+.add-names-total-right > div ,.add-names-total-right .popBoxSmall{
+	padding-left:0px !important;
+}
+.checkout-leftdiv{
+	width:100%;
+}
+#link_edit{
+	width:100% !important;
+	text-align:center;
+	padding-top:20px !important;
+}
+.checkout-rightdiv{
+	width:100%;
+	margin-top:15px;
+}
+.checkout-rightdiv #wizardRight{
+	width:100% !important;
+}
+.checkout-yourorder-left{
+	width:100%;
+}
+.checkout-yourorder-right{
+	width:100%;
+	border-left:none;
+}
+.checkout-totlaouter-left,.checkout-yourorder-left-label,.checkout-yourorder-right-label{
+	width:50%;
+	text-align:left;
+}
+.checkout-buttomdiv,.checkout-totlaouter{
+	width:100%;
+}
+.checkout-yourorder-left-input,.checkout-totlaouter-right,.checkout-yourorder-right-input{
+	float:left;
+	width:50%;
+}
+.wizard-newcontent{
+	width:100% !important;
+}
+.wizardnew-topleft,.wizardnewbades-style{
+	width:100%;
+}
+.wizardnew-addtext1{
+	height:inherit
+}
+.wizard-butoomform{
+	padding-left:0px;
+	margin-top:30px;
+}
+.wizard-droppableouter{
+	padding-left:0px;
+}
+#droppable{
+	width:100% !important;
+	height:inherit !important;
+}
+.wizardnew-colordiv{
+	padding-right:0px;
+	float:left;
+}
+.wizardnew-numberselect{
+	margin:0px 10px ;
+}
+.wizardnew-selectdiv{
+	width:40%;
+}
 }
 @media only screen and (max-width : 480px){
 	.slider dt{
@@ -1555,6 +1950,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#497da5', end
 .header-activated-button img{
 	width:130px;
 	height:inherit;
+}
+.wizardnew-selectdiv{
+	width:150px;
 }
 }
 @media only screen and (max-width : 479px) {
@@ -1675,6 +2073,31 @@ h2{
 	background-position:center 20px;
 	text-align:justify;
 }
+.wizardnew-logoouter,.wizardnew-logoouter-right{
+	width:100%;
+}
+#badgestyle > p{
+	width:140px !important;
+}
+.wizardnew-addtextbox,.wizardnew-addbutton,.wizardnew-selectdiv{
+	width:100%;
+	padding:0px 10px;
+	margin:0px;
+}
+.wizardnew-addtextbox input{
+	margin-left:0px !important;
+	width:100% !important;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.wizardnew-numberselect{
+	margin-left:10px;
+	margin-right:10px;
+}
+.wizardnew-colordiv{
+	float:left;
+	padding-right:0px;
+}
 }
 @media only screen and (max-width : 359px){
 .desktopknone-mobiletext{
@@ -1691,6 +2114,9 @@ h2{
 	text-align:left;
 	height:inherit;
 	line-height:normal;
+}
+.desktopknone-mobiletext sub {
+	font-size:12px;
 }
 }
 
